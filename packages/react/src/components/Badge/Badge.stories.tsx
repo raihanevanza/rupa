@@ -48,3 +48,6 @@ export const WithDot: Story = {
 }
 
 export const Small: Story = { args: { size: 'sm', dot: true } }
+
+/** A live state; the animation stops with prefers-reduced-motion. */
+export const Pulse: Story = { args: { tone: 'info', pulse: true, children: 'Executing' } }

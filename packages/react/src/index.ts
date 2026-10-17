@@ -13,6 +13,7 @@ export { ConfirmDialog, type ConfirmDialogProps } from './components/ConfirmDial
 export { Dialog, DialogClose, type DialogProps } from './components/Dialog/Dialog.js'
 export { Field, type FieldIds, type FieldProps } from './components/Field/Field.js'
 export { IconButton, type IconButtonProps } from './components/IconButton/IconButton.js'
+export { Input, NativeSelect, Textarea, type NativeSelectProps } from './components/Input/Input.js'
 export { InfoList, type InfoItem, type InfoListProps } from './components/InfoList/InfoList.js'
 export {
   PageHeader,
