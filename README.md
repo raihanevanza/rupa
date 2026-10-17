@@ -2,6 +2,10 @@
 
 **A multi-brand design system: tokens from one source, accessible React components, documented in Storybook, and guarded by visual regression tests.**
 
+**[Live Storybook](https://raihan-evanza-rupa.vercel.app)** · [`@rupa-ui/react`](https://www.npmjs.com/package/@rupa-ui/react) · [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens)
+
+[![npm @rupa-ui/react](https://img.shields.io/npm/v/@rupa-ui/react?label=%40rupa-ui%2Freact)](https://www.npmjs.com/package/@rupa-ui/react) [![npm @rupa-ui/tokens](https://img.shields.io/npm/v/@rupa-ui/tokens?label=%40rupa-ui%2Ftokens)](https://www.npmjs.com/package/@rupa-ui/tokens) [![CI](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml/badge.svg)](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml)
+
 _Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini ERP (violet brand) and AgentGate (signal brand) now share one set of tokens and components instead of copying them.
 
 ![Storybook: a request detail page built from Rupa components](docs/screenshots/storybook-light.png)
@@ -108,15 +112,14 @@ Tailwind and React Native setup: see **Getting started** in Storybook or the [to
 
 ## Deploy
 
-- **Storybook:** Vercel, using `vercel.json` (build `npm run build:docs`, output `apps/docs/storybook-static`).
-- **npm:** create the `rupa-ui` organization on npmjs.com, add this repository as a trusted publisher for both packages, then merge the Release PR.
+- **Storybook:** [raihan-evanza-rupa.vercel.app](https://raihan-evanza-rupa.vercel.app), deployed by Vercel on every push to `main` (`vercel.json`: build `npm run build:docs`, output `apps/docs/storybook-static`).
+- **npm:** published from `.github/workflows/release.yml` with npm trusted publishing (OIDC). Merging the Release PR that Changesets opens is the only manual step.
 
-## Before the first release
+## Next
 
-- [ ] Create the npm organization `rupa-ui` (or rename the scope, see `docs/spec.md` B11)
-- [ ] Configure npm trusted publishing for `.github/workflows/release.yml`
-- [ ] Connect the repository to Vercel for the Storybook site
 - [ ] Manual screen reader pass (VoiceOver + Safari) on Dialog, Tabs, Toast
+- [ ] Migrate AgentGate and Mini ERP to Rupa (spec FR-11)
+- [ ] React Native components (spec FR-12)
 
 ## Spec
 
