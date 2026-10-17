@@ -45,6 +45,14 @@
   cursor: progress;
 }
 
+/* Icons passed inside children (next to text) stay on the same line, even under CSS resets
+   that make svg a block (e.g. Tailwind preflight). */
+.rupa-button__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rupa-space-1-5);
+}
+
 .rupa-button svg {
   flex: none;
   width: 1.1em;
