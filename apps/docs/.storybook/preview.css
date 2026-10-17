@@ -1,0 +1,11 @@
+/* Story canvas follows the active theme. */
+html,
+body {
+  background: var(--rupa-color-canvas);
+  color: var(--rupa-color-ink);
+}
+
+/* Docs pages keep Storybook's own layout but render examples on the themed canvas. */
+.docs-story {
+  background: var(--rupa-color-canvas);
+}

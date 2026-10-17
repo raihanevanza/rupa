@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Guides/Accessibility" />
+
+# Accessibility
+
+Rupa targets **WCAG 2.2 AA**. What is automated, and what each component guarantees:
+
+## Checked in CI
+
+| Check                | How                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------- |
+| No axe violations    | Every story runs in Chromium through Vitest with `a11y.test = 'error'`             |
+| Keyboard behavior    | Play functions drive Tab, arrows, Home/End, Space/Enter, and Esc                   |
+| Token contrast       | 188 text and UI pairs per brand and mode: text ≥ 4.5:1, UI ≥ 3:1                   |
+| Chart palette        | Protan/deutan separation, lightness band, chroma, and 3:1 against the surface      |
+| No raw values in CSS | Colors and sizes must come from tokens, so a fix in tokens reaches every component |
+
+## Component guarantees
+
+| Component                | Pattern                                                                                                                                                              |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Button                   | Native `<button>`; `loading` keeps focus, sets `aria-busy`, ignores clicks                                                                                           |
+| IconButton               | `label` is required by the types → `aria-label` + tooltip                                                                                                            |
+| Tabs                     | WAI-ARIA tabs: one Tab stop, arrows/Home/End, automatic or manual activation                                                                                         |
+| Segmented                | Radio group: one Tab stop, arrows move and select, disabled options skipped                                                                                          |
+| Dialog, ConfirmDialog    | Focus trap, Esc, inert page, focus returns to the trigger. ConfirmDialog is an `alertdialog`, starts on **Cancel** when destructive, and locks while the action runs |
+| Switch                   | `role="switch"` with `aria-checked`; the visible label is clickable                                                                                                  |
+| Checkbox                 | Native input (Space, forms) with indeterminate support                                                                                                               |
+| TextField, Select, Field | `<label for>`, errors and hints via `aria-describedby`, `aria-invalid`                                                                                               |
+| Toast                    | Live regions created up front (errors assertive); never steals focus; pauses on hover/focus                                                                          |
+| Badge, Alert, StatusFlow | Meaning in text and icon shape, color only reinforces                                                                                                                |
+| Table                    | Real `<th scope>`, caption, focusable scroll region                                                                                                                  |
+| Pagination               | `nav` landmark, `aria-current="page"`, status text announced                                                                                                         |
+
+## Everywhere
+
+- Focus ring: 2 px in the `focus` token, shown for keyboard focus only.
+- Touch: 44 px targets on coarse pointers; inputs use 16 px text so iOS does not zoom.
+- `prefers-reduced-motion` shortens all animation; `forced-colors` keeps borders and states visible.
+
+## Still manual
+
+Automated tools find around a third of issues. Before a release, check new components with VoiceOver
+(Safari) and keyboard only, at 200% zoom and 320 px width.

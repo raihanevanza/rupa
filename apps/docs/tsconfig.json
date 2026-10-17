@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node", "vite/client"],
+    "paths": {
+      "@rupa-ui/react": ["../../packages/react/src/index.ts"]
+    }
+  },
+  "include": [".storybook", "src", "vitest.config.ts"]
+}

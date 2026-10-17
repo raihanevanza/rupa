@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Getting started" />
+
+# Getting started
+
+## Install
+
+```sh
+npm install @rupa-ui/react
+```
+
+`@rupa-ui/tokens` comes with it. React 18 or 19 is required.
+
+## Add the styles and the font
+
+```tsx
+// main.tsx
+import '@rupa-ui/react/styles.css' // tokens + components
+import '@rupa-ui/react/base.css' // optional: page font, colors, and background
+import '@fontsource-variable/plus-jakarta-sans' // or load it from Google Fonts
+```
+
+## Pick a brand and mode
+
+Set attributes on `<html>` (or any element, to theme just that part):
+
+```html
+<html data-brand="signal" data-theme="dark"></html>
+```
+
+| Attribute    | Values                                     | Default  |
+| ------------ | ------------------------------------------ | -------- |
+| `data-brand` | `violet`, `signal`                         | `violet` |
+| `data-theme` | `light`, `dark`, `system` (follows the OS) | `light`  |
+
+A `.dark` class works too. Or let `ThemeProvider` manage and remember it:
+
+```tsx
+import { ThemeProvider, useTheme, Switch } from '@rupa-ui/react'
+
+function DarkModeSwitch() {
+  const { resolvedMode, setMode } = useTheme()
+  return (
+    <Switch
+      label="Dark mode"
+      checked={resolvedMode === 'dark'}
+      onCheckedChange={(on) => setMode(on ? 'dark' : 'light')}
+    />
+  )
+}
+
+root.render(
+  <ThemeProvider defaultBrand="signal">
+    <App />
+  </ThemeProvider>,
+)
+```
+
+## Use the components
+
+```tsx
+import { Button, ConfirmDialog, useToast } from '@rupa-ui/react'
+
+;<ConfirmDialog
+  trigger={<Button variant="danger">Reject</Button>}
+  tone="danger"
+  title="Reject this request?"
+  confirmLabel="Reject"
+  onConfirm={() => api.reject(id)} // buttons lock until the promise settles
+/>
+```
+
+All built-in text (Cancel, Previous page, …) can be replaced through props, for apps in Indonesian and English.
+
+## Tailwind
+
+**Tailwind v4**
+
+```css
+@import 'tailwindcss';
+@import '@rupa-ui/tokens/css';
+@import '@rupa-ui/tokens/tailwind/v4.css';
+```
+
+**Tailwind v3**
+
+```js
+// tailwind.config.js
+import rupa from '@rupa-ui/tokens/tailwind/preset'
+export default { presets: [rupa], content: ['./src/**/*.{ts,tsx}'] }
+```
+
+Then `bg-surface text-ink border-line`, `bg-primary/10`, `rounded-xl`, and `shadow-card` use the same tokens as the components.
+
+## React Native
+
+```ts
+import { palettes, font, space } from '@rupa-ui/tokens/react-native'
+
+const p = palettes.signal[colorScheme] // same values as the web
+const styles = StyleSheet.create({
+  title: { color: p.ink, ...font('semibold'), padding: space['4'] },
+})
+```

@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Guides/Migration" />
+
+# Migrating Mini ERP and AgentGate
+
+Both apps copied the same tokens into `index.css` and `tailwind.config.js`, and the same components into
+`src/components`. Rupa keeps their token names, so migration is mostly deleting code.
+
+## 1. Tokens
+
+| Before (app CSS)                               | After (Rupa)                                                                           |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `--canvas: 246 245 251` in `:root` and `.dark` | `--rupa-color-canvas` (brand + mode built in)                                          |
+| `rgb(var(--ink) / 0.5)`                        | `color-mix(in srgb, var(--rupa-color-ink) 50%, transparent)` or Tailwind `text-ink/50` |
+| Tailwind `token('canvas')` helper              | `presets: [rupa]`: same class names (`bg-canvas`, `text-ink-2`, `shadow-card`)         |
+| Chart `--series-1…5`                           | `--rupa-color-series-1…5` (revalidated)                                                |
+
+Pick the brand once: `<html data-brand="violet">` for Mini ERP, `data-brand="signal"` for AgentGate.
+Dark mode keeps working with the existing `.dark` class.
+
+## 2. Components
+
+| App component                                                        | Rupa                                                            |
+| -------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `PageHeader`, `Card`, `Badge`, `InfoList`, `StatusFlow`, `Segmented` | Same names, same roles                                          |
+| `ConfirmDialog` + manual `isSubmitting` state                        | `ConfirmDialog onConfirm={async () => …}` (locking is built in) |
+| Loading/empty/error blocks per page                                  | `StateView`                                                     |
+| Hand-rolled toasts                                                   | `ToastProvider` + `useToast()`                                  |
+
+## 3. Mobile
+
+Replace the copied `colors.ts` palette with `palettes[brand][mode]` from `@rupa-ui/tokens/react-native`.
+Key names match (`surface2`, `ink2`, `onPrimary`, `series`), and `font(weight)` is the same helper.
+
+## Fixes that come for free
+
+The token checks found two issues in the copied palettes, fixed in Rupa:
+
+- AgentGate links on the accent-soft background were 4.49:1 (just under AA); the gold is now `#966400`.
+- AgentGate’s fifth chart series (slate) read as gray and its blue sat next to teal; the series order is now
+  amber, teal, violet, rose, blue.
