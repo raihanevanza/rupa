@@ -1,0 +1,56 @@
+{
+  "color": {
+    "$type": "color",
+    "canvas": { "$value": "{palette.lavender.50}", "$description": "Page background" },
+    "surface": { "$value": "{palette.white}", "$description": "Cards, dialogs, inputs" },
+    "surface-2": {
+      "$value": "{palette.lavender.25}",
+      "$description": "Table headers, quiet areas"
+    },
+    "surface-3": { "$value": "{palette.lavender.100}", "$description": "Hover and selected rows" },
+    "line": { "$value": "{palette.lavender.150}", "$description": "Hairline dividers" },
+    "line-strong": {
+      "$value": "{palette.lavender.200}",
+      "$description": "Card borders, separators"
+    },
+    "control-border": {
+      "$value": "{palette.lavender.400}",
+      "$description": "Input and checkbox borders (3:1 against surface)"
+    },
+    "ink": { "$value": "{palette.lavender.875}", "$description": "Primary text" },
+    "ink-2": { "$value": "{palette.lavender.600}", "$description": "Secondary text" },
+    "ink-3": {
+      "$value": "{palette.lavender.500}",
+      "$description": "Muted text and labels (still 4.5:1)"
+    },
+    "primary": { "$value": "{palette.violet.600}", "$description": "Primary button fill" },
+    "primary-hover": { "$value": "{palette.violet.700}" },
+    "on-primary": { "$value": "{palette.white}", "$description": "Text on primary" },
+    "accent": {
+      "$value": "{palette.violet.600}",
+      "$description": "Links, active icons, selected text"
+    },
+    "accent-soft": {
+      "$value": "{palette.violet.50}",
+      "$description": "Active menu and selected backgrounds"
+    },
+    "accent-line": { "$value": "{palette.violet.200}" },
+    "focus": { "$value": "{palette.violet.600}", "$description": "Focus ring" },
+    "shadow": {
+      "$value": "#2e1f6b",
+      "$description": "Shadow tint; opacity is applied by shadow tokens"
+    },
+    "overlay": { "$value": "#1d1a2e80", "$description": "Dialog backdrop" },
+    "series-1": { "$value": "#6a46d6" },
+    "series-2": { "$value": "#0e9f8e" },
+    "series-3": { "$value": "#c08400" },
+    "series-4": { "$value": "#e0607e" },
+    "series-5": { "$value": "#3b8fe0" },
+    "series-other": {
+      "$value": "#b4b0c6",
+      "$description": "Remaining categories grouped as Other"
+    },
+    "chart-grid": { "$value": "#eeecf5" },
+    "chart-axis": { "$value": "#d6d1e8" }
+  }
+}

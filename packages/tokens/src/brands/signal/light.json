@@ -1,0 +1,38 @@
+{
+  "color": {
+    "$type": "color",
+    "canvas": { "$value": "{palette.sand.50}" },
+    "surface": { "$value": "{palette.white}" },
+    "surface-2": { "$value": "{palette.sand.25}" },
+    "surface-3": { "$value": "{palette.sand.100}" },
+    "line": { "$value": "{palette.sand.150}" },
+    "line-strong": { "$value": "{palette.sand.200}" },
+    "control-border": { "$value": "{palette.sand.400}" },
+    "ink": { "$value": "{palette.sand.875}" },
+    "ink-2": { "$value": "{palette.sand.600}" },
+    "ink-3": { "$value": "{palette.sand.500}" },
+    "primary": { "$value": "{palette.yellow.500}" },
+    "primary-hover": { "$value": "{palette.yellow.550}" },
+    "on-primary": {
+      "$value": "{palette.sand.875}",
+      "$description": "Yellow is too light for white text"
+    },
+    "accent": {
+      "$value": "{palette.yellow.700}",
+      "$description": "Yellow is too light for text on white, so links use a dark gold"
+    },
+    "accent-soft": { "$value": "{palette.yellow.50}" },
+    "accent-line": { "$value": "{palette.yellow.200}" },
+    "focus": { "$value": "{palette.yellow.700}" },
+    "shadow": { "$value": "#29210a" },
+    "overlay": { "$value": "#1c1a1580" },
+    "series-1": { "$value": "#c08400" },
+    "series-2": { "$value": "#0e9f8e" },
+    "series-3": { "$value": "#6a46d6" },
+    "series-4": { "$value": "#e0607e" },
+    "series-5": { "$value": "#3b8fe0" },
+    "series-other": { "$value": "#b8b3a6" },
+    "chart-grid": { "$value": "#efede7" },
+    "chart-axis": { "$value": "#d5d1c6" }
+  }
+}

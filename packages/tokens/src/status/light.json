@@ -1,0 +1,27 @@
+{
+  "color": {
+    "$type": "color",
+    "success": {
+      "$value": "{palette.green.700}",
+      "$description": "Solid fill: success buttons, icons, dots"
+    },
+    "on-success": { "$value": "{palette.white}" },
+    "success-soft": { "$value": "{palette.green.50}" },
+    "success-ink": {
+      "$value": "{palette.green.800}",
+      "$description": "Text on success-soft or on surfaces"
+    },
+    "warning": { "$value": "{palette.amber.700}" },
+    "on-warning": { "$value": "{palette.white}" },
+    "warning-soft": { "$value": "{palette.amber.50}" },
+    "warning-ink": { "$value": "{palette.amber.800}" },
+    "danger": { "$value": "{palette.red.600}" },
+    "on-danger": { "$value": "{palette.white}" },
+    "danger-soft": { "$value": "{palette.red.50}" },
+    "danger-ink": { "$value": "{palette.red.800}" },
+    "info": { "$value": "{palette.blue.650}" },
+    "on-info": { "$value": "{palette.white}" },
+    "info-soft": { "$value": "{palette.blue.50}" },
+    "info-ink": { "$value": "{palette.blue.800}" }
+  }
+}

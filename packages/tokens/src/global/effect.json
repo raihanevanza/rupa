@@ -1,0 +1,52 @@
+{
+  "shadow": {
+    "$description": "Layers tinted with color.shadow, so the same token works for every brand and mode.",
+    "card": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow}",
+          "alpha": 0.04,
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "{color.shadow}",
+          "alpha": 0.06,
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "16px",
+          "spread": "-4px"
+        }
+      ]
+    },
+    "pop": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow}",
+          "alpha": 0.25,
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "40px",
+          "spread": "-8px"
+        }
+      ]
+    }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "fast": { "$value": "120ms" },
+      "base": { "$value": "200ms" },
+      "slow": { "$value": "320ms" }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "standard": { "$value": [0.2, 0, 0, 1] },
+      "emphasized": { "$value": [0.3, 0, 0, 1.2] }
+    }
+  }
+}

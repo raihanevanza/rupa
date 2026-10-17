@@ -1,0 +1,21 @@
+{
+  "color": {
+    "$type": "color",
+    "success": { "$value": "{palette.green.600}" },
+    "on-success": { "$value": "{palette.white}" },
+    "success-soft": { "$value": "{palette.green.950}" },
+    "success-ink": { "$value": "{palette.green.300}" },
+    "warning": { "$value": "{palette.amber.700}" },
+    "on-warning": { "$value": "{palette.white}" },
+    "warning-soft": { "$value": "{palette.amber.950}" },
+    "warning-ink": { "$value": "{palette.amber.300}" },
+    "danger": { "$value": "{palette.red.600}" },
+    "on-danger": { "$value": "{palette.white}" },
+    "danger-soft": { "$value": "{palette.red.950}" },
+    "danger-ink": { "$value": "{palette.red.300}" },
+    "info": { "$value": "{palette.blue.600}" },
+    "on-info": { "$value": "{palette.white}" },
+    "info-soft": { "$value": "{palette.blue.950}" },
+    "info-ink": { "$value": "{palette.blue.300}" }
+  }
+}
