@@ -20,4 +20,4 @@ Set the brand and mode on `<html data-brand="violet" data-theme="dark">`, or use
 - Every built-in label can be replaced through props (for bilingual apps).
 - ESM, tree-shakable per component (`Button` alone is under 1 kB), React 18 and 19, `'use client'` for Next.js.
 
-Docs and live examples: the Rupa Storybook.
+Docs and live examples: [Rupa Storybook](https://raihan-evanza-rupa.vercel.app).
