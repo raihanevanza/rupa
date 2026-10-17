@@ -95,6 +95,20 @@ Then `bg-surface text-ink border-line`, `bg-primary/10`, `rounded-xl`, and `shad
 
 ## React Native
 
+Components for Android and iOS come from `@rupa-ui/react-native`, with the same props as here where the platform allows:
+
+```tsx
+import { ThemeProvider, Button, Card } from '@rupa-ui/react-native'
+
+;<ThemeProvider defaultBrand="signal" defaultMode="system">
+  <Card title="Refund">
+    <Button variant="primary">Approve</Button>
+  </Card>
+</ThemeProvider>
+```
+
+Font setup and the component list are in the package README. For your own styles, `useTheme()` returns the palette, or read the tokens directly:
+
 ```ts
 import { palettes, font, space } from '@rupa-ui/tokens/react-native'
 
