@@ -66,6 +66,34 @@ export const WithIcon: Story = {
   args: { variant: 'primary', iconStart: <PlusIcon />, children: 'New request' },
 }
 
+/**
+ * Icons can also be passed inside children. They stay inline even when an app's CSS reset sets
+ * `svg { display: block }` (Tailwind preflight does), which this story reproduces.
+ */
+export const IconInChildren: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 12 }}>
+      <style>{'.reset-demo svg { display: block }'}</style>
+      <span className="reset-demo" style={{ display: 'contents' }}>
+        <Button {...args} variant="success">
+          <PlusIcon /> Approve
+        </Button>
+      </span>
+    </div>
+  ),
+  play: async ({ canvas }) => {
+    const button = canvas.getByRole('button', { name: 'Approve' })
+    const icon = button.querySelector('svg')!
+    const text = button.querySelector('.rupa-button__label')!
+    // Same row: the icon's vertical center sits inside the label's box.
+    const i = icon.getBoundingClientRect()
+    const l = text.getBoundingClientRect()
+    await expect(i.top + i.height / 2).toBeGreaterThan(l.top)
+    await expect(i.top + i.height / 2).toBeLessThan(l.bottom)
+    await expect(l.height).toBeLessThan(32)
+  },
+}
+
 export const Disabled: Story = { args: { variant: 'primary', disabled: true } }
 
 /** While an action runs, the button stays focusable but ignores clicks: no double submit. */
