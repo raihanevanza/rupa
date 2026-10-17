@@ -1,6 +1,8 @@
 # @rupa-ui/react
 
-## 0.1.0
+## 0.2.0
+
+0.1.0 and 0.1.1 were taken by an unpublished 2022 package with the same name, so the first release is 0.2.0.
 
 ### Minor Changes
 
