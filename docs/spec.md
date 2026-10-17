@@ -8,13 +8,13 @@ Disalin dari `spec-template-proyek-portofolio.md`. Bagian A adalah standar tetap
 
 ## A1. Stack default
 
-| Bagian | Default | Catatan |
-| --- | --- | --- |
-| Web | React 18 + TypeScript + Vite, Tailwind CSS, Redux Toolkit + RTK Query, React Router, react-hook-form + yup, lucide-react | Alternatif yang sah: Vue 3 + Pinia bila proyek menonjolkan Vue |
-| Mobile | React Native versi stabil terbaru (New Architecture, Hermes), React Navigation 7, RTK Query, react-native-keychain, react-native-svg | Android dan iOS dari satu kode. Jangan mulai dari RN yang sudah di luar masa dukungan |
-| Backend | Go + Gin + GORM, Viper, JWT, Swaggo, Testify + GoMock (pola `be-api-template`) | REST + JSON. Tambah gRPC hanya bila memang ditonjolkan |
-| Database | SQL Server atau PostgreSQL di Docker (Colima) | Schema + seed dev di `db/` |
-| Tooling | ESLint, Prettier, Husky + lint-staged, TypeScript strict | Node lewat nvm (`.nvmrc`) |
+| Bagian   | Default                                                                                                                              | Catatan                                                                               |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| Web      | React 18 + TypeScript + Vite, Tailwind CSS, Redux Toolkit + RTK Query, React Router, react-hook-form + yup, lucide-react             | Alternatif yang sah: Vue 3 + Pinia bila proyek menonjolkan Vue                        |
+| Mobile   | React Native versi stabil terbaru (New Architecture, Hermes), React Navigation 7, RTK Query, react-native-keychain, react-native-svg | Android dan iOS dari satu kode. Jangan mulai dari RN yang sudah di luar masa dukungan |
+| Backend  | Go + Gin + GORM, Viper, JWT, Swaggo, Testify + GoMock (pola `be-api-template`)                                                       | REST + JSON. Tambah gRPC hanya bila memang ditonjolkan                                |
+| Database | SQL Server atau PostgreSQL di Docker (Colima)                                                                                        | Schema + seed dev di `db/`                                                            |
+| Tooling  | ESLint, Prettier, Husky + lint-staged, TypeScript strict                                                                             | Node lewat nvm (`.nvmrc`)                                                             |
 
 ## A2. Struktur repo (monorepo)
 
@@ -62,14 +62,14 @@ Semua proyek harus punya ini sebelum dianggap layak masuk portofolio.
 
 ## A6. Standar kualitas
 
-| Area | Standar |
-| --- | --- |
-| Tipe & lint | TypeScript strict, ESLint, Prettier; `typecheck` dan `lint` bersih |
-| Test | Aturan bisnis diuji unit test: usecase di backend; logika keputusan, mapping error, i18n, dan format di frontend/mobile |
-| CI | GitHub Actions menjalankan typecheck, lint, test, dan build untuk setiap folder yang berubah |
-| Keamanan | Password di-hash bcrypt; respons login seragam (cegah user enumeration); `JWT_SECRET` dari env; CORS dibatasi; seed demo hanya untuk dev; tidak ada secret di repo |
-| Aksesibilitas | Label pada input dan tombol ikon; status tidak hanya dibedakan lewat warna; target sentuh minimal 44 px |
-| Verifikasi | Setiap fitur dicoba langsung (browser, emulator, simulator) sebelum dianggap selesai, bukan hanya lolos test |
+| Area          | Standar                                                                                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tipe & lint   | TypeScript strict, ESLint, Prettier; `typecheck` dan `lint` bersih                                                                                                 |
+| Test          | Aturan bisnis diuji unit test: usecase di backend; logika keputusan, mapping error, i18n, dan format di frontend/mobile                                            |
+| CI            | GitHub Actions menjalankan typecheck, lint, test, dan build untuk setiap folder yang berubah                                                                       |
+| Keamanan      | Password di-hash bcrypt; respons login seragam (cegah user enumeration); `JWT_SECRET` dari env; CORS dibatasi; seed demo hanya untuk dev; tidak ada secret di repo |
+| Aksesibilitas | Label pada input dan tombol ikon; status tidak hanya dibedakan lewat warna; target sentuh minimal 44 px                                                            |
+| Verifikasi    | Setiap fitur dicoba langsung (browser, emulator, simulator) sebelum dianggap selesai, bukan hanya lolos test                                                       |
 
 ## A7. Deliverable portofolio
 
@@ -97,22 +97,22 @@ Semua proyek harus punya ini sebelum dianggap layak masuk portofolio.
 
 ## B1. Ringkasan
 
-| | |
-| --- | --- |
-| Nama | **Rupa** (paket `@rupa-ui/tokens`, `@rupa-ui/react`) |
-| Tagline | Design system multi-brand: token dari satu sumber, komponen React yang aksesibel, didokumentasikan di Storybook, dan dijaga visual regression. Dipakai ulang oleh semua proyek portofolio berikutnya. |
-| Masalah | Mini ERP dan AgentGate menyalin token dan komponen yang sama (PageHeader, Badge, ConfirmDialog, palet seri grafik), hanya beda brand (violet vs signal-yellow). Setiap perbaikan aksesibilitas atau mode gelap harus diulang di tiap repo, dan tidak ada yang menangkap perubahan visual yang tidak disengaja. |
-| Platform | Web (paket npm React). Token juga diekspor untuk React Native (objek `Palette`). |
-| Keahlian baru yang ditonjolkan | (1) **Design system**: design tokens, Storybook, aksesibilitas WCAG 2.2 AA. (2) **CI/CD rilis paket**: Changesets, publish npm dengan provenance, visual regression di CI. |
-| Penyimpangan dari Bagian A | Tidak ada backend, database, auth, dan aplikasi mobile, sehingga A1 (Backend, Database), A3 (Backend, format respons, permission), dan A4 tidak berlaku. A4 diganti checklist design system di B4. Komponen **tidak memakai Tailwind** di dalamnya (CSS biasa + CSS variable) supaya konsumen tidak wajib memakai Tailwind; sebagai gantinya disediakan preset Tailwind v3 dan tema Tailwind v4. Struktur repo memakai npm workspaces (B3). Live demo berupa Storybook di Vercel. |
+|                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nama                           | **Rupa** (paket `@rupa-ui/tokens`, `@rupa-ui/react`)                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Tagline                        | Design system multi-brand: token dari satu sumber, komponen React yang aksesibel, didokumentasikan di Storybook, dan dijaga visual regression. Dipakai ulang oleh semua proyek portofolio berikutnya.                                                                                                                                                                                                                                                                             |
+| Masalah                        | Mini ERP dan AgentGate menyalin token dan komponen yang sama (PageHeader, Badge, ConfirmDialog, palet seri grafik), hanya beda brand (violet vs signal-yellow). Setiap perbaikan aksesibilitas atau mode gelap harus diulang di tiap repo, dan tidak ada yang menangkap perubahan visual yang tidak disengaja.                                                                                                                                                                    |
+| Platform                       | Web (paket npm React). Token juga diekspor untuk React Native (objek `Palette`).                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Keahlian baru yang ditonjolkan | (1) **Design system**: design tokens, Storybook, aksesibilitas WCAG 2.2 AA. (2) **CI/CD rilis paket**: Changesets, publish npm dengan provenance, visual regression di CI.                                                                                                                                                                                                                                                                                                        |
+| Penyimpangan dari Bagian A     | Tidak ada backend, database, auth, dan aplikasi mobile, sehingga A1 (Backend, Database), A3 (Backend, format respons, permission), dan A4 tidak berlaku. A4 diganti checklist design system di B4. Komponen **tidak memakai Tailwind** di dalamnya (CSS biasa + CSS variable) supaya konsumen tidak wajib memakai Tailwind; sebagai gantinya disediakan preset Tailwind v3 dan tema Tailwind v4. Struktur repo memakai npm workspaces (B3). Live demo berupa Storybook di Vercel. |
 
 ## B2. Persona
 
-| Persona | Kebutuhan | Yang disentuh |
-| --- | --- | --- |
+| Persona                       | Kebutuhan                                                                                  | Yang disentuh                                                       |
+| ----------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
 | Developer aplikasi (konsumen) | Pasang paket, impor satu CSS, pilih brand dan mode, langsung dapat komponen yang konsisten | `npm i @rupa-ui/react`, `data-brand`, `data-theme`, preset Tailwind |
-| Kontributor | Menambah atau mengubah komponen dengan cepat tanpa merusak yang lain | Story, test, changeset |
-| Maintainer | Merilis versi dengan aman dan meninjau perubahan visual | Release PR, laporan visual regression |
+| Kontributor                   | Menambah atau mengubah komponen dengan cepat tanpa merusak yang lain                       | Story, test, changeset                                              |
+| Maintainer                    | Merilis versi dengan aman dan meninjau perubahan visual                                    | Release PR, laporan visual regression                               |
 
 Tidak ada akun demo; Storybook bersifat publik.
 
@@ -142,32 +142,32 @@ Tidak ada akun demo; Storybook bersifat publik.
 
 P0 = wajib untuk rilis pertama; P1 = menyusul.
 
-| ID | Prioritas | Requirement | Acceptance criteria |
-| --- | --- | --- | --- |
-| FR-01 | P0 | Token dari satu sumber | Semua nilai ada di `packages/tokens/src`. Satu perintah build menghasilkan CSS, TS, JSON, Tailwind v3, Tailwind v4, dan RN. Referensi token yang tidak ada membuat build gagal. |
-| FR-02 | P0 | Multi-brand dan mode gelap | `data-brand="signal"` dan `data-theme="dark"` (atau kelas `.dark`) bisa dipasang di `<html>` atau elemen mana pun dan berlaku untuk turunannya. Ganti saat runtime tanpa reload. `prefers-color-scheme` bisa dipakai lewat `data-theme="system"`. |
-| FR-03 | P0 | Kontras token tervalidasi | Script memeriksa setiap pasangan teks/latar untuk semua brand × mode: teks ≥ 4.5:1, komponen UI dan teks besar ≥ 3:1. CI gagal bila ada yang di bawah ambang. |
-| FR-04 | P0 | Palet seri grafik tervalidasi | Seri 1–5 + `other` per brand × mode lolos validator dataviz (beda warna aman buta warna, kontras ≥ 3:1 terhadap surface). Urutan seri tetap. |
-| FR-05 | P0 | 24 komponen | Setiap komponen: props bertipe, meneruskan `ref` dan `className`, punya story untuk semua varian, dan terlihat benar di 2 brand × 2 mode. Tidak ada warna hard-code di CSS komponen (dicek otomatis). |
-| FR-06 | P0 | Aksesibilitas | 0 pelanggaran axe di setiap story (gagal di CI). Test keyboard untuk Tabs, Segmented, Dialog/ConfirmDialog, Switch, Checkbox, Toast, Pagination. Fokus terlihat jelas. Target sentuh ≥ 44 px di layar sentuh. Status tidak hanya dibedakan lewat warna (Badge memakai teks, StatusFlow memakai ikon + label). Tombol ikon wajib punya label (dicek di tipe). |
-| FR-07 | P0 | Dokumentasi Storybook | Halaman Intro, Getting started, Tokens (warna, tipografi, spasi, radius, bayangan, seri grafik) yang dibaca dari JSON token, Aksesibilitas, Migrasi. Toolbar brand dan mode. Di-deploy ke Vercel. |
-| FR-08 | P0 | Visual regression | Setiap story difoto dalam mode terang dan gelap, plus matriks brand. Baseline dibuat di Linux (Docker image Playwright) supaya sama dengan CI. PR gagal bila ada perbedaan, dan laporan diff diunggah sebagai artifact. Baseline diperbarui dengan satu perintah. |
-| FR-09 | P0 | Paket siap pakai | ESM + `.d.ts`, `exports` map, `sideEffects` hanya untuk CSS, tree-shakable, peer `react >= 18`. Lolos `publint` dan `@arethetypeswrong/cli`. Anggaran ukuran dijaga `size-limit`. |
-| FR-10 | P0 | Rilis | Setiap PR yang mengubah paket membawa changeset. Merge ke `main` membuat Release PR berisi versi + CHANGELOG; merge Release PR mem-publish ke npm dengan provenance (trusted publishing, tanpa token tersimpan). |
-| FR-11 | P1 | Bukti dipakai | Contoh aplikasi Vite + Tailwind v4 di `examples/` yang memakai paket, dan satu halaman AgentGate atau Mini ERP dimigrasi ke Rupa. |
-| FR-12 | P1 | React Native | `@rupa-ui/react-native` dengan Button, Badge, Card memakai `Palette` dari token yang sama. |
+| ID    | Prioritas | Requirement                   | Acceptance criteria                                                                                                                                                                                                                                                                                                                                          |
+| ----- | --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| FR-01 | P0        | Token dari satu sumber        | Semua nilai ada di `packages/tokens/src`. Satu perintah build menghasilkan CSS, TS, JSON, Tailwind v3, Tailwind v4, dan RN. Referensi token yang tidak ada membuat build gagal.                                                                                                                                                                              |
+| FR-02 | P0        | Multi-brand dan mode gelap    | `data-brand="signal"` dan `data-theme="dark"` (atau kelas `.dark`) bisa dipasang di `<html>` atau elemen mana pun dan berlaku untuk turunannya. Ganti saat runtime tanpa reload. `prefers-color-scheme` bisa dipakai lewat `data-theme="system"`.                                                                                                            |
+| FR-03 | P0        | Kontras token tervalidasi     | Script memeriksa setiap pasangan teks/latar untuk semua brand × mode: teks ≥ 4.5:1, komponen UI dan teks besar ≥ 3:1. CI gagal bila ada yang di bawah ambang.                                                                                                                                                                                                |
+| FR-04 | P0        | Palet seri grafik tervalidasi | Seri 1–5 + `other` per brand × mode lolos validator dataviz (beda warna aman buta warna, kontras ≥ 3:1 terhadap surface). Urutan seri tetap.                                                                                                                                                                                                                 |
+| FR-05 | P0        | 24 komponen                   | Setiap komponen: props bertipe, meneruskan `ref` dan `className`, punya story untuk semua varian, dan terlihat benar di 2 brand × 2 mode. Tidak ada warna hard-code di CSS komponen (dicek otomatis).                                                                                                                                                        |
+| FR-06 | P0        | Aksesibilitas                 | 0 pelanggaran axe di setiap story (gagal di CI). Test keyboard untuk Tabs, Segmented, Dialog/ConfirmDialog, Switch, Checkbox, Toast, Pagination. Fokus terlihat jelas. Target sentuh ≥ 44 px di layar sentuh. Status tidak hanya dibedakan lewat warna (Badge memakai teks, StatusFlow memakai ikon + label). Tombol ikon wajib punya label (dicek di tipe). |
+| FR-07 | P0        | Dokumentasi Storybook         | Halaman Intro, Getting started, Tokens (warna, tipografi, spasi, radius, bayangan, seri grafik) yang dibaca dari JSON token, Aksesibilitas, Migrasi. Toolbar brand dan mode. Di-deploy ke Vercel.                                                                                                                                                            |
+| FR-08 | P0        | Visual regression             | Setiap story difoto dalam mode terang dan gelap, plus matriks brand. Baseline dibuat di Linux (Docker image Playwright) supaya sama dengan CI. PR gagal bila ada perbedaan, dan laporan diff diunggah sebagai artifact. Baseline diperbarui dengan satu perintah.                                                                                            |
+| FR-09 | P0        | Paket siap pakai              | ESM + `.d.ts`, `exports` map, `sideEffects` hanya untuk CSS, tree-shakable, peer `react >= 18`. Lolos `publint` dan `@arethetypeswrong/cli`. Anggaran ukuran dijaga `size-limit`.                                                                                                                                                                            |
+| FR-10 | P0        | Rilis                         | Setiap PR yang mengubah paket membawa changeset. Merge ke `main` membuat Release PR berisi versi + CHANGELOG; merge Release PR mem-publish ke npm dengan provenance (trusted publishing, tanpa token tersimpan).                                                                                                                                             |
+| FR-11 | P1        | Bukti dipakai                 | Contoh aplikasi Vite + Tailwind v4 di `examples/` yang memakai paket, dan satu halaman AgentGate atau Mini ERP dimigrasi ke Rupa.                                                                                                                                                                                                                            |
+| FR-12 | P1        | React Native                  | `@rupa-ui/react-native` dengan Button, Badge, Card memakai `Palette` dari token yang sama.                                                                                                                                                                                                                                                                   |
 
 ## B5. Model token
 
 Tiga lapis. Komponen hanya boleh memakai lapis semantik.
 
-| Lapis | Contoh | Isi | Catatan |
-| --- | --- | --- | --- |
-| Primitive | `palette.violet.600`, `palette.neutral-warm.50` | Skala warna mentah, ukuran dasar | Tidak diekspor sebagai CSS variable publik |
-| Semantik | `color.canvas`, `color.ink-2`, `color.primary`, `color.on-primary`, `color.danger`, `color.series-1` | Arti, bukan nilai. Satu set per brand × mode | Nama mengikuti kosakata Mini ERP/AgentGate supaya migrasi mudah. CSS: `--rupa-color-ink` |
-| Global | `space.4`, `radius.lg`, `font.size.sm`, `shadow.card`, `motion.duration.fast`, `z.dialog` | Tidak bergantung brand | |
+| Lapis     | Contoh                                                                                               | Isi                                          | Catatan                                                                                  |
+| --------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Primitive | `palette.violet.600`, `palette.neutral-warm.50`                                                      | Skala warna mentah, ukuran dasar             | Tidak diekspor sebagai CSS variable publik                                               |
+| Semantik  | `color.canvas`, `color.ink-2`, `color.primary`, `color.on-primary`, `color.danger`, `color.series-1` | Arti, bukan nilai. Satu set per brand × mode | Nama mengikuti kosakata Mini ERP/AgentGate supaya migrasi mudah. CSS: `--rupa-color-ink` |
+| Global    | `space.4`, `radius.lg`, `font.size.sm`, `shadow.card`, `motion.duration.fast`, `z.dialog`            | Tidak bergantung brand                       |                                                                                          |
 
-Format warna di CSS variable adalah kanal `R G B` (mis. `106 70 214`) supaya bisa dipakai dengan alpha: `rgb(var(--rupa-color-primary) / 0.2)`, sama seperti pola yang sudah dipakai di Tailwind v3.
+Setiap warna semantik di CSS adalah pasangan `light-dark()` per brand, mis. `--rupa-color-canvas: light-dark(#f6f5fb, #0f0d17)`. Mode ditentukan `color-scheme` (dipasang oleh `.dark` / `data-theme`), brand oleh `data-brand`. Keduanya diwariskan ke elemen terdekat, jadi tema bisa disarangkan tanpa kombinasi selector. Alpha memakai `color-mix(in srgb, var(--rupa-color-primary) 20%, transparent)`; preset Tailwind v3 dan v4 menerjemahkan `bg-primary/20` ke bentuk yang sama.
 
 ## B6. Alur status komponen
 
@@ -180,11 +180,11 @@ stateDiagram-v2
   DEPRECATED --> [*]: dihapus di versi major berikutnya
 ```
 
-| Status asal | Aksi | Siapa | Prasyarat | Efek samping | Status hasil |
-| --- | --- | --- | --- | --- | --- |
-| `EXPERIMENTAL` | promote | Maintainer | Story semua varian, 0 pelanggaran axe, baseline visual ada | Badge status di Storybook berubah | `BETA` |
-| `BETA` | promote | Maintainer | Dipakai di aplikasi nyata, tidak ada perubahan API di 1 minor terakhir | Perubahan API berikutnya = major | `STABLE` |
-| `STABLE` | deprecate | Maintainer | Pengganti tersedia, catatan migrasi ditulis | `console.warn` sekali saat dev, changeset minor | `DEPRECATED` |
+| Status asal    | Aksi      | Siapa      | Prasyarat                                                              | Efek samping                                    | Status hasil |
+| -------------- | --------- | ---------- | ---------------------------------------------------------------------- | ----------------------------------------------- | ------------ |
+| `EXPERIMENTAL` | promote   | Maintainer | Story semua varian, 0 pelanggaran axe, baseline visual ada             | Badge status di Storybook berubah               | `BETA`       |
+| `BETA`         | promote   | Maintainer | Dipakai di aplikasi nyata, tidak ada perubahan API di 1 minor terakhir | Perubahan API berikutnya = major                | `STABLE`     |
+| `STABLE`       | deprecate | Maintainer | Pengganti tersedia, catatan migrasi ditulis                            | `console.warn` sekali saat dev, changeset minor | `DEPRECATED` |
 
 Status ditulis di tag story (`tags: ['beta']`) dan ditampilkan sebagai badge di sidebar Storybook.
 
@@ -199,61 +199,61 @@ Status ditulis di tag story (`tags: ['beta']`) dan ditampilkan sebagai badge di 
 
 ## B8. API publik
 
-| Paket | Ekspor | Isi |
-| --- | --- | --- |
-| `@rupa-ui/tokens` | `css/tokens.css` | Semua variabel untuk semua brand × mode |
-| | `tailwind/v4.css` | `@theme inline { --color-canvas: rgb(var(--rupa-color-canvas)); … }` |
-| | `tailwind/preset` | Preset Tailwind v3 (`colors.ink = rgb(var(--rupa-color-ink) / <alpha-value>)`) |
-| | `.` (TS) | `tokens`, `brands`, tipe `Brand`, `Mode`, `SemanticColor` |
-| | `react-native` | `palettes[brand][mode]`, `font(weight)` |
-| `@rupa-ui/react` | `styles.css` | CSS komponen (sudah termasuk token) |
-| | `.` | Komponen di bawah + `ThemeProvider`/`useTheme` (opsional; atribut HTML saja juga cukup) |
+| Paket             | Ekspor            | Isi                                                                                     |
+| ----------------- | ----------------- | --------------------------------------------------------------------------------------- |
+| `@rupa-ui/tokens` | `css/tokens.css`  | Semua variabel untuk semua brand × mode                                                 |
+|                   | `tailwind/v4.css` | `@theme inline { --color-canvas: rgb(var(--rupa-color-canvas)); … }`                    |
+|                   | `tailwind/preset` | Preset Tailwind v3 (`colors.ink = rgb(var(--rupa-color-ink) / <alpha-value>)`)          |
+|                   | `.` (TS)          | `tokens`, `brands`, tipe `Brand`, `Mode`, `SemanticColor`                               |
+|                   | `react-native`    | `palettes[brand][mode]`, `font(weight)`                                                 |
+| `@rupa-ui/react`  | `styles.css`      | CSS komponen (sudah termasuk token)                                                     |
+|                   | `.`               | Komponen di bawah + `ThemeProvider`/`useTheme` (opsional; atribut HTML saja juga cukup) |
 
-| Komponen | Props penting |
-| --- | --- |
-| Button | `variant: primary \| secondary \| danger \| success \| ghost`, `size: sm \| md \| lg`, `loading`, `iconStart`, `iconEnd` |
-| IconButton | `icon`, `label` (wajib, dipakai sebagai `aria-label` + tooltip) |
-| Badge | `tone: neutral \| info \| success \| warning \| danger \| accent`, `dot` |
-| Card | `title`, `description`, `actions`, `padding` |
-| PageHeader | `title`, `description`, `breadcrumb`, `actions` |
-| InfoList | `items: {label, value}[]`, `columns` |
-| StatusFlow | `steps: {key, label}[]`, `current`, `outcome: 'rejected' \| 'cancelled'` |
-| Segmented | `options`, `value`, `onChange`, `label` (radiogroup, panah kiri/kanan) |
-| Tabs | `items`, `value`, `onChange` (pola tablist WAI-ARIA, aktivasi manual/otomatis) |
-| TextField | `label`, `hint`, `error`, `required`, `prefix`, `suffix` |
-| Select | `label`, `options`, `hint`, `error` (native `<select>`) |
-| Checkbox | `label`, `description`, `indeterminate` |
-| Switch | `label`, `checked`, `onCheckedChange` (`role="switch"`) |
-| Dialog | `open`, `onOpenChange`, `title`, `description`, `footer` (focus trap, Esc, fokus kembali) |
-| ConfirmDialog | `tone`, `confirmLabel`, `onConfirm` (async; tombol terkunci saat berjalan, cegah double klik) |
-| Toast | `ToastProvider`, `useToast().show({tone, title, description})` (`aria-live`) |
-| Alert | `tone`, `title`, `action` |
-| Tooltip | `content`, `side` |
-| Pagination | `page`, `pageCount`, `onPageChange`, label bisa diganti |
-| Table | `columns`, `rows`, `caption`, `loading`, `empty` |
-| StateView | `state: loading \| empty \| error`, `onRetry` (loading/kosong/error yang konsisten, A4) |
-| Spinner, Skeleton | `label` / `width`, `height` |
-| Avatar | `name`, `src` (inisial bila tanpa gambar) |
+| Komponen          | Props penting                                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Button            | `variant: primary \| secondary \| danger \| success \| ghost`, `size: sm \| md \| lg`, `loading`, `iconStart`, `iconEnd` |
+| IconButton        | `icon`, `label` (wajib, dipakai sebagai `aria-label` + tooltip)                                                          |
+| Badge             | `tone: neutral \| info \| success \| warning \| danger \| accent`, `dot`                                                 |
+| Card              | `title`, `description`, `actions`, `padding`                                                                             |
+| PageHeader        | `title`, `description`, `breadcrumb`, `actions`                                                                          |
+| InfoList          | `items: {label, value}[]`, `columns`                                                                                     |
+| StatusFlow        | `steps: {key, label}[]`, `current`, `outcome: 'rejected' \| 'cancelled'`                                                 |
+| Segmented         | `options`, `value`, `onChange`, `label` (radiogroup, panah kiri/kanan)                                                   |
+| Tabs              | `items`, `value`, `onChange` (pola tablist WAI-ARIA, aktivasi manual/otomatis)                                           |
+| TextField         | `label`, `hint`, `error`, `required`, `prefix`, `suffix`                                                                 |
+| Select            | `label`, `options`, `hint`, `error` (native `<select>`)                                                                  |
+| Checkbox          | `label`, `description`, `indeterminate`                                                                                  |
+| Switch            | `label`, `checked`, `onCheckedChange` (`role="switch"`)                                                                  |
+| Dialog            | `open`, `onOpenChange`, `title`, `description`, `footer` (focus trap, Esc, fokus kembali)                                |
+| ConfirmDialog     | `tone`, `confirmLabel`, `onConfirm` (async; tombol terkunci saat berjalan, cegah double klik)                            |
+| Toast             | `ToastProvider`, `useToast().show({tone, title, description})` (`aria-live`)                                             |
+| Alert             | `tone`, `title`, `action`                                                                                                |
+| Tooltip           | `content`, `side`                                                                                                        |
+| Pagination        | `page`, `pageCount`, `onPageChange`, label bisa diganti                                                                  |
+| Table             | `columns`, `rows`, `caption`, `loading`, `empty`                                                                         |
+| StateView         | `state: loading \| empty \| error`, `onRetry` (loading/kosong/error yang konsisten, A4)                                  |
+| Spinner, Skeleton | `label` / `width`, `height`                                                                                              |
+| Avatar            | `name`, `src` (inisial bila tanpa gambar)                                                                                |
 
 ## B9. Requirement nonfungsional
 
-| ID | Requirement | Target |
-| --- | --- | --- |
-| NFR-01 | Ukuran paket | `@rupa-ui/react` JS ≤ 25 kB gzip untuk semua komponen; impor satu Button ≤ 4 kB gzip; `styles.css` ≤ 12 kB gzip |
-| NFR-02 | Aksesibilitas | WCAG 2.2 AA; 0 pelanggaran axe; semua komponen interaktif bisa dipakai dengan keyboard saja |
-| NFR-03 | Visual regression | Seluruh story × 2 mode difoto; CI visual selesai ≤ 5 menit; 0 baseline flaky (animasi dimatikan, font dimuat sebelum foto) |
-| NFR-04 | Browser | 2 versi terakhir Chrome, Firefox, Safari, Edge; iOS Safari 16+ |
-| NFR-05 | Kompatibilitas | React 18 dan 19; ESM; bekerja di Vite dan Next.js (App Router, komponen interaktif ditandai `'use client'`) |
+| ID     | Requirement       | Target                                                                                                                                      |
+| ------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| NFR-01 | Ukuran paket      | Diukur `size-limit` (brotli): semua komponen ≤ 32 kB termasuk Radix, kode Rupa saja ≤ 10 kB; impor satu Button ≤ 4 kB; `styles.css` ≤ 12 kB |
+| NFR-02 | Aksesibilitas     | WCAG 2.2 AA; 0 pelanggaran axe; semua komponen interaktif bisa dipakai dengan keyboard saja                                                 |
+| NFR-03 | Visual regression | Seluruh story × 2 mode difoto; CI visual selesai ≤ 5 menit; 0 baseline flaky (animasi dimatikan, font dimuat sebelum foto)                  |
+| NFR-04 | Browser           | Browser dengan `light-dark()`: Chrome/Edge 123+, Firefox 120+, Safari dan iOS Safari 17.5+ (semua rilis 2024)                               |
+| NFR-05 | Kompatibilitas    | React 18 dan 19; ESM; bekerja di Vite dan Next.js (App Router, komponen interaktif ditandai `'use client'`)                                 |
 
 ## B10. Tahapan dan Definition of Done
 
-| Tahap | Isi | Selesai bila |
-| --- | --- | --- |
-| 0 — Fondasi | Workspaces, tooling, pipeline token (FR-01–04), Storybook kosong dengan toolbar brand/mode, CI | `npm run build` dan `npm test` hijau; token berubah → semua output berubah |
-| 1 — Vertical slice | Button + Badge lengkap sampai story, test a11y/keyboard, baseline visual, build paket, changeset | Satu komponen melewati seluruh pipeline end-to-end |
-| 2 — Komponen | Sisa 22 komponen + halaman dokumentasi | Semua AC P0 terpenuhi |
-| 3 — Polish | Audit a11y manual (VoiceOver, keyboard), cek 2 brand × 2 mode, anggaran ukuran | Checklist A5 dan FR-06 tercentang |
-| 4 — Portofolio | README, screenshot, video, Storybook live, rilis npm pertama, kartu proyek | Semua item A7 ada (tanpa bagian backend/mobile) |
+| Tahap              | Isi                                                                                              | Selesai bila                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| 0 — Fondasi        | Workspaces, tooling, pipeline token (FR-01–04), Storybook kosong dengan toolbar brand/mode, CI   | `npm run build` dan `npm test` hijau; token berubah → semua output berubah |
+| 1 — Vertical slice | Button + Badge lengkap sampai story, test a11y/keyboard, baseline visual, build paket, changeset | Satu komponen melewati seluruh pipeline end-to-end                         |
+| 2 — Komponen       | Sisa 22 komponen + halaman dokumentasi                                                           | Semua AC P0 terpenuhi                                                      |
+| 3 — Polish         | Audit a11y manual (VoiceOver, keyboard), cek 2 brand × 2 mode, anggaran ukuran                   | Checklist A5 dan FR-06 tercentang                                          |
+| 4 — Portofolio     | README, screenshot, video, Storybook live, rilis npm pertama, kartu proyek                       | Semua item A7 ada (tanpa bagian backend/mobile)                            |
 
 **DoD per komponen:** props bertipe dan terdokumentasi, story semua varian, 0 pelanggaran axe, test keyboard bila interaktif, baseline visual terang/gelap, tidak ada nilai mentah di CSS, changeset ada.
 
@@ -263,6 +263,16 @@ Status ditulis di tag story (`tags: ['beta']`) dan ditampilkan sebagai badge di 
 2. **Visual regression self-hosted vs Chromatic.** Dipilih Playwright self-hosted: gratis, baseline ada di repo, dan tidak bergantung layanan luar. Konsekuensinya: baseline harus dibuat di Docker (bukan langsung di Mac) karena render font berbeda per OS.
 3. **Headless primitive.** Dialog dan Tooltip memakai Radix (focus trap dan posisi sudah teruji). Komponen lain ditulis sendiri supaya pola ARIA-nya terlihat di kode.
 4. **Komponen React Native** ditunda ke P1; untuk sekarang mobile cukup memakai `Palette` dari `@rupa-ui/tokens/react-native`.
+
+### Keputusan selama implementasi (2026-10-17)
+
+5. **`light-dark()` alih-alih kanal `R G B`.** Dengan kanal, tema bersarang (panel gelap di halaman terang, brand lain di dalam brand) butuh kombinasi selector brand × mode yang rapuh. `light-dark()` mengikuti `color-scheme` terdekat, jadi satu aturan per brand cukup. Konsekuensinya: butuh browser rilis 2024 (NFR-04).
+6. **Palet seri brand signal diubah.** Validator menemukan slate `#5b6b82` terbaca abu-abu (chroma 0.04) dan biru bersebelahan dengan teal (ΔE 14.9 < 15). Urutan baru: amber, teal, violet, rose, blue. Amber violet/signal terang digelapkan ke `#c08400` supaya ≥ 3:1.
+7. **Accent signal terang `#9a6700` → `#966400`.** Link di atas `accent-soft` hanya 4.49:1.
+8. **Token baru `control-border`.** `line-strong` (≈1.5:1) terlalu samar untuk batas input; WCAG 1.4.11 butuh 3:1.
+9. **Output per modul.** Paket dibundel satu file membuat impor `Button` saja ikut menarik Radix (21 kB). Dengan `preserveModules` jadi 492 B.
+10. **Tombol tutup Dialog di akhir DOM** (digambar di kanan atas) supaya fokus awal jatuh ke konten, bukan ke tombol X. Ditemukan oleh test keyboard.
+11. **24 komponen + `Field`.** `Field` adalah helper publik untuk membungkus kontrol kustom dengan label, hint, dan error.
 
 ---
 
