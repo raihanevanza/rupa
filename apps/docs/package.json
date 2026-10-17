@@ -28,7 +28,7 @@
     "vitest": "^5.0.5"
   },
   "dependencies": {
-    "@rupa-ui/react": "0.0.0",
-    "@rupa-ui/tokens": "0.0.0"
+    "@rupa-ui/react": "0.1.0",
+    "@rupa-ui/tokens": "0.1.0"
   }
 }
