@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { useState } from 'react'
 import { expect, screen, userEvent, waitFor } from 'storybook/test'
 import { Button } from '../Button/Button.js'
 import { TextField } from '../TextField/TextField.js'
@@ -67,5 +68,27 @@ export const FocusManagement: Story = {
     await userEvent.keyboard('{Escape}')
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
     await expect(trigger).toHaveFocus()
+  },
+}
+
+/** Opened from app state (no `trigger`): focus still returns to the button that opened it. */
+export const ControlledFocusReturn: Story = {
+  tags: ['!visual', '!autodocs'],
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open from state</Button>
+        {open && <Dialog {...args} trigger={undefined} open onOpenChange={setOpen} />}
+      </>
+    )
+  },
+  play: async ({ canvas }) => {
+    const opener = canvas.getByRole('button', { name: 'Open from state' })
+    await userEvent.click(opener)
+    await screen.findByRole('dialog')
+    await userEvent.keyboard('{Escape}')
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+    await waitFor(() => expect(opener).toHaveFocus())
   },
 }

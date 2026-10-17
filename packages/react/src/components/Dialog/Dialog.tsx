@@ -1,5 +1,11 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
+import {
+  useEffect,
+  useRef,
+  type ComponentPropsWithoutRef,
+  type ReactElement,
+  type ReactNode,
+} from 'react'
 import { cx } from '../../lib/cx.js'
 import { XIcon } from '../../lib/icons.js'
 
@@ -50,6 +56,20 @@ export function Dialog({
   const block = (e: Event) => {
     if (!dismissible) e.preventDefault()
   }
+  // Without a `trigger`, Radix has nothing to return focus to. Remember what had focus when
+  // the dialog opened (usually the button that opened it) and go back there on close.
+  const returnTo = useRef<HTMLElement | null>(null)
+  const isOpen = open ?? defaultOpen
+  useEffect(() => {
+    if (isOpen && !trigger && document.activeElement instanceof HTMLElement) {
+      returnTo.current = document.activeElement
+    }
+  }, [isOpen, trigger])
+  const restoreFocus = (e: Event) => {
+    if (trigger || !returnTo.current?.isConnected) return
+    e.preventDefault()
+    returnTo.current.focus()
+  }
   return (
     <RadixDialog.Root open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
       {trigger && <RadixDialog.Trigger asChild>{trigger}</RadixDialog.Trigger>}
@@ -63,6 +83,7 @@ export function Dialog({
           onPointerDownOutside={block}
           onInteractOutside={block}
           onOpenAutoFocus={onOpenAutoFocus}
+          onCloseAutoFocus={restoreFocus}
           {...(description == null && { 'aria-describedby': undefined })}
         >
           <RadixDialog.Title className="rupa-dialog__title">{title}</RadixDialog.Title>
