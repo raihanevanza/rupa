@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "raihanevanza/rupa" }],
+  "commit": false,
+  "fixed": [],
+  "linked": [["@rupa-ui/tokens", "@rupa-ui/react"]],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": ["@rupa-ui/docs"]
+}

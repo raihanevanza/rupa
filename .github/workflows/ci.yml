@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Typecheck, lint, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+
+      - name: Build tokens and components
+        run: npm run build
+      - name: Token contrast and chart palette
+        run: npm test -w @rupa-ui/tokens
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run format:check
+      - name: Stories in every brand × mode (render, interactions, axe)
+        run: npm run test:themes -w @rupa-ui/docs
+      - name: Package checks (publint, types, size)
+        run: npm run check:package && npm run size
+
+      - name: Changeset present
+        if: github.event_name == 'pull_request' && github.head_ref != 'changeset-release/main'
+        run: |
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q '^packages/'; then
+            npx changeset status --since=origin/${{ github.base_ref }}
+          fi
+
+  visual:
+    name: Visual regression
+    runs-on: ubuntu-latest
+    # Same image as `npm run test:visual:update`, so baselines match pixel for pixel.
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build:docs
+      - run: npm run test:visual
+        env:
+          CI: '1'
+          HOME: /root
+      - name: Upload diff report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-report
+          path: |
+            playwright-report
+            test-results/visual
+          retention-days: 14
