@@ -1,0 +1,11 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@rupa-ui/react-native": ["../../packages/react-native/src/index.ts"],
+      "@rupa-ui/tokens/react-native": ["../../packages/tokens/dist/react-native/index.d.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}

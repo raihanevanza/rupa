@@ -273,6 +273,7 @@ Status ditulis di tag story (`tags: ['beta']`) dan ditampilkan sebagai badge di 
 9. **Output per modul.** Paket dibundel satu file membuat impor `Button` saja ikut menarik Radix (21 kB). Dengan `preserveModules` jadi 492 B.
 10. **Tombol tutup Dialog di akhir DOM** (digambar di kanan atas) supaya fokus awal jatuh ke konten, bukan ke tombol X. Ditemukan oleh test keyboard.
 11. **24 komponen + `Field`.** `Field` adalah helper publik untuk membungkus kontrol kustom dengan label, hint, dan error.
+12. **Komponen React Native (FR-12) dibuat 2026-10-17.** Lingkupnya melebihi FR-12 (Button, Badge, Card): delapan komponen A5 yang wajib setara web/mobile ditambah Alert, StateView, Spinner, dan `ThemeProvider`, supaya AgentGate mobile bisa dimigrasi. Tanpa modul native dan tanpa `react-native-svg` (tanda status digambar dengan View), jadi jalan di Expo Go. Butuh RN 0.76+ untuk `boxShadow`. Test memakai Jest + React Native Testing Library (bukan Storybook/axe); dicoba di simulator iPhone 16 Pro (iOS) dan emulator Pixel 8 API 36 lewat `examples/mobile`. Belum ada visual regression dan audit VoiceOver/TalkBack manual untuk paket ini.
 
 ---
 

@@ -10,7 +10,7 @@
     "node": ">=22.11"
   },
   "scripts": {
-    "build": "npm run build -w @rupa-ui/tokens && npm run build -w @rupa-ui/react",
+    "build": "npm run build -w @rupa-ui/tokens && npm run build -w @rupa-ui/react && npm run build -w @rupa-ui/react-native",
     "build:docs": "npm run build && npm run build -w @rupa-ui/docs",
     "dev": "npm run build -w @rupa-ui/tokens && npm run dev -w @rupa-ui/docs",
     "typecheck": "npm run typecheck --workspaces --if-present && tsc -p tests/visual",
@@ -21,7 +21,7 @@
     "test:visual": "playwright test -c tests/visual",
     "test:visual:docker": "sh tests/visual/docker.sh",
     "test:visual:update": "sh tests/visual/docker.sh --update-snapshots",
-    "check:package": "npm run check:package -w @rupa-ui/tokens && npm run check:package -w @rupa-ui/react",
+    "check:package": "npm run check:package -w @rupa-ui/tokens && npm run check:package -w @rupa-ui/react && npm run check:package -w @rupa-ui/react-native",
     "size": "npm run size -w @rupa-ui/react",
     "changeset": "changeset",
     "version-packages": "changeset version && npm install --package-lock-only",

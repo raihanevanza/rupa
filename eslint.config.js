@@ -13,6 +13,7 @@ export default tseslint.config(
       '**/node_modules',
       'playwright-report',
       'test-results',
+      '**/.expo',
     ],
   },
   js.configs.recommended,
@@ -40,6 +41,12 @@ export default tseslint.config(
         { controlComponents: ['Input', 'Textarea', 'NativeSelect'], assert: 'either', depth: 3 },
       ],
     },
+  },
+  {
+    // CommonJS config files (Babel for Jest, Metro for the Expo example).
+    files: ['**/*.cjs', 'examples/mobile/metro.config.js'],
+    languageOptions: { sourceType: 'commonjs', globals: globals.node },
+    rules: { '@typescript-eslint/no-require-imports': 'off' },
   },
   ...storybook.configs['flat/recommended'],
   {
