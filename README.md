@@ -18,7 +18,7 @@ _Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini E
 
 - **Design tokens, one source.** DTCG JSON → Style Dictionary → CSS variables, Tailwind v3 preset, Tailwind v4 theme, typed JS, and a React Native palette. Web and mobile can no longer drift.
 - **Multi-brand, light and dark, nestable.** Every color is a `light-dark()` pair per brand. Set `data-brand` and `data-theme` on any element; nested scopes just work, with no selector combinations.
-- **24 accessible components.** Button, IconButton, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, Tabs, TextField, Select, Checkbox, Switch, Dialog, ConfirmDialog, Toast, Alert, Tooltip, Pagination, Table, StateView, Spinner, Skeleton, Avatar, plus `Field` and `ThemeProvider`.
+- **27 accessible components.** Button, IconButton, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, Tabs, TextField, Select, Input, Textarea, NativeSelect, Checkbox, Switch, Dialog, ConfirmDialog, Toast, Alert, Tooltip, Pagination, Table, StateView, Spinner, Skeleton, Avatar, plus `Field` and `ThemeProvider`.
 - **Accessibility checked in CI.** Every story runs axe in all four themes (444 runs). Keyboard behavior is tested with play functions. A script checks 188 contrast pairs per build, and the chart palette is validated for color-vision deficiency.
 - **Visual regression.** 196 screenshots (every story, light and dark) are compared on each pull request, rendered in the same Linux image locally and in CI.
 - **Release pipeline.** Changesets → Release PR → npm publish with provenance (trusted publishing, no stored token).

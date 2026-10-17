@@ -39,6 +39,15 @@ export const ErrorWithRetry: Story = {
   },
 }
 
+/** `description={null}` removes the default English sentence (for translated apps). */
+export const TitleOnly: Story = {
+  args: { title: 'Belum ada data', description: null },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText('Belum ada data')).toBeInTheDocument()
+    await expect(canvas.queryByText('Items you add will show up here.')).not.toBeInTheDocument()
+  },
+}
+
 export const Indonesian: Story = {
   args: {
     state: 'error',
