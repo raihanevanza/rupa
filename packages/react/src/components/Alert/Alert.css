@@ -1,0 +1,101 @@
+.rupa-alert {
+  --_bg: var(--rupa-color-info-soft);
+  --_fg: var(--rupa-color-info-ink);
+  --_border: color-mix(in srgb, var(--rupa-color-info) 30%, transparent);
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rupa-space-3);
+  padding: var(--rupa-space-3) var(--rupa-space-4);
+  border: 1px solid var(--_border);
+  border-radius: var(--rupa-radius-lg);
+  background: var(--_bg);
+  color: var(--rupa-color-ink);
+  font-size: var(--rupa-font-size-sm);
+}
+
+.rupa-alert[data-tone='success'] {
+  --_bg: var(--rupa-color-success-soft);
+  --_fg: var(--rupa-color-success-ink);
+  --_border: color-mix(in srgb, var(--rupa-color-success) 30%, transparent);
+}
+
+.rupa-alert[data-tone='warning'] {
+  --_bg: var(--rupa-color-warning-soft);
+  --_fg: var(--rupa-color-warning-ink);
+  --_border: color-mix(in srgb, var(--rupa-color-warning) 30%, transparent);
+}
+
+.rupa-alert[data-tone='danger'] {
+  --_bg: var(--rupa-color-danger-soft);
+  --_fg: var(--rupa-color-danger-ink);
+  --_border: color-mix(in srgb, var(--rupa-color-danger) 30%, transparent);
+}
+
+.rupa-alert__icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--_fg);
+}
+
+.rupa-alert__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--rupa-space-1);
+  min-width: 0;
+  padding-top: var(--rupa-space-0-5);
+}
+
+.rupa-alert__title {
+  margin: 0;
+  color: var(--_fg);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-alert__text {
+  color: var(--rupa-color-ink-2);
+}
+
+.rupa-alert__text > :first-child {
+  margin-top: 0;
+}
+
+.rupa-alert__text > :last-child {
+  margin-bottom: 0;
+}
+
+.rupa-alert__action {
+  margin-top: var(--rupa-space-2);
+}
+
+.rupa-alert__dismiss {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--rupa-size-control-sm);
+  height: var(--rupa-size-control-sm);
+  margin: calc(-1 * var(--rupa-space-1)) calc(-1 * var(--rupa-space-2)) 0 0;
+  border: 0;
+  border-radius: var(--rupa-radius-md);
+  background: transparent;
+  color: var(--rupa-color-ink-2);
+  cursor: pointer;
+}
+
+.rupa-alert__dismiss:hover {
+  background: color-mix(in srgb, var(--rupa-color-ink) 8%, transparent);
+}
+
+.rupa-alert__dismiss svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (pointer: coarse) {
+  .rupa-alert__dismiss {
+    width: var(--rupa-size-touch-target);
+    height: var(--rupa-size-touch-target);
+  }
+}

@@ -1,0 +1,101 @@
+.rupa-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rupa-space-1-5);
+  min-width: 0;
+  color: var(--rupa-color-ink);
+}
+
+.rupa-field__label {
+  font-size: var(--rupa-font-size-sm);
+  font-weight: var(--rupa-font-weight-medium);
+}
+
+.rupa-field__required {
+  color: var(--rupa-color-danger-ink);
+}
+
+.rupa-field__hint,
+.rupa-field__error {
+  margin: 0;
+  font-size: var(--rupa-font-size-xs);
+  line-height: var(--rupa-font-line-height-snug);
+}
+
+.rupa-field__hint {
+  color: var(--rupa-color-ink-3);
+}
+
+.rupa-field__error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rupa-space-1);
+  color: var(--rupa-color-danger-ink);
+  font-weight: var(--rupa-font-weight-medium);
+}
+
+.rupa-field__error svg {
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-top: 0.05rem;
+}
+
+/* Shared look for text inputs and selects. */
+.rupa-control {
+  display: flex;
+  align-items: center;
+  gap: var(--rupa-space-2);
+  min-height: var(--rupa-size-control-md);
+  padding: 0 var(--rupa-space-3);
+  border: 1px solid var(--rupa-color-control-border);
+  border-radius: var(--rupa-radius-lg);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+  font-size: var(--rupa-font-size-sm);
+  transition:
+    border-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    box-shadow var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard);
+}
+
+.rupa-control:hover {
+  border-color: var(--rupa-color-ink-3);
+}
+
+.rupa-control:focus-within {
+  border-color: var(--rupa-color-focus);
+  box-shadow: 0 0 0 1px var(--rupa-color-focus);
+}
+
+.rupa-field[data-invalid] .rupa-control {
+  border-color: var(--rupa-color-danger);
+}
+
+.rupa-field[data-invalid] .rupa-control:focus-within {
+  box-shadow: 0 0 0 1px var(--rupa-color-danger);
+}
+
+.rupa-control[data-disabled] {
+  background: var(--rupa-color-surface-2);
+  color: var(--rupa-color-ink-3);
+  cursor: not-allowed;
+}
+
+.rupa-control__adornment {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  color: var(--rupa-color-ink-3);
+}
+
+.rupa-control__adornment svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (pointer: coarse) {
+  .rupa-control {
+    min-height: var(--rupa-size-touch-target);
+    font-size: var(--rupa-font-size-md); /* 16px stops iOS from zooming on focus */
+  }
+}

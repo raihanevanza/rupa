@@ -1,0 +1,92 @@
+.rupa-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--rupa-space-1);
+  color: var(--rupa-color-ink-2);
+  font-size: var(--rupa-font-size-sm);
+}
+
+.rupa-pagination__pages {
+  display: flex;
+  align-items: center;
+  gap: var(--rupa-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rupa-pagination__button {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--rupa-size-control-sm);
+  height: var(--rupa-size-control-sm);
+  padding: 0 var(--rupa-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--rupa-radius-md);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--rupa-font-weight-medium);
+  cursor: pointer;
+}
+
+.rupa-pagination__button:hover:not(:disabled, [aria-current='page']) {
+  background: var(--rupa-color-surface-3);
+  color: var(--rupa-color-ink);
+}
+
+.rupa-pagination__button[aria-current='page'] {
+  border-color: var(--rupa-color-accent-line);
+  background: var(--rupa-color-accent-soft);
+  color: var(--rupa-color-accent);
+  font-weight: var(--rupa-font-weight-bold);
+}
+
+.rupa-pagination__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.rupa-pagination__button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.rupa-pagination__gap {
+  min-width: var(--rupa-size-control-sm);
+  color: var(--rupa-color-ink-3);
+  text-align: center;
+}
+
+/* Status text is for screen readers on wide screens and replaces the numbers on narrow ones. */
+.rupa-pagination__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 30em) {
+  .rupa-pagination__pages {
+    display: none;
+  }
+
+  .rupa-pagination__status {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0 var(--rupa-space-2);
+    overflow: visible;
+    clip: auto;
+  }
+}
+
+@media (pointer: coarse) {
+  .rupa-pagination__button {
+    min-width: var(--rupa-size-touch-target);
+    height: var(--rupa-size-touch-target);
+  }
+}

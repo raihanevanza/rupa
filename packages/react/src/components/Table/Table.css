@@ -1,0 +1,77 @@
+.rupa-table {
+  overflow-x: auto;
+  border: 1px solid var(--rupa-color-line);
+  border-radius: var(--rupa-radius-xl);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+}
+
+.rupa-table:focus-visible {
+  outline: var(--rupa-size-focus-ring) solid var(--rupa-color-focus);
+  outline-offset: var(--rupa-size-focus-offset);
+}
+
+.rupa-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--rupa-font-size-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.rupa-table__caption {
+  padding: var(--rupa-space-4) var(--rupa-space-4) var(--rupa-space-2);
+  color: var(--rupa-color-ink);
+  font-weight: var(--rupa-font-weight-semibold);
+  text-align: start;
+}
+
+.rupa-table th,
+.rupa-table td {
+  padding: var(--rupa-space-3) var(--rupa-space-4);
+  text-align: start;
+  vertical-align: middle;
+}
+
+.rupa-table th {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--rupa-color-line);
+  background: var(--rupa-color-surface-2);
+  color: var(--rupa-color-ink-3);
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-semibold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rupa-table tbody tr + tr td {
+  border-top: 1px solid var(--rupa-color-line);
+}
+
+.rupa-table tbody tr:hover td:not(.rupa-table__state) {
+  background: var(--rupa-color-surface-2);
+}
+
+.rupa-table [data-align='end'] {
+  text-align: end;
+}
+
+.rupa-table [data-align='center'] {
+  text-align: center;
+}
+
+.rupa-table td.rupa-table__state {
+  padding: 0;
+}
+
+@media (max-width: 40em) {
+  .rupa-table [data-hide-mobile] {
+    display: none;
+  }
+
+  .rupa-table th,
+  .rupa-table td {
+    padding: var(--rupa-space-3);
+  }
+}

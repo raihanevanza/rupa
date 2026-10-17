@@ -1,0 +1,40 @@
+.rupa-select {
+  position: relative;
+  padding: 0;
+}
+
+.rupa-select__input {
+  flex: 1;
+  min-width: 0;
+  min-height: inherit;
+  padding: 0 calc(var(--rupa-space-3) + 1.5rem) 0 var(--rupa-space-3);
+  border: 0;
+  outline: 0;
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rupa-select__input:disabled {
+  cursor: not-allowed;
+}
+
+/* Chevron drawn with a mask so it takes the theme color. */
+.rupa-select::after {
+  content: '';
+  position: absolute;
+  right: var(--rupa-space-3);
+  width: 1rem;
+  height: 1rem;
+  background: var(--rupa-color-ink-3);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  pointer-events: none;
+}
+
+.rupa-select__input option {
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+}

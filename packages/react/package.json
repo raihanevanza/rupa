@@ -1,0 +1,110 @@
+{
+  "name": "@rupa-ui/react",
+  "version": "0.0.0",
+  "description": "Accessible React components for the Rupa design system, themed by @rupa-ui/tokens.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raihanevanza/rupa.git",
+    "directory": "packages/react"
+  },
+  "keywords": [
+    "react",
+    "design-system",
+    "components",
+    "accessibility",
+    "dark-mode"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./base.css": "./dist/base.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json && node scripts/build-css.ts",
+    "typecheck": "tsc --noEmit",
+    "lint:css": "node scripts/lint-css.ts",
+    "check:package": "publint && attw --pack . --profile esm-only --exclude-entrypoints styles.css base.css",
+    "size": "size-limit"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.3.1",
+    "@radix-ui/react-tooltip": "^1.4.1",
+    "@rupa-ui/tokens": "0.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "size-limit": [
+    {
+      "name": "all components, including Radix",
+      "path": "dist/index.js",
+      "import": "*",
+      "ignore": [
+        "react",
+        "react-dom"
+      ],
+      "limit": "32 kB"
+    },
+    {
+      "name": "all components, Rupa code only",
+      "path": "dist/index.js",
+      "import": "*",
+      "ignore": [
+        "react",
+        "react-dom",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-tooltip"
+      ],
+      "limit": "10 kB"
+    },
+    {
+      "name": "Button only",
+      "path": "dist/index.js",
+      "import": "{ Button }",
+      "ignore": [
+        "react",
+        "react-dom"
+      ],
+      "limit": "4 kB"
+    },
+    {
+      "name": "styles.css (tokens + components)",
+      "path": "dist/styles.css",
+      "rolldown": false,
+      "limit": "12 kB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^14.2.0",
+    "@storybook/react-vite": "^10.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "browserslist": "^4.29.3",
+    "lightningcss": "^1.33.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "size-limit": "^14.2.0",
+    "storybook": "^10.6.2",
+    "vite": "^8.3.4"
+  }
+}

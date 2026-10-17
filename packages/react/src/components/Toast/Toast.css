@@ -1,0 +1,126 @@
+.rupa-toaster {
+  position: fixed;
+  z-index: var(--rupa-z-toast);
+  right: var(--rupa-space-4);
+  bottom: var(--rupa-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--rupa-space-2);
+  width: min(24rem, calc(100vw - 2 * var(--rupa-space-4)));
+  font-family: var(--rupa-font-family-sans);
+  pointer-events: none;
+}
+
+.rupa-toaster__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rupa-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rupa-toaster__list:empty {
+  display: none;
+}
+
+.rupa-toast {
+  --_icon: var(--rupa-color-info);
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rupa-space-3);
+  padding: var(--rupa-space-3) var(--rupa-space-3) var(--rupa-space-3) var(--rupa-space-4);
+  border: 1px solid var(--rupa-color-line);
+  border-radius: var(--rupa-radius-xl);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+  box-shadow: var(--rupa-shadow-pop);
+  pointer-events: auto;
+  animation: rupa-toast-in var(--rupa-motion-duration-slow) var(--rupa-motion-easing-emphasized);
+}
+
+.rupa-toast[data-tone='success'] {
+  --_icon: var(--rupa-color-success);
+}
+
+.rupa-toast[data-tone='warning'] {
+  --_icon: var(--rupa-color-warning);
+}
+
+.rupa-toast[data-tone='danger'] {
+  --_icon: var(--rupa-color-danger);
+}
+
+.rupa-toast__icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.1rem;
+  color: var(--_icon);
+}
+
+.rupa-toast__body {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--rupa-font-size-sm);
+}
+
+.rupa-toast__title {
+  margin: 0;
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-toast__description {
+  margin: var(--rupa-space-0-5) 0 0;
+  color: var(--rupa-color-ink-2);
+}
+
+.rupa-toast__action {
+  margin-top: var(--rupa-space-2);
+}
+
+.rupa-toast__dismiss {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--rupa-size-control-sm);
+  height: var(--rupa-size-control-sm);
+  border: 0;
+  border-radius: var(--rupa-radius-md);
+  background: transparent;
+  color: var(--rupa-color-ink-3);
+  cursor: pointer;
+}
+
+.rupa-toast__dismiss:hover {
+  background: var(--rupa-color-surface-3);
+  color: var(--rupa-color-ink);
+}
+
+.rupa-toast__dismiss svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (max-width: 30em) {
+  .rupa-toaster {
+    right: var(--rupa-space-4);
+    left: var(--rupa-space-4);
+    width: auto;
+  }
+}
+
+@media (pointer: coarse) {
+  .rupa-toast__dismiss {
+    width: var(--rupa-size-touch-target);
+    height: var(--rupa-size-touch-target);
+  }
+}
+
+@keyframes rupa-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}

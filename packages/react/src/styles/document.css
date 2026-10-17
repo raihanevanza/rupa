@@ -1,0 +1,23 @@
+/* Optional document defaults (@rupa-ui/react/base.css). Zero specificity, easy to override. */
+:where(html) {
+  font-family: var(--rupa-font-family-sans);
+  font-size: 100%;
+  line-height: var(--rupa-font-line-height-normal);
+  color: var(--rupa-color-ink);
+  background: var(--rupa-color-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+:where(body) {
+  margin: 0;
+}
+
+:where(table td, table th) {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--rupa-color-accent) 22%, transparent);
+}

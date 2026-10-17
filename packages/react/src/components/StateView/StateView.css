@@ -1,0 +1,60 @@
+.rupa-state-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rupa-space-2);
+  padding: var(--rupa-space-12) var(--rupa-space-6);
+  color: var(--rupa-color-ink);
+  text-align: center;
+}
+
+.rupa-state-view[data-compact] {
+  padding: var(--rupa-space-6) var(--rupa-space-4);
+}
+
+.rupa-state-view__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--rupa-space-2);
+  border-radius: var(--rupa-radius-full);
+  background: var(--rupa-color-surface-3);
+  color: var(--rupa-color-ink-3);
+}
+
+.rupa-state-view__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.rupa-state-view[data-state='loading'] .rupa-state-view__icon {
+  background: transparent;
+  color: var(--rupa-color-accent);
+}
+
+.rupa-state-view[data-state='error'] .rupa-state-view__icon {
+  background: var(--rupa-color-danger-soft);
+  color: var(--rupa-color-danger-ink);
+}
+
+.rupa-state-view__title {
+  margin: 0;
+  font-size: var(--rupa-font-size-md);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-state-view__description {
+  margin: 0;
+  max-width: 42ch;
+  color: var(--rupa-color-ink-3);
+  font-size: var(--rupa-font-size-sm);
+}
+
+.rupa-state-view__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--rupa-space-2);
+  margin-top: var(--rupa-space-3);
+}

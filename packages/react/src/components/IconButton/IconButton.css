@@ -1,0 +1,19 @@
+/* Doubled class: beats the Button size rules that set horizontal padding. */
+.rupa-button.rupa-icon-button {
+  width: var(--rupa-size-control-md);
+  padding: 0;
+}
+
+.rupa-button.rupa-icon-button[data-size='sm'] {
+  width: var(--rupa-size-control-sm);
+}
+
+.rupa-button.rupa-icon-button[data-size='lg'] {
+  width: var(--rupa-size-control-lg);
+}
+
+@media (pointer: coarse) {
+  .rupa-button.rupa-icon-button {
+    width: var(--rupa-size-touch-target);
+  }
+}

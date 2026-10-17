@@ -1,0 +1,137 @@
+.rupa-status-flow {
+  --_marker: 1.75rem;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--rupa-color-ink);
+}
+
+.rupa-status-flow__step {
+  --_fill: var(--rupa-color-surface);
+  --_ring: var(--rupa-color-control-border);
+  --_mark: var(--rupa-color-ink-3);
+  --_line: var(--rupa-color-line-strong);
+
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--rupa-space-2);
+  min-width: 0;
+}
+
+/* Connector to the next step. */
+.rupa-status-flow__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--_marker) / 2);
+  left: calc(var(--_marker) + var(--rupa-space-2));
+  right: var(--rupa-space-2);
+  height: 2px;
+  border-radius: var(--rupa-radius-full);
+  background: var(--_line);
+}
+
+.rupa-status-flow__marker {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--_marker);
+  height: var(--_marker);
+  border: 2px solid var(--_ring);
+  border-radius: var(--rupa-radius-full);
+  background: var(--_fill);
+  color: var(--_mark);
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-bold);
+}
+
+.rupa-status-flow__marker svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  stroke-width: 3;
+}
+
+.rupa-status-flow__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rupa-space-0-5);
+  padding-right: var(--rupa-space-3);
+}
+
+.rupa-status-flow__label {
+  font-size: var(--rupa-font-size-sm);
+  font-weight: var(--rupa-font-weight-semibold);
+  line-height: var(--rupa-font-line-height-snug);
+}
+
+.rupa-status-flow__description {
+  color: var(--rupa-color-ink-3);
+  font-size: var(--rupa-font-size-xs);
+}
+
+.rupa-status-flow__step[data-state='upcoming'] .rupa-status-flow__label {
+  color: var(--rupa-color-ink-3);
+}
+
+.rupa-status-flow__step[data-state='complete'] {
+  --_fill: var(--rupa-color-success);
+  --_ring: var(--rupa-color-success);
+  --_mark: var(--rupa-color-on-success);
+  --_line: var(--rupa-color-success);
+}
+
+.rupa-status-flow__step[data-state='current'] {
+  --_fill: var(--rupa-color-accent-soft);
+  --_ring: var(--rupa-color-accent);
+  --_mark: var(--rupa-color-accent);
+}
+
+.rupa-status-flow__step[data-state='rejected'] {
+  --_fill: var(--rupa-color-danger);
+  --_ring: var(--rupa-color-danger);
+  --_mark: var(--rupa-color-on-danger);
+}
+
+.rupa-status-flow__step[data-state='cancelled'] {
+  --_fill: var(--rupa-color-surface-3);
+  --_ring: var(--rupa-color-control-border);
+  --_mark: var(--rupa-color-ink-2);
+}
+
+.rupa-status-flow[data-orientation='vertical'] {
+  flex-direction: column;
+  gap: var(--rupa-space-5);
+}
+
+.rupa-status-flow[data-orientation='vertical'] .rupa-status-flow__step {
+  flex-direction: row;
+}
+
+.rupa-status-flow[data-orientation='vertical'] .rupa-status-flow__step:not(:last-child)::after {
+  top: calc(var(--_marker) + var(--rupa-space-1));
+  bottom: calc(-1 * var(--rupa-space-5) + var(--rupa-space-1));
+  left: calc(var(--_marker) / 2 - 1px);
+  right: auto;
+  width: 2px;
+  height: auto;
+}
+
+/* Too narrow for a row of steps: stack them. */
+@media (max-width: 30em) {
+  .rupa-status-flow[data-orientation='horizontal'] {
+    flex-direction: column;
+    gap: var(--rupa-space-3);
+  }
+
+  .rupa-status-flow[data-orientation='horizontal'] .rupa-status-flow__step {
+    flex-direction: row;
+  }
+
+  .rupa-status-flow[data-orientation='horizontal'] .rupa-status-flow__step::after {
+    display: none;
+  }
+}

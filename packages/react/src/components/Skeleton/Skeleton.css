@@ -1,0 +1,42 @@
+.rupa-skeleton {
+  display: block;
+  width: 100%;
+  height: 0.875rem;
+  border-radius: var(--rupa-radius-sm);
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--rupa-color-surface) 60%, transparent) 50%,
+      transparent 100%
+    )
+    var(--rupa-color-surface-3);
+  background-size: 200% 100%;
+  animation: rupa-shimmer 1.4s ease-in-out infinite;
+}
+
+.rupa-skeleton[data-shape='rect'] {
+  height: 6rem;
+  border-radius: var(--rupa-radius-lg);
+}
+
+.rupa-skeleton[data-shape='circle'] {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--rupa-radius-full);
+}
+
+.rupa-skeleton-lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rupa-space-2);
+}
+
+@keyframes rupa-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}

@@ -1,0 +1,106 @@
+.rupa-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rupa-space-3);
+  color: var(--rupa-color-ink);
+}
+
+.rupa-checkbox__box {
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.1rem;
+}
+
+/* The real input is invisible and sits on top, so clicks, Space, and forms work natively. */
+.rupa-checkbox__input {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.rupa-checkbox__control {
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--rupa-color-control-border);
+  border-radius: var(--rupa-radius-sm);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-on-primary);
+  transition:
+    background-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    border-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard);
+}
+
+.rupa-checkbox__input:hover:not(:disabled) + .rupa-checkbox__control {
+  border-color: var(--rupa-color-ink-3);
+}
+
+.rupa-checkbox__input:focus-visible + .rupa-checkbox__control {
+  outline: var(--rupa-size-focus-ring) solid var(--rupa-color-focus);
+  outline-offset: var(--rupa-size-focus-offset);
+}
+
+.rupa-checkbox__input:is(:checked, :indeterminate) + .rupa-checkbox__control {
+  border-color: var(--rupa-color-primary);
+  background: var(--rupa-color-primary);
+}
+
+.rupa-checkbox__check,
+.rupa-checkbox__dash {
+  width: 0.8rem;
+  height: 0.8rem;
+  stroke-width: 3.5;
+  opacity: 0;
+  grid-area: 1 / 1;
+}
+
+.rupa-checkbox__input:checked:not(:indeterminate) + .rupa-checkbox__control .rupa-checkbox__check,
+.rupa-checkbox__input:indeterminate + .rupa-checkbox__control .rupa-checkbox__dash {
+  opacity: 1;
+}
+
+.rupa-checkbox__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rupa-space-0-5);
+  font-size: var(--rupa-font-size-sm);
+}
+
+.rupa-checkbox__label {
+  font-weight: var(--rupa-font-weight-medium);
+  cursor: pointer;
+}
+
+.rupa-checkbox__description {
+  color: var(--rupa-color-ink-3);
+}
+
+.rupa-checkbox[data-disabled] {
+  opacity: 0.55;
+}
+
+.rupa-checkbox[data-disabled] :is(.rupa-checkbox__input, .rupa-checkbox__label) {
+  cursor: not-allowed;
+}
+
+/* 44 px hit area on touch screens; the drawn box stays the same size. */
+@media (pointer: coarse) {
+  .rupa-checkbox__input {
+    inset: -0.8125rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .rupa-checkbox__control {
+    border-color: ButtonText;
+  }
+
+  .rupa-checkbox__input:is(:checked, :indeterminate) + .rupa-checkbox__control {
+    background: Highlight;
+  }
+}

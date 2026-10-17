@@ -1,0 +1,118 @@
+.rupa-button {
+  --_bg: var(--rupa-color-surface);
+  --_bg-hover: var(--rupa-color-surface-3);
+  --_fg: var(--rupa-color-ink);
+  --_border: var(--rupa-color-line-strong);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rupa-space-2);
+  min-height: var(--rupa-size-control-md);
+  padding: 0 var(--rupa-space-4);
+  border: 1px solid var(--_border);
+  border-radius: var(--rupa-radius-lg);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: inherit;
+  font-size: var(--rupa-font-size-sm);
+  font-weight: var(--rupa-font-weight-semibold);
+  line-height: var(--rupa-font-line-height-tight);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    border-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    transform var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard);
+}
+
+.rupa-button:hover:not(:disabled, [aria-disabled='true']) {
+  background: var(--_bg-hover);
+}
+
+.rupa-button:active:not(:disabled, [aria-disabled='true']) {
+  transform: translateY(1px);
+}
+
+.rupa-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.rupa-button[data-loading] {
+  cursor: progress;
+}
+
+.rupa-button svg {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.rupa-button[data-variant='primary'] {
+  --_bg: var(--rupa-color-primary);
+  --_bg-hover: var(--rupa-color-primary-hover);
+  --_fg: var(--rupa-color-on-primary);
+  --_border: transparent;
+}
+
+.rupa-button[data-variant='danger'] {
+  --_bg: var(--rupa-color-danger);
+  --_bg-hover: var(--rupa-color-danger);
+  --_fg: var(--rupa-color-on-danger);
+  --_border: transparent;
+}
+
+.rupa-button[data-variant='success'] {
+  --_bg: var(--rupa-color-success);
+  --_bg-hover: var(--rupa-color-success);
+  --_fg: var(--rupa-color-on-success);
+  --_border: transparent;
+}
+
+/* Darken on hover: keeps white text above 4.5:1 in both modes. */
+.rupa-button:is([data-variant='danger'], [data-variant='success']):hover:not(
+    :disabled,
+    [aria-disabled='true']
+  ) {
+  filter: brightness(0.9);
+}
+
+.rupa-button[data-variant='ghost'] {
+  --_bg: transparent;
+  --_fg: var(--rupa-color-ink-2);
+  --_border: transparent;
+}
+
+.rupa-button[data-size='sm'] {
+  min-height: var(--rupa-size-control-sm);
+  padding: 0 var(--rupa-space-3);
+  border-radius: var(--rupa-radius-md);
+  font-size: var(--rupa-font-size-xs);
+}
+
+.rupa-button[data-size='lg'] {
+  min-height: var(--rupa-size-control-lg);
+  padding: 0 var(--rupa-space-6);
+  font-size: var(--rupa-font-size-md);
+}
+
+.rupa-button[data-block] {
+  display: flex;
+  width: 100%;
+}
+
+/* 44 px touch targets on coarse pointers, without bloating desktop layouts. */
+@media (pointer: coarse) {
+  .rupa-button {
+    min-height: var(--rupa-size-touch-target);
+  }
+}
+
+@media (forced-colors: active) {
+  .rupa-button {
+    border-color: ButtonText;
+  }
+}

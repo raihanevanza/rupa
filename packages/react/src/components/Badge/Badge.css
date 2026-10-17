@@ -1,0 +1,66 @@
+.rupa-badge {
+  --_bg: var(--rupa-color-surface-3);
+  --_fg: var(--rupa-color-ink-2);
+  --_dot: var(--rupa-color-ink-3);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rupa-space-1-5);
+  height: 1.5rem;
+  padding: 0 var(--rupa-space-2);
+  border-radius: var(--rupa-radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.rupa-badge[data-size='sm'] {
+  height: 1.25rem;
+  padding: 0 var(--rupa-space-2);
+}
+
+.rupa-badge__dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: var(--rupa-radius-full);
+  background: var(--_dot);
+}
+
+.rupa-badge[data-tone='accent'] {
+  --_bg: var(--rupa-color-accent-soft);
+  --_fg: var(--rupa-color-accent);
+  --_dot: var(--rupa-color-accent);
+}
+
+.rupa-badge[data-tone='info'] {
+  --_bg: var(--rupa-color-info-soft);
+  --_fg: var(--rupa-color-info-ink);
+  --_dot: var(--rupa-color-info);
+}
+
+.rupa-badge[data-tone='success'] {
+  --_bg: var(--rupa-color-success-soft);
+  --_fg: var(--rupa-color-success-ink);
+  --_dot: var(--rupa-color-success);
+}
+
+.rupa-badge[data-tone='warning'] {
+  --_bg: var(--rupa-color-warning-soft);
+  --_fg: var(--rupa-color-warning-ink);
+  --_dot: var(--rupa-color-warning);
+}
+
+.rupa-badge[data-tone='danger'] {
+  --_bg: var(--rupa-color-danger-soft);
+  --_fg: var(--rupa-color-danger-ink);
+  --_dot: var(--rupa-color-danger);
+}
+
+@media (forced-colors: active) {
+  .rupa-badge {
+    border: 1px solid CanvasText;
+  }
+}

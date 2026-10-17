@@ -1,0 +1,21 @@
+.rupa-text-field__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  min-height: inherit;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.rupa-text-field__input::placeholder {
+  color: var(--rupa-color-ink-3);
+  opacity: 1;
+}
+
+.rupa-text-field__input:disabled {
+  cursor: not-allowed;
+}

@@ -1,0 +1,35 @@
+.rupa-info-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rupa-space-4) var(--rupa-space-6);
+  margin: 0;
+}
+
+@media (min-width: 40em) {
+  .rupa-info-list[data-columns='2'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rupa-info-list[data-columns='3'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.rupa-info-list__item[data-wide] {
+  grid-column: 1 / -1;
+}
+
+.rupa-info-list dt {
+  color: var(--rupa-color-ink-3);
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-medium);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.rupa-info-list dd {
+  margin: var(--rupa-space-1) 0 0;
+  color: var(--rupa-color-ink);
+  font-size: var(--rupa-font-size-sm);
+  overflow-wrap: anywhere;
+}
