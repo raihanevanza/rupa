@@ -24,9 +24,14 @@ jobs:
       # Trusted publishing (OIDC) needs npm 11.5+; Node 22 ships npm 10.
       - run: npm install -g npm@11
       - run: npm ci
+      # Release commits are authored as the maintainer, not github-actions[bot].
+      - run: |
+          git config user.name "Raihan Evanza"
+          git config user.email "49389186+raihanevanza@users.noreply.github.com"
       - name: Release PR or publish
         uses: changesets/action@v1
         with:
+          setupGitUser: false
           version: npm run version-packages
           publish: npm run release
           title: 'chore: release packages'
