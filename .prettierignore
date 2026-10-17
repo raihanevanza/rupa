@@ -1,0 +1,5 @@
+dist
+storybook-static
+package-lock.json
+CHANGELOG.md
+tests/visual/__screenshots__
