@@ -6,8 +6,11 @@ addons.setConfig({
     base: 'light',
     brandTitle: 'Rupa design system',
     brandUrl: 'https://github.com/raihanevanza/rupa',
-    colorPrimary: '#6a46d6',
-    colorSecondary: '#6a46d6',
+    // Orange is the darkest step that keeps white selected-item text at AA (4.7:1); teal is the second accent.
+    colorPrimary: '#1f4e5f',
+    colorSecondary: '#c94a12',
+    barSelectedColor: '#c94a12',
+    barHoverColor: '#e05a1c',
     fontBase: '"Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif',
   }),
   sidebar: { showRoots: true },
