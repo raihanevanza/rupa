@@ -1,5 +1,11 @@
 # @rupa-ui/react
 
+## 0.3.1
+
+### Patch Changes
+
+- [#4](https://github.com/raihanevanza/rupa/pull/4) [`eca595d`](https://github.com/raihanevanza/rupa/commit/eca595d540baec771f6d3124da11c7e230d240f3) Thanks [@raihanevanza](https://github.com/raihanevanza)! - `Dialog` and `ConfirmDialog` opened without a `trigger` now return focus to the element that opened them. Icons passed inside `Button` children stay on the text line under CSS resets that make `svg` a block (Tailwind preflight). Both found in AgentGate.
+
 ## 0.3.0
 
 ### Minor Changes
