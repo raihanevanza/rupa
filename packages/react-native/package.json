@@ -1,6 +1,6 @@
 {
   "name": "@rupa-ui/react-native",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "React Native components (Android and iOS) for the Rupa design system, themed by @rupa-ui/tokens.",
   "license": "MIT",
   "type": "module",
