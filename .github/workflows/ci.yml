@@ -28,6 +28,8 @@ jobs:
         run: npm run build
       - name: Token contrast and chart palette
         run: npm test -w @rupa-ui/tokens
+      - name: React Native components (Jest)
+        run: npm test -w @rupa-ui/react-native
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run format:check

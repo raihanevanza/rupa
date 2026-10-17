@@ -53,6 +53,8 @@ cssVar('color-ink') // 'var(--rupa-color-ink)'
 
 ## React Native
 
+Ready-made components on these tokens: [`@rupa-ui/react-native`](https://github.com/raihanevanza/rupa/tree/main/packages/react-native).
+
 ```ts
 import { palettes, font, space, shadows } from '@rupa-ui/tokens/react-native'
 
