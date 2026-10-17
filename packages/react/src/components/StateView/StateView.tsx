@@ -9,6 +9,7 @@ export type ViewState = 'loading' | 'empty' | 'error'
 export interface StateViewProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   state: ViewState
   title?: ReactNode
+  /** Defaults to a generic English sentence; pass `null` for none. */
   description?: ReactNode
   /** Custom icon for the empty state. */
   icon?: ReactNode
@@ -44,6 +45,8 @@ export const StateView = forwardRef<HTMLDivElement, StateViewProps>(function Sta
   ref,
 ) {
   const text = defaults[state]
+  // `null` means "no description"; only `undefined` falls back to the default text.
+  const desc = description === undefined ? text.description : description
   return (
     <div
       ref={ref}
@@ -59,9 +62,7 @@ export const StateView = forwardRef<HTMLDivElement, StateViewProps>(function Sta
         {state === 'error' && <AlertCircleIcon />}
       </span>
       <p className="rupa-state-view__title">{title ?? text.title}</p>
-      {(description ?? text.description) != null && (
-        <p className="rupa-state-view__description">{description ?? text.description}</p>
-      )}
+      {desc != null && <p className="rupa-state-view__description">{desc}</p>}
       {(action != null || (state === 'error' && onRetry)) && (
         <div className="rupa-state-view__actions">
           {state === 'error' && onRetry && (
