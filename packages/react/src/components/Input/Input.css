@@ -1,0 +1,88 @@
+.rupa-input {
+  display: block;
+  width: 100%;
+  min-height: var(--rupa-size-control-md);
+  padding: 0 var(--rupa-space-3);
+  border: 1px solid var(--rupa-color-control-border);
+  border-radius: var(--rupa-radius-lg);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+  font: inherit;
+  font-size: var(--rupa-font-size-sm);
+  transition:
+    border-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    box-shadow var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard);
+}
+
+.rupa-input::placeholder {
+  color: var(--rupa-color-ink-3);
+  opacity: 1;
+}
+
+.rupa-input:hover:not(:disabled) {
+  border-color: var(--rupa-color-ink-3);
+}
+
+.rupa-input:focus {
+  border-color: var(--rupa-color-focus);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--rupa-color-focus);
+}
+
+.rupa-input[aria-invalid='true'] {
+  border-color: var(--rupa-color-danger);
+}
+
+.rupa-input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 1px var(--rupa-color-danger);
+}
+
+.rupa-input:disabled {
+  background: var(--rupa-color-surface-2);
+  color: var(--rupa-color-ink-3);
+  cursor: not-allowed;
+}
+
+textarea.rupa-input {
+  padding: var(--rupa-space-2) var(--rupa-space-3);
+  line-height: var(--rupa-font-line-height-normal);
+  resize: vertical;
+}
+
+.rupa-native-select {
+  position: relative;
+  display: block;
+}
+
+.rupa-native-select > .rupa-input {
+  padding-right: calc(var(--rupa-space-3) + 1.5rem);
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Chevron drawn with a mask so it takes the theme color. */
+.rupa-native-select::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: var(--rupa-space-3);
+  width: 1rem;
+  height: 1rem;
+  background: var(--rupa-color-ink-3);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.rupa-native-select option {
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+}
+
+@media (pointer: coarse) {
+  .rupa-input {
+    min-height: var(--rupa-size-touch-target);
+    font-size: var(--rupa-font-size-md); /* 16px stops iOS from zooming on focus */
+  }
+}

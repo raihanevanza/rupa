@@ -7,11 +7,13 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   tone?: BadgeTone
   /** A leading dot. The text still carries the meaning; the dot only reinforces it. */
   dot?: boolean
+  /** Animate the dot for live states (e.g. "Executing"). Implies `dot`. Respects reduced motion. */
+  pulse?: boolean
   size?: 'sm' | 'md'
 }
 
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
-  { tone = 'neutral', dot, size = 'md', className, children, ...props },
+  { tone = 'neutral', dot, pulse, size = 'md', className, children, ...props },
   ref,
 ) {
   return (
@@ -22,7 +24,9 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
       data-size={size}
       {...props}
     >
-      {dot && <span className="rupa-badge__dot" aria-hidden="true" />}
+      {(dot || pulse) && (
+        <span className="rupa-badge__dot" data-pulse={pulse || undefined} aria-hidden="true" />
+      )}
       {children}
     </span>
   )

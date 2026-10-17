@@ -29,6 +29,17 @@
   background: var(--_dot);
 }
 
+.rupa-badge__dot[data-pulse] {
+  animation: rupa-badge-pulse 1.4s var(--rupa-motion-easing-standard) infinite;
+}
+
+@keyframes rupa-badge-pulse {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+}
+
 .rupa-badge[data-tone='accent'] {
   --_bg: var(--rupa-color-accent-soft);
   --_fg: var(--rupa-color-accent);

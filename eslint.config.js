@@ -32,6 +32,14 @@ export default tseslint.config(
   {
     files: ['packages/react/src/**/*.tsx'],
     ...jsxA11y.flatConfigs.strict,
+    rules: {
+      ...jsxA11y.flatConfigs.strict.rules,
+      // A <label> wrapping Rupa's bare controls labels them, like a native input.
+      'jsx-a11y/label-has-associated-control': [
+        'error',
+        { controlComponents: ['Input', 'Textarea', 'NativeSelect'], assert: 'either', depth: 3 },
+      ],
+    },
   },
   ...storybook.configs['flat/recommended'],
   {
