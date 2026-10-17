@@ -1,6 +1,6 @@
 {
   "name": "@rupa-ui/react",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Accessible React components for the Rupa design system, themed by @rupa-ui/tokens.",
   "license": "MIT",
   "type": "module",
