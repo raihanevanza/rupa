@@ -23,6 +23,10 @@ _Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini E
 - **Visual regression.** 196 screenshots (every story, light and dark) are compared on each pull request, rendered in the same Linux image locally and in CI.
 - **Release pipeline.** Changesets → Release PR → npm publish with provenance (trusted publishing, no stored token).
 
+## Used by
+
+- **[AgentGate](https://raihan-evanza-agentgate.vercel.app/?as=approver)** (signal brand): tokens via the Tailwind v3 preset, and its Button, Card, Dialog, ConfirmDialog, PageHeader, InfoList, Segmented, badges, Pagination, form controls, and loading/empty/error states wrap `@rupa-ui/react`. The migration found five gaps, all fixed in 0.3.x: bare `Input`/`Textarea`/`NativeSelect`, `Badge pulse`, `StateView description={null}` showing English text, focus not returning after a dialog opened from state, and child icons wrapping under Tailwind's preflight.
+
 ## What the checks caught
 
 Building the pipeline surfaced real issues in the palettes the apps had been copying:
@@ -118,7 +122,8 @@ Tailwind and React Native setup: see **Getting started** in Storybook or the [to
 ## Next
 
 - [ ] Manual screen reader pass (VoiceOver + Safari) on Dialog, Tabs, Toast
-- [ ] Migrate AgentGate and Mini ERP to Rupa (spec FR-11)
+- [x] Migrate AgentGate to Rupa (spec FR-11)
+- [ ] Migrate Mini ERP (violet brand)
 - [ ] React Native components (spec FR-12)
 
 ## Spec
