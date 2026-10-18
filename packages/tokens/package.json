@@ -1,6 +1,6 @@
 {
   "name": "@rupa-ui/tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Design tokens for Rupa: multi-brand colors with light and dark modes, typography, spacing, and chart palettes, for CSS, Tailwind, JS, and React Native.",
   "license": "MIT",
   "type": "module",
