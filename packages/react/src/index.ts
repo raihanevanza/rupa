@@ -39,6 +39,7 @@ export {
 } from './components/Segmented/Segmented.js'
 export { Select, type SelectOption, type SelectProps } from './components/Select/Select.js'
 export { Skeleton, type SkeletonProps } from './components/Skeleton/Skeleton.js'
+export { Meter, type MeterProps, type MeterTone } from './components/Meter/Meter.js'
 export { Spinner, type SpinnerProps } from './components/Spinner/Spinner.js'
 export { StateView, type StateViewProps, type ViewState } from './components/StateView/StateView.js'
 export {

@@ -1,5 +1,19 @@
 # @rupa-ui/react
 
+## 0.5.0
+
+### Minor Changes
+
+- [#12](https://github.com/raihanevanza/rupa/pull/12) [`bed7322`](https://github.com/raihanevanza/rupa/commit/bed73221bbeed1ba2a424d795cf09b92b4106b37) Thanks [@raihanevanza](https://github.com/raihanevanza)! - New `Meter` for how much of a known total is used (a budget, a goal), which grows from empty when it appears, and motion helpers for app code on the motion tokens: `rupa-enter` for a new row or card, `rupa-pop` for a status that just changed, `rupa-grow-x` for a bar that fills. All of them finish at once when the user prefers reduced motion.
+
+### Patch Changes
+
+- [#10](https://github.com/raihanevanza/rupa/pull/10) [`87700e6`](https://github.com/raihanevanza/rupa/commit/87700e60f80a8ea8e6fb9355110db942014fcbad) Thanks [@raihanevanza](https://github.com/raihanevanza)! - npm pages link to the live Storybook and show the components; `homepage` points to each package's Storybook page.
+  
+  React Native: components use ARIA props (`role`, `aria-checked`, `aria-busy`, `aria-label`, `aria-live`) instead of the `accessibility*` props, so they are also accessible when rendered with react-native-web. Spinner puts its role and name on the indicator, StatusFlow steps are list items, ConfirmDialog names its dialog and does not animate on the web.
+- Updated dependencies [[`87700e6`](https://github.com/raihanevanza/rupa/commit/87700e60f80a8ea8e6fb9355110db942014fcbad)]:
+  - @rupa-ui/tokens@0.2.1
+
 ## 0.4.0
 
 ### Minor Changes
