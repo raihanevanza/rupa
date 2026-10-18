@@ -40,7 +40,7 @@ export const Card: RupaComponent<CardProps> = forwardRef<ViewRef, CardProps>(fun
         <View style={[styles.header, padding === 'none' && styles.headerInset]}>
           <View style={styles.heading}>
             {title != null && (
-              <View accessible accessibilityRole="header">
+              <View accessible role="heading">
                 <TextOrNode style={[styles.title, { color: p.ink }, font('semibold')]}>
                   {title}
                 </TextOrNode>

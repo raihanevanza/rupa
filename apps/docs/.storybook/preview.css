@@ -9,3 +9,30 @@ body {
 .docs-story {
   background: var(--rupa-color-canvas);
 }
+
+/* React Native stories ask for one family per weight, as the app bundles them
+   (`font('semibold')` → 'PlusJakartaSans-SemiBold'). Map those names to the static files. */
+@font-face {
+  font-family: 'PlusJakartaSans-Regular';
+  src: url('../../../node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-400-normal.woff2')
+    format('woff2');
+  font-display: block;
+}
+@font-face {
+  font-family: 'PlusJakartaSans-Medium';
+  src: url('../../../node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-500-normal.woff2')
+    format('woff2');
+  font-display: block;
+}
+@font-face {
+  font-family: 'PlusJakartaSans-SemiBold';
+  src: url('../../../node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-600-normal.woff2')
+    format('woff2');
+  font-display: block;
+}
+@font-face {
+  font-family: 'PlusJakartaSans-Bold';
+  src: url('../../../node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2')
+    format('woff2');
+  font-display: block;
+}

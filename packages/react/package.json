@@ -3,6 +3,10 @@
   "version": "0.4.0",
   "description": "Accessible React components for the Rupa design system, themed by @rupa-ui/tokens.",
   "license": "MIT",
+  "homepage": "https://raihan-evanza-rupa.vercel.app/?path=/docs/components-button--docs",
+  "bugs": {
+    "url": "https://github.com/raihanevanza/rupa/issues"
+  },
   "type": "module",
   "repository": {
     "type": "git",

@@ -88,11 +88,9 @@ export const StateView: RupaComponent<StateViewProps> = forwardRef<ViewRef, Stat
         </View>
         <View
           accessible
-          accessibilityLabel={spoken}
-          accessibilityRole={
-            state === 'loading' ? 'progressbar' : state === 'error' ? 'alert' : undefined
-          }
-          accessibilityLiveRegion={state === 'empty' ? undefined : 'polite'}
+          aria-label={spoken}
+          role={state === 'loading' ? 'progressbar' : state === 'error' ? 'alert' : undefined}
+          aria-live={state === 'empty' ? undefined : 'polite'}
         >
           <TextOrNode style={[styles.title, { color: p.ink }, font('semibold')]}>
             {heading}

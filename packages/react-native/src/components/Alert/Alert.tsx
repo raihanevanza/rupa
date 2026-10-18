@@ -46,8 +46,8 @@ export const Alert: RupaComponent<AlertProps> = forwardRef<ViewRef, AlertProps>(
       // A live alert is read as one element. With an action it stays ungrouped, so the
       // button inside remains reachable.
       accessible={live && action == null}
-      accessibilityRole={live ? 'alert' : undefined}
-      accessibilityLiveRegion={live ? 'assertive' : undefined}
+      role={live ? 'alert' : undefined}
+      aria-live={live ? 'assertive' : undefined}
       style={[styles.alert, { backgroundColor: c.bg, borderColor: withAlpha(c.base, 0.3) }, style]}
       {...props}
     >

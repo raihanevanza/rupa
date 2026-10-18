@@ -64,12 +64,7 @@ export const StatusFlow: RupaComponent<StatusFlowProps> = forwardRef<ViewRef, St
     }
 
     return (
-      <View
-        ref={ref}
-        accessibilityRole="list"
-        style={[vertical ? styles.column : styles.row, style]}
-        {...props}
-      >
+      <View ref={ref} role="list" style={[vertical ? styles.column : styles.row, style]} {...props}>
         {steps.map((step, i) => {
           const state = stateOf(i)
           const c = look[state]
@@ -93,7 +88,8 @@ export const StatusFlow: RupaComponent<StatusFlowProps> = forwardRef<ViewRef, St
             <View
               key={step.key}
               accessible
-              accessibilityLabel={[textOf(step.label), labels[state], textOf(step.description)]
+              role="listitem"
+              aria-label={[textOf(step.label), labels[state], textOf(step.description)]
                 .filter(Boolean)
                 .join(', ')}
               style={vertical ? styles.stepRow : styles.stepColumn}
