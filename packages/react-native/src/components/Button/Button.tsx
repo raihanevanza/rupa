@@ -58,7 +58,6 @@ export const Button: RupaComponent<ButtonProps> = forwardRef<ViewRef, ButtonProp
     textStyle,
     onPress,
     hitSlop,
-    accessibilityState,
     ...props
   },
   ref,
@@ -78,8 +77,9 @@ export const Button: RupaComponent<ButtonProps> = forwardRef<ViewRef, ButtonProp
   return (
     <Pressable
       ref={ref}
-      accessibilityRole="button"
-      accessibilityState={{ ...accessibilityState, disabled: !!disabled || loading, busy: loading }}
+      role="button"
+      aria-disabled={!!disabled || loading}
+      aria-busy={loading}
       disabled={disabled}
       hitSlop={hitSlop ?? slop}
       onPress={loading ? undefined : onPress}

@@ -1,6 +1,12 @@
 # @rupa-ui/react-native
 
+[Storybook](https://raihan-evanza-rupa.vercel.app) · [GitHub](https://github.com/raihanevanza/rupa) · [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens) · [`@rupa-ui/react`](https://www.npmjs.com/package/@rupa-ui/react) · [`@rupa-ui/react-native`](https://www.npmjs.com/package/@rupa-ui/react-native)
+
 React Native components (Android and iOS) for the [Rupa design system](https://github.com/raihanevanza/rupa), themed by the same [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens) as the web package, so a screen looks the same in the app and in the browser.
+
+![An approver screen built from Rupa React Native components in the latte, violet, and signal brands](https://raw.githubusercontent.com/raihanevanza/rupa/main/docs/screenshots/npm/react-native.png)
+
+**[Live examples in Storybook](https://raihan-evanza-rupa.vercel.app/?path=/story/react-native-overview--screen)**: every component rendered with react-native-web, in every brand and mode. On a phone the same code runs natively.
 
 ```sh
 npm install @rupa-ui/react-native

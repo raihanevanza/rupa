@@ -1,7 +1,15 @@
 import { useRef, useState, type ReactNode } from 'react'
-import { AccessibilityInfo, Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native'
+import {
+  AccessibilityInfo,
+  Modal,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native'
 import { fontSize, radius, space } from '@rupa-ui/tokens/react-native'
-import { TextOrNode, type ViewRef } from '../../lib/content.js'
+import { textOf, TextOrNode, type ViewRef } from '../../lib/content.js'
 import { useControllable } from '../../lib/useControllable.js'
 import { useRupaTheme } from '../../theme/ThemeProvider.js'
 import { Alert } from '../Alert/Alert.js'
@@ -82,14 +90,19 @@ export function ConfirmDialog({
 
   // Screen readers start on the title, so the question is read before the buttons.
   const focusTitle = () => {
-    if (titleRef.current) AccessibilityInfo.sendAccessibilityEvent(titleRef.current, 'focus')
+    // Optional call: react-native-web (Storybook, web builds) has no sendAccessibilityEvent.
+    if (titleRef.current) AccessibilityInfo.sendAccessibilityEvent?.(titleRef.current, 'focus')
   }
 
   return (
     <Modal
       visible={open}
+      // Names the dialog element react-native-web renders around the content.
+      aria-label={textOf(title)}
       transparent
-      animationType="fade"
+      // react-native-web unmounts a faded Modal on `animationend`, which never fires when
+      // animations are off (reduced motion, tests), so the web build does not animate.
+      animationType={Platform.OS === 'web' ? 'none' : 'fade'}
       statusBarTranslucent
       navigationBarTranslucent
       onRequestClose={() => changeOpen(false)}
@@ -100,18 +113,19 @@ export function ConfirmDialog({
         <Pressable
           style={[StyleSheet.absoluteFill, { backgroundColor: p.overlay }]}
           onPress={() => changeOpen(false)}
-          accessible={false}
-          importantForAccessibility="no"
+          aria-hidden
         />
         <View
-          accessibilityViewIsModal
+          role="alertdialog"
+          aria-modal
+          aria-label={textOf(title)}
           style={[
             styles.panel,
             { backgroundColor: p.surface, borderColor: p.line, boxShadow: shadows.pop },
           ]}
         >
           <ScrollView contentContainerStyle={styles.content} bounces={false}>
-            <View ref={titleRef} accessible accessibilityRole="header">
+            <View ref={titleRef} accessible role="heading">
               <TextOrNode style={[styles.title, { color: p.ink }, font('semibold')]}>
                 {title}
               </TextOrNode>

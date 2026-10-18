@@ -29,7 +29,7 @@ test('a double tap runs the action once and closes when it resolves', async () =
       onConfirm={onConfirm}
     />,
   )
-  expect(screen.getByRole('header', { name: 'Approve refund?' })).toBeOnTheScreen()
+  expect(screen.getByRole('heading', { name: 'Approve refund?' })).toBeOnTheScreen()
   const approve = screen.getByRole('button', { name: 'Approve' })
   await userEvent.press(approve)
   await userEvent.press(approve)
@@ -39,7 +39,7 @@ test('a double tap runs the action once and closes when it resolves', async () =
 
   await act(async () => action.resolve())
   expect(onOpenChange).toHaveBeenLastCalledWith(false)
-  expect(screen.queryByRole('header', { name: 'Approve refund?' })).toBeNull()
+  expect(screen.queryByRole('heading', { name: 'Approve refund?' })).toBeNull()
 })
 
 test('Android back and the backdrop cannot close it while the action runs', async () => {

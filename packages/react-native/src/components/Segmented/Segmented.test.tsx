@@ -22,8 +22,8 @@ test('is a named radio group; pressing selects', async () => {
   )
   // The group itself is not focusable (its radios must stay reachable), so check its props.
   expect(screen.getByTestId('group').props).toMatchObject({
-    accessibilityRole: 'radiogroup',
-    accessibilityLabel: 'Status filter',
+    role: 'radiogroup',
+    'aria-label': 'Status filter',
   })
   expect(screen.getByRole('radio', { name: 'All' })).toBeChecked()
 

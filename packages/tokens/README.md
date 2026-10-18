@@ -1,6 +1,12 @@
 # @rupa-ui/tokens
 
+[Storybook](https://raihan-evanza-rupa.vercel.app) · [GitHub](https://github.com/raihanevanza/rupa) · [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens) · [`@rupa-ui/react`](https://www.npmjs.com/package/@rupa-ui/react) · [`@rupa-ui/react-native`](https://www.npmjs.com/package/@rupa-ui/react-native)
+
 Design tokens for the [Rupa design system](https://github.com/raihanevanza/rupa): three brands (`violet`, `signal`, `latte`) × light and dark modes, typography, spacing, radius, shadows, motion, and validated chart palettes.
+
+![The same components in every brand and mode: violet, signal, and latte, light and dark](https://raw.githubusercontent.com/raihanevanza/rupa/main/docs/screenshots/npm/tokens.png)
+
+**[See every token in Storybook](https://raihan-evanza-rupa.vercel.app/?path=/story/foundations-colors--semantic)**: colors, type, spacing, radius, shadows, and chart palettes, plus [all brands and modes on one page](https://raihan-evanza-rupa.vercel.app/?path=/story/patterns-brands-and-modes--matrix).
 
 ```sh
 npm install @rupa-ui/tokens

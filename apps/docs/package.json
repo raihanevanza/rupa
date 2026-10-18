@@ -7,10 +7,11 @@
     "build": "storybook build -o storybook-static --quiet",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "test:themes": "for t in violet:light violet:dark signal:light signal:dark latte:light latte:dark; do echo \"\u25b8 $t\"; VITE_RUPA_BRAND=${t%:*} VITE_RUPA_THEME=${t#*:} vitest run || exit 1; done"
+    "test:themes": "for t in violet:light violet:dark signal:light signal:dark latte:light latte:dark; do echo \"▸ $t\"; VITE_RUPA_BRAND=${t%:*} VITE_RUPA_THEME=${t#*:} vitest run || exit 1; done"
   },
   "devDependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
     "@storybook/addon-a11y": "^10.6.2",
     "@storybook/addon-docs": "^10.6.2",
     "@storybook/addon-vitest": "^10.6.2",
@@ -23,6 +24,7 @@
     "playwright": "^1.64.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-native-web": "^0.21.4",
     "storybook": "^10.6.2",
     "vite": "^8.3.4",
     "vitest": "^5.0.5"

@@ -1,6 +1,12 @@
 # @rupa-ui/react
 
+[Storybook](https://raihan-evanza-rupa.vercel.app) · [GitHub](https://github.com/raihanevanza/rupa) · [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens) · [`@rupa-ui/react`](https://www.npmjs.com/package/@rupa-ui/react) · [`@rupa-ui/react-native`](https://www.npmjs.com/package/@rupa-ui/react-native)
+
 Accessible React components for the [Rupa design system](https://github.com/raihanevanza/rupa), themed by [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens).
+
+![A request detail page built from Rupa components](https://raw.githubusercontent.com/raihanevanza/rupa/main/docs/screenshots/npm/react.png)
+
+**[Live examples in Storybook](https://raihan-evanza-rupa.vercel.app/?path=/docs/components-button--docs)**: every component and variant, with controls, in every brand and mode (toolbar).
 
 ```sh
 npm install @rupa-ui/react

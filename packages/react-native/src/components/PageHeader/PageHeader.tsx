@@ -23,7 +23,7 @@ export const PageHeader: RupaComponent<PageHeaderProps> = forwardRef<ViewRef, Pa
     return (
       <View ref={ref} style={[styles.header, style]} {...props}>
         <View style={styles.titleRow}>
-          <View accessible accessibilityRole="header" style={styles.title}>
+          <View accessible role="heading" style={styles.title}>
             <TextOrNode style={[styles.titleText, { color: p.ink }, font('bold')]}>
               {title}
             </TextOrNode>

@@ -18,15 +18,13 @@ export const Spinner: RupaComponent<SpinnerProps> = forwardRef<ViewRef, SpinnerP
     const { palette } = useRupaTheme()
     const decorative = label === null
     return (
-      <View
-        ref={ref}
-        accessible={!decorative}
-        accessibilityRole={decorative ? undefined : 'progressbar'}
-        accessibilityLabel={decorative ? undefined : label}
-        aria-hidden={decorative || undefined}
-        {...props}
-      >
+      <View ref={ref} aria-hidden={decorative || undefined} {...props}>
+        {/* The indicator carries the role and name: react-native-web already renders it as a
+            progressbar, so a role on the wrapper would nest two. */}
         <ActivityIndicator
+          accessible={!decorative}
+          role={decorative ? undefined : 'progressbar'}
+          aria-label={decorative ? undefined : label}
           size={native[size]}
           color={color ?? palette.accent}
           style={size === 'sm' ? { transform: [{ scale: 0.8 }] } : undefined}

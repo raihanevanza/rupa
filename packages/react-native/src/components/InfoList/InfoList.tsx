@@ -47,7 +47,7 @@ export const InfoList: RupaComponent<InfoListProps> = forwardRef<ViewRef, InfoLi
                   // Plain values are grouped so "Status, Approved" is one swipe; rich values
                   // (links, buttons) stay separate so they remain reachable.
                   accessible={plain}
-                  accessibilityLabel={plain ? `${textOf(item.label)}, ${textOf(value)}` : undefined}
+                  aria-label={plain ? `${textOf(item.label)}, ${textOf(value)}` : undefined}
                 >
                   <TextOrNode style={[styles.label, { color: p.ink3 }, font('medium')]}>
                     {item.label}

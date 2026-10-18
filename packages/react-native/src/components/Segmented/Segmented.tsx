@@ -55,8 +55,8 @@ function SegmentedInner<T extends string>(
   return (
     <View
       ref={ref}
-      accessibilityRole="radiogroup"
-      accessibilityLabel={label}
+      role="radiogroup"
+      aria-label={label}
       style={[
         styles.group,
         { backgroundColor: p.surface2, borderColor: p.line },
@@ -71,9 +71,10 @@ function SegmentedInner<T extends string>(
         return (
           <Pressable
             key={option.value}
-            accessibilityRole="radio"
-            accessibilityState={{ checked: selected, disabled: !!option.disabled }}
-            accessibilityLabel={option.accessibilityLabel}
+            role="radio"
+            aria-checked={selected}
+            aria-disabled={!!option.disabled}
+            aria-label={option.accessibilityLabel}
             disabled={option.disabled}
             hitSlop={{ top: slop, bottom: slop }}
             onPress={() => setValue(option.value)}
