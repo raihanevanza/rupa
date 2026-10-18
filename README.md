@@ -24,10 +24,10 @@ _Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini E
 
 - **Design tokens, one source.** DTCG JSON → Style Dictionary → CSS variables, Tailwind v3 preset, Tailwind v4 theme, typed JS, and a React Native palette. Web and mobile can no longer drift.
 - **Multi-brand, light and dark, nestable.** Every color is a `light-dark()` pair per brand. Set `data-brand` and `data-theme` on any element; nested scopes just work, with no selector combinations.
-- **28 accessible components.** Button, IconButton, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, Tabs, TextField, Select, Input, Textarea, NativeSelect, Checkbox, Switch, Dialog, ConfirmDialog, Toast, Alert, Tooltip, Pagination, Table, StateView, Spinner, Skeleton, Meter, Avatar, plus `Field` and `ThemeProvider`, and motion helpers (`rupa-enter`, `rupa-pop`, `rupa-grow-x`) on the motion tokens.
-- **React Native for Android and iOS.** `@rupa-ui/react-native` has ThemeProvider, Button, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, ConfirmDialog, Alert, StateView, and Spinner, built on the same palette and props as the web. No native modules, so it runs in Expo Go, and in [Storybook](https://raihan-evanza-rupa.vercel.app/?path=/story/react-native-overview--screen) through react-native-web, where the stories get the same axe, interaction, and screenshot tests as the web components. Also tested with Jest + React Native Testing Library and on an iPhone simulator and an Android emulator.
-- **Accessibility checked in CI.** Every story, web and React Native, runs axe in all six themes (948 runs). Keyboard behavior is tested with play functions. A script checks 282 contrast pairs per build, and the chart palette is validated for color-vision deficiency.
-- **Visual regression.** 280 screenshots (every story, light and dark) are compared on each pull request, rendered in the same Linux image locally and in CI.
+- **29 accessible components.** Button, IconButton, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, Tabs, TextField, Select, MultiSelect, Input, Textarea, NativeSelect, Checkbox, Switch, Dialog, ConfirmDialog, Toast, Alert, Tooltip, Pagination, Table, StateView, Spinner, Skeleton, Meter, Avatar, plus `Field` and `ThemeProvider`, and motion helpers (`rupa-enter`, `rupa-pop`, `rupa-grow-x`) on the motion tokens.
+- **React Native for Android and iOS.** `@rupa-ui/react-native` has ThemeProvider, Button, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, MultiSelect, ConfirmDialog, Alert, StateView, and Spinner, built on the same palette and props as the web. No native modules, so it runs in Expo Go, and in [Storybook](https://raihan-evanza-rupa.vercel.app/?path=/story/react-native-overview--screen) through react-native-web, where the stories get the same axe, interaction, and screenshot tests as the web components. Also tested with Jest + React Native Testing Library and on an iPhone simulator and an Android emulator.
+- **Accessibility checked in CI.** Every story, web and React Native, runs axe in all six themes (1110 runs). Keyboard behavior is tested with play functions. A script checks 282 contrast pairs per build, and the chart palette is validated for color-vision deficiency.
+- **Visual regression.** 326 screenshots (every story, light and dark) are compared on each pull request, rendered in the same Linux image locally and in CI.
 - **Release pipeline.** Changesets → Release PR → npm publish with provenance (trusted publishing, no stored token).
 
 ## Used by
@@ -152,7 +152,7 @@ Tailwind setup: see **Getting started** in Storybook or the [tokens README](pack
 - [ ] Manual screen reader pass (VoiceOver + Safari) on Dialog, Tabs, Toast
 - [x] Migrate AgentGate to Rupa (spec FR-11)
 - [ ] Migrate Mini ERP (violet brand)
-- [x] React Native components (spec FR-12): 11 components + ThemeProvider
+- [x] React Native components (spec FR-12): 12 components + ThemeProvider
 - [ ] Migrate AgentGate mobile to `@rupa-ui/react-native`
 - [ ] Manual VoiceOver + TalkBack pass on the React Native components
 

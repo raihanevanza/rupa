@@ -12,6 +12,7 @@ import {
   Card,
   ConfirmDialog,
   InfoList,
+  MultiSelect,
   PageHeader,
   Segmented,
   StateView,
@@ -47,7 +48,7 @@ export default function App() {
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
-type Section = 'buttons' | 'alerts' | 'states'
+type Section = 'buttons' | 'alerts' | 'filters' | 'states'
 
 /**
  * Deep links for screenshots: `…/--/?section=states`, `?dialog=reject`, `?mode=dark`.
@@ -71,6 +72,7 @@ function Showcase() {
   const [dialog, setDialog] = useState<'approve' | 'reject' | null>(null)
   const [status, setStatus] = useState<'review' | 'approved' | 'rejected'>('review')
   const [view, setView] = useState<ViewState>('empty')
+  const [branches, setBranches] = useState(['bogor', 'depok'])
   const section = [styles.section, { color: p.ink3 }, font('semibold')]
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null)
   const [offsets, setOffsets] = useState<Partial<Record<Section, number>>>({})
@@ -240,6 +242,32 @@ function Showcase() {
         <Alert tone="danger" title="Policy failed to load">
           Every call now waits for approval (fail-closed).
         </Alert>
+
+        <Text style={section} {...mark('filters')}>
+          Filters
+        </Text>
+        <MultiSelect
+          label="Branches"
+          placeholder="All branches"
+          hint="Leave empty to include every branch."
+          value={branches}
+          onChange={setBranches}
+          options={[
+            { value: 'bogor', label: 'Bogor' },
+            { value: 'jakarta-pusat', label: 'Jakarta Pusat' },
+            { value: 'jakarta-selatan', label: 'Jakarta Selatan' },
+            { value: 'bandung', label: 'Bandung' },
+            { value: 'bekasi', label: 'Bekasi' },
+            { value: 'depok', label: 'Depok' },
+            { value: 'tangerang', label: 'Tangerang' },
+            {
+              value: 'surabaya',
+              label: 'Surabaya',
+              description: 'Closed for renovation',
+              disabled: true,
+            },
+          ]}
+        />
 
         <Text style={section} {...mark('states')}>
           States

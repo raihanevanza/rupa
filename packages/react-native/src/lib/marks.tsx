@@ -53,6 +53,54 @@ export function MinusMark({ color, size = 14, weight = 2.5 }: MarkProps) {
   )
 }
 
+/** A downward chevron, e.g. on a control that opens a list. */
+export function ChevronMark({ color, size = 14, weight = 2 }: MarkProps) {
+  return (
+    <View style={[styles.box, { width: size, height: size }]} aria-hidden>
+      <View
+        style={{
+          width: size * 0.5,
+          height: size * 0.5,
+          borderRightWidth: weight,
+          borderBottomWidth: weight,
+          borderColor: color,
+          transform: [{ translateY: -size * 0.12 }, { rotate: '45deg' }],
+        }}
+      />
+    </View>
+  )
+}
+
+/** A magnifying glass: a ring and a handle. */
+export function SearchMark({ color, size = 16, weight = 2 }: MarkProps) {
+  const ring = size * 0.62
+  return (
+    <View style={{ width: size, height: size }} aria-hidden>
+      <View
+        style={{
+          width: ring,
+          height: ring,
+          borderWidth: weight,
+          borderRadius: ring,
+          borderColor: color,
+        }}
+      />
+      <View
+        style={{
+          position: 'absolute',
+          right: size * 0.04,
+          bottom: size * 0.1,
+          width: size * 0.36,
+          height: weight,
+          borderRadius: weight,
+          backgroundColor: color,
+          transform: [{ rotate: '45deg' }],
+        }}
+      />
+    </View>
+  )
+}
+
 /** "!" (alert) or "i" (info) drawn as a dot and a bar, so it does not depend on the font. */
 export function BangMark({ color, size = 14, info }: MarkProps & { info?: boolean }) {
   const w = Math.max(2, size * 0.16)
