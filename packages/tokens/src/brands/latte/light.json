@@ -1,0 +1,38 @@
+{
+  "color": {
+    "$type": "color",
+    "canvas": { "$value": "{palette.cream.50}", "$description": "Page background (cream)" },
+    "surface": { "$value": "{palette.white}" },
+    "surface-2": { "$value": "{palette.cream.25}" },
+    "surface-3": { "$value": "{palette.cream.100}" },
+    "line": { "$value": "{palette.cream.150}" },
+    "line-strong": { "$value": "{palette.cream.200}" },
+    "control-border": { "$value": "{palette.cream.400}" },
+    "ink": { "$value": "{palette.cream.875}", "$description": "Espresso" },
+    "ink-2": { "$value": "{palette.cream.600}" },
+    "ink-3": { "$value": "{palette.cream.500}" },
+    "primary": { "$value": "{palette.caramel.400}", "$description": "Apricot" },
+    "primary-hover": { "$value": "{palette.caramel.500}" },
+    "on-primary": {
+      "$value": "{palette.cream.875}",
+      "$description": "Apricot is too light for white text, so buttons use espresso"
+    },
+    "accent": {
+      "$value": "{palette.caramel.700}",
+      "$description": "Tan #b27b5b is 3.1:1 on cream, so links use a darker step"
+    },
+    "accent-soft": { "$value": "{palette.caramel.50}" },
+    "accent-line": { "$value": "{palette.caramel.200}" },
+    "focus": { "$value": "{palette.caramel.600}" },
+    "shadow": { "$value": "#3c2620" },
+    "overlay": { "$value": "#3c262080" },
+    "series-1": { "$value": "#b86a2e" },
+    "series-2": { "$value": "#0e9f8e" },
+    "series-3": { "$value": "#6a46d6" },
+    "series-4": { "$value": "#e0607e" },
+    "series-5": { "$value": "#3b8fe0" },
+    "series-other": { "$value": "#c9b39f" },
+    "chart-grid": { "$value": "#f3e6d3" },
+    "chart-axis": { "$value": "#e8cba6" }
+  }
+}

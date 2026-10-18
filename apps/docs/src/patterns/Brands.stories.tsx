@@ -99,6 +99,8 @@ export const Matrix: Story = {
       <Sample brand="violet" mode="dark" />
       <Sample brand="signal" mode="light" />
       <Sample brand="signal" mode="dark" />
+      <Sample brand="latte" mode="light" />
+      <Sample brand="latte" mode="dark" />
     </div>
   ),
 }

@@ -7,7 +7,7 @@
     "build": "storybook build -o storybook-static --quiet",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "test:themes": "for t in violet:light violet:dark signal:light signal:dark; do echo \"\u25b8 $t\"; VITE_RUPA_BRAND=${t%:*} VITE_RUPA_THEME=${t#*:} vitest run || exit 1; done"
+    "test:themes": "for t in violet:light violet:dark signal:light signal:dark latte:light latte:dark; do echo \"\u25b8 $t\"; VITE_RUPA_BRAND=${t%:*} VITE_RUPA_THEME=${t#*:} vitest run || exit 1; done"
   },
   "devDependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",

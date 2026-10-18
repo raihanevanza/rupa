@@ -1,6 +1,6 @@
 # @rupa-ui/tokens
 
-Design tokens for the [Rupa design system](https://github.com/raihanevanza/rupa): two brands (`violet`, `signal`) × light and dark modes, typography, spacing, radius, shadows, motion, and validated chart palettes.
+Design tokens for the [Rupa design system](https://github.com/raihanevanza/rupa): three brands (`violet`, `signal`, `latte`) × light and dark modes, typography, spacing, radius, shadows, motion, and validated chart palettes.
 
 ```sh
 npm install @rupa-ui/tokens

@@ -24,6 +24,7 @@ const preview: Preview = {
         items: [
           { value: 'violet', title: 'Violet (Mini ERP)' },
           { value: 'signal', title: 'Signal (AgentGate)' },
+          { value: 'latte', title: 'Latte (Dompet Rumah)' },
         ],
         dynamicTitle: true,
       },
