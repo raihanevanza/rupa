@@ -4,6 +4,8 @@ import { AlertCircleIcon } from '../../lib/icons.js'
 
 export interface FieldIds {
   id: string
+  /** Id of the label element, for controls that build their name with aria-labelledby. */
+  labelId: string
   describedBy: string | undefined
   invalid: boolean
 }
@@ -41,13 +43,18 @@ export function Field({
 }: FieldProps) {
   const auto = useId()
   const id = idProp ?? auto
+  const labelId = `${id}-label`
   const hintId = hint != null ? `${id}-hint` : undefined
   const errorId = error != null && error !== false ? `${id}-error` : undefined
   const describedBy = [errorId, hintId].filter(Boolean).join(' ') || undefined
 
   return (
     <div className={cx('rupa-field', className)} data-invalid={errorId ? true : undefined}>
-      <label htmlFor={id} className={cx('rupa-field__label', hideLabel && 'rupa-visually-hidden')}>
+      <label
+        id={labelId}
+        htmlFor={id}
+        className={cx('rupa-field__label', hideLabel && 'rupa-visually-hidden')}
+      >
         {label}
         {required && (
           <span className="rupa-field__required">
@@ -56,7 +63,7 @@ export function Field({
           </span>
         )}
       </label>
-      {children({ id, describedBy, invalid: !!errorId })}
+      {children({ id, labelId, describedBy, invalid: !!errorId })}
       {errorId && (
         <p id={errorId} className="rupa-field__error">
           <AlertCircleIcon />

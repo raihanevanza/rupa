@@ -114,6 +114,7 @@ function RequestScreen() {
 | InfoList      | `items`, `columns` (default 1 on mobile), `emptyValue`                                                                                              |
 | StatusFlow    | `steps`, `current`, `outcome`, `completed`, `stateLabels`, `orientation` (default `vertical` on mobile)                                             |
 | Segmented     | `options`, `value`, `onChange`, `label`, `size`, `block`                                                                                            |
+| MultiSelect   | `label`, `options`, `value`, `onChange`, `placeholder`, `searchable`, `hint`, `error`, `labels`. Opens a bottom sheet instead of a popup.           |
 | ConfirmDialog | `open`, `onOpenChange`, `title`, `description`, `tone`, `confirmLabel`, `cancelLabel`, `onConfirm`, `errorMessage`. No `trigger`: open it yourself. |
 | Alert         | `tone`, `title`, `action`, `live`                                                                                                                   |
 | StateView     | `state: loading \| empty \| error`, `title`, `description`, `icon`, `action`, `onRetry`, `retryLabel`, `compact`                                    |
@@ -124,8 +125,9 @@ Every component forwards `ref`, `style`, and `testID`. Every built-in label (Can
 ## Accessibility
 
 - 44 pt touch targets (small buttons reach it with `hitSlop`).
-- Roles and states for VoiceOver and TalkBack: `button` with busy/disabled, `radio` with checked, `header`, `alert`.
+- Roles and states for VoiceOver and TalkBack: `button` with busy/disabled/expanded, `radio` and `checkbox` with checked, `header`, `alert`.
 - ConfirmDialog moves screen reader focus to its title, ignores the Android back button and backdrop while the action runs, and runs `onConfirm` once even on a double tap.
+- MultiSelect options are checkboxes; the trigger speaks the label, the choice, and how many are chosen, screen reader focus moves to the sheet title and back, and the number of matches is announced after a search.
 - Errors (live Alert, error StateView) are announced on both platforms.
 - Status is never color alone: Badge has text, StatusFlow has a mark and a spoken state per step.
 - Text scales with the system font size.

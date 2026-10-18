@@ -16,6 +16,12 @@ export { IconButton, type IconButtonProps } from './components/IconButton/IconBu
 export { Input, NativeSelect, Textarea, type NativeSelectProps } from './components/Input/Input.js'
 export { InfoList, type InfoItem, type InfoListProps } from './components/InfoList/InfoList.js'
 export {
+  MultiSelect,
+  type MultiSelectLabels,
+  type MultiSelectOption,
+  type MultiSelectProps,
+} from './components/MultiSelect/MultiSelect.js'
+export {
   PageHeader,
   type BreadcrumbItem,
   type PageHeaderProps,

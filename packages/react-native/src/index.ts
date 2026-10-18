@@ -9,6 +9,12 @@ export {
 export { Card, type CardProps } from './components/Card/Card.js'
 export { ConfirmDialog, type ConfirmDialogProps } from './components/ConfirmDialog/ConfirmDialog.js'
 export { InfoList, type InfoItem, type InfoListProps } from './components/InfoList/InfoList.js'
+export {
+  MultiSelect,
+  type MultiSelectLabels,
+  type MultiSelectOption,
+  type MultiSelectProps,
+} from './components/MultiSelect/MultiSelect.js'
 export { PageHeader, type PageHeaderProps } from './components/PageHeader/PageHeader.js'
 export {
   Segmented,

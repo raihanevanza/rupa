@@ -28,6 +28,7 @@ Rupa targets **WCAG 2.2 AA**. What is automated, and what each component guarant
 | Switch                   | `role="switch"` with `aria-checked`; the visible label is clickable                                                                                                  |
 | Checkbox                 | Native input (Space, forms) with indeterminate support                                                                                                               |
 | TextField, Select, Field | `<label for>`, errors and hints via `aria-describedby`, `aria-invalid`                                                                                               |
+| MultiSelect              | Search box is a `combobox` driving a multi-select `listbox` via `aria-activedescendant`; arrows, Enter toggles, Esc returns focus; result count announced            |
 | Toast                    | Live regions created up front (errors assertive); never steals focus; pauses on hover/focus                                                                          |
 | Badge, Alert, StatusFlow | Meaning in text and icon shape, color only reinforces                                                                                                                |
 | Table                    | Real `<th scope>`, caption, focusable scroll region                                                                                                                  |
