@@ -1,6 +1,6 @@
 {
   "name": "@rupa-ui/react-native",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native components (Android and iOS) for the Rupa design system, themed by @rupa-ui/tokens.",
   "license": "MIT",
   "type": "module",
@@ -42,7 +42,7 @@
     "react-native": ">=0.76"
   },
   "dependencies": {
-    "@rupa-ui/tokens": "0.1.0"
+    "@rupa-ui/tokens": "0.2.0"
   },
   "publishConfig": {
     "access": "public",

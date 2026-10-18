@@ -1,5 +1,12 @@
 # @rupa-ui/react-native
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`154e46c`](https://github.com/raihanevanza/rupa/commit/154e46cb9e8dca7194adf9f25c981e36727ab912)]:
+  - @rupa-ui/tokens@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
