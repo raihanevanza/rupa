@@ -20,7 +20,7 @@ import { Button, ConfirmDialog, ToastProvider, useToast } from '@rupa-ui/react'
 
 Set the brand and mode on `<html data-brand="violet" data-theme="dark">`, or use `ThemeProvider` / `useTheme()`.
 
-**Components:** Alert, Avatar, Badge, Button, Card, Checkbox, ConfirmDialog, Dialog, Field, IconButton, InfoList, Input, NativeSelect, PageHeader, Pagination, Segmented, Select, Skeleton, Spinner, StateView, StatusFlow, Switch, Table, Tabs, Textarea, TextField, Toast, Tooltip.
+**Components:** Alert, Avatar, Badge, Button, Card, Checkbox, ConfirmDialog, Dialog, Field, IconButton, InfoList, Input, Meter, NativeSelect, PageHeader, Pagination, Segmented, Select, Skeleton, Spinner, StateView, StatusFlow, Switch, Table, Tabs, Textarea, TextField, Toast, Tooltip.
 
 - WCAG 2.2 AA: axe-clean in every theme, keyboard-tested, visible focus, 44 px touch targets.
 - Every built-in label can be replaced through props (for bilingual apps).

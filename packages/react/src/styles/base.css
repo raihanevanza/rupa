@@ -22,6 +22,48 @@
   outline-offset: var(--rupa-size-focus-offset);
 }
 
+/*
+ * Motion helpers for app code, on the motion tokens. Put one on an element when it appears:
+ * .rupa-enter for a new row or card, .rupa-pop for a status that just changed, .rupa-grow-x
+ * for a bar that fills. Like every rupa- class they finish at once with reduced motion.
+ */
+.rupa-enter {
+  animation: rupa-enter var(--rupa-motion-duration-base) var(--rupa-motion-easing-standard) both;
+}
+
+.rupa-pop {
+  animation: rupa-pop var(--rupa-motion-duration-base) var(--rupa-motion-easing-emphasized) both;
+}
+
+.rupa-grow-x {
+  transform-origin: left;
+  animation: rupa-grow-x var(--rupa-motion-duration-slow) var(--rupa-motion-easing-standard) both;
+}
+
+.rupa-grow-x:dir(rtl) {
+  transform-origin: right;
+}
+
+@keyframes rupa-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--rupa-space-1-5));
+  }
+}
+
+@keyframes rupa-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes rupa-grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [class^='rupa-'],
   [class*=' rupa-'],
