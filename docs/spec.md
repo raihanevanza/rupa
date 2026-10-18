@@ -233,6 +233,7 @@ Status ditulis di tag story (`tags: ['beta']`) dan ditampilkan sebagai badge di 
 | Table             | `columns`, `rows`, `caption`, `loading`, `empty`                                                                         |
 | StateView         | `state: loading \| empty \| error`, `onRetry` (loading/kosong/error yang konsisten, A4)                                  |
 | Spinner, Skeleton | `label` / `width`, `height`                                                                                              |
+| Meter             | `value`, `max`, `label`, `valueText`, `tone`, `animated` (`role="meter"`, tumbuh dari kosong saat muncul)                |
 | Avatar            | `name`, `src` (inisial bila tanpa gambar)                                                                                |
 
 ## B9. Requirement nonfungsional

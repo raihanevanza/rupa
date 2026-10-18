@@ -1,0 +1,53 @@
+.rupa-meter {
+  --_fill: var(--rupa-color-primary);
+  display: block;
+  width: 100%;
+  height: var(--rupa-space-2);
+  overflow: hidden;
+  border-radius: var(--rupa-radius-full);
+  background: var(--rupa-color-surface-3);
+}
+
+.rupa-meter[data-size='md'] {
+  height: var(--rupa-space-3);
+}
+
+.rupa-meter[data-tone='success'] {
+  --_fill: var(--rupa-color-success);
+}
+
+.rupa-meter[data-tone='warning'] {
+  --_fill: var(--rupa-color-warning);
+}
+
+.rupa-meter[data-tone='danger'] {
+  --_fill: var(--rupa-color-danger);
+}
+
+.rupa-meter__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--_fill);
+  transform-origin: left;
+  transition: width var(--rupa-motion-duration-slow) var(--rupa-motion-easing-standard);
+}
+
+.rupa-meter:dir(rtl) .rupa-meter__fill {
+  transform-origin: right;
+}
+
+/* Same keyframes as the .rupa-grow-x helper in base.css */
+.rupa-meter[data-animated] .rupa-meter__fill {
+  animation: rupa-grow-x var(--rupa-motion-duration-slow) var(--rupa-motion-easing-standard) both;
+}
+
+@media (forced-colors: active) {
+  .rupa-meter {
+    border: 1px solid CanvasText;
+  }
+
+  .rupa-meter__fill {
+    background: Highlight;
+  }
+}
