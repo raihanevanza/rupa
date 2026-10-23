@@ -1,5 +1,13 @@
 # @rupa-ui/tokens
 
+## 0.3.0
+
+### Minor Changes
+
+- [#15](https://github.com/raihanevanza/rupa/pull/15) [`f34bbcd`](https://github.com/raihanevanza/rupa/commit/f34bbcd07bdaf173fe4ae743e9feb275c36fe442) Thanks [@raihanevanza](https://github.com/raihanevanza)! - New brand `ledger` (ledger green on pale sage) for BukuBesar, in light and dark: `data-brand="ledger"` on the web, `palettes.ledger` and `<ThemeProvider brand="ledger">` in React Native. Passes the contrast and chart palette checks like the other brands.
+
+- [#15](https://github.com/raihanevanza/rupa/pull/15) [`f34bbcd`](https://github.com/raihanevanza/rupa/commit/f34bbcd07bdaf173fe4ae743e9feb275c36fe442) Thanks [@raihanevanza](https://github.com/raihanevanza)! - New brand `mono` (near-black on white, no tint) for the portfolio site, in light and dark: `data-brand="mono"` on the web, `palettes.mono` and `<ThemeProvider brand="mono">` in React Native. Passes the contrast and chart palette checks like the other brands.
+
 ## 0.2.2
 
 ### Patch Changes
