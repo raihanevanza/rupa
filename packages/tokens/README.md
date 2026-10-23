@@ -2,7 +2,7 @@
 
 [Storybook](https://raihan-evanza-rupa.vercel.app) · [GitHub](https://github.com/raihanevanza/rupa) · [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens) · [`@rupa-ui/react`](https://www.npmjs.com/package/@rupa-ui/react) · [`@rupa-ui/react-native`](https://www.npmjs.com/package/@rupa-ui/react-native)
 
-Design tokens for the [Rupa design system](https://github.com/raihanevanza/rupa): three brands (`violet`, `signal`, `latte`) × light and dark modes, typography, spacing, radius, shadows, motion, and validated chart palettes.
+Design tokens for the [Rupa design system](https://github.com/raihanevanza/rupa): five brands (`violet`, `signal`, `latte`, `ledger`, `mono`) × light and dark modes, typography, spacing, radius, shadows, motion, and validated chart palettes.
 
 ![The same components in every brand and mode: violet, signal, and latte, light and dark](https://raw.githubusercontent.com/raihanevanza/rupa/main/docs/screenshots/npm/tokens.png)
 

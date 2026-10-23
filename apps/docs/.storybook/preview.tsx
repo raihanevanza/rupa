@@ -38,6 +38,8 @@ const preview: Preview = {
           { value: 'violet', title: 'Violet (Mini ERP)' },
           { value: 'signal', title: 'Signal (AgentGate)' },
           { value: 'latte', title: 'Latte (Dompet Rumah)' },
+          { value: 'ledger', title: 'Ledger (BukuBesar)' },
+          { value: 'mono', title: 'Mono (Portfolio)' },
         ],
         dynamicTitle: true,
       },

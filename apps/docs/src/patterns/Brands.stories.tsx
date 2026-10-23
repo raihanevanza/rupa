@@ -101,6 +101,10 @@ export const Matrix: Story = {
       <Sample brand="signal" mode="dark" />
       <Sample brand="latte" mode="light" />
       <Sample brand="latte" mode="dark" />
+      <Sample brand="ledger" mode="light" />
+      <Sample brand="ledger" mode="dark" />
+      <Sample brand="mono" mode="light" />
+      <Sample brand="mono" mode="dark" />
     </div>
   ),
 }
