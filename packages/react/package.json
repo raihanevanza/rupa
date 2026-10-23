@@ -1,6 +1,6 @@
 {
   "name": "@rupa-ui/react",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Accessible React components for the Rupa design system, themed by @rupa-ui/tokens.",
   "license": "MIT",
   "homepage": "https://raihan-evanza-rupa.vercel.app/?path=/docs/components-button--docs",
@@ -51,7 +51,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.3.1",
     "@radix-ui/react-tooltip": "^1.4.1",
-    "@rupa-ui/tokens": "0.2.2"
+    "@rupa-ui/tokens": "0.3.0"
   },
   "publishConfig": {
     "access": "public",
