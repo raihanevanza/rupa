@@ -6,7 +6,7 @@
 
 [![npm @rupa-ui/react](https://img.shields.io/npm/v/@rupa-ui/react?label=%40rupa-ui%2Freact)](https://www.npmjs.com/package/@rupa-ui/react) [![npm @rupa-ui/tokens](https://img.shields.io/npm/v/@rupa-ui/tokens?label=%40rupa-ui%2Ftokens)](https://www.npmjs.com/package/@rupa-ui/tokens) [![CI](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml/badge.svg)](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml)
 
-_Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini ERP (violet brand), AgentGate (signal brand), Dompet Rumah (latte brand), and BukuBesar (ledger brand) share one set of tokens and components instead of copying them.
+_Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini ERP (violet brand), AgentGate (signal brand), Dompet Rumah (latte brand), BukuBesar (ledger brand), and this portfolio site (mono brand) share one set of tokens and components instead of copying them.
 
 ![Storybook: a request detail page built from Rupa components](docs/screenshots/storybook-light.png)
 
@@ -26,7 +26,7 @@ _Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini E
 - **Multi-brand, light and dark, nestable.** Every color is a `light-dark()` pair per brand. Set `data-brand` and `data-theme` on any element; nested scopes just work, with no selector combinations.
 - **29 accessible components.** Button, IconButton, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, Tabs, TextField, Select, MultiSelect, Input, Textarea, NativeSelect, Checkbox, Switch, Dialog, ConfirmDialog, Toast, Alert, Tooltip, Pagination, Table, StateView, Spinner, Skeleton, Meter, Avatar, plus `Field` and `ThemeProvider`, and motion helpers (`rupa-enter`, `rupa-pop`, `rupa-grow-x`) on the motion tokens.
 - **React Native for Android and iOS.** `@rupa-ui/react-native` has ThemeProvider, Button, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, MultiSelect, ConfirmDialog, Alert, StateView, and Spinner, built on the same palette and props as the web. No native modules, so it runs in Expo Go, and in [Storybook](https://raihan-evanza-rupa.vercel.app/?path=/story/react-native-overview--screen) through react-native-web, where the stories get the same axe, interaction, and screenshot tests as the web components. Also tested with Jest + React Native Testing Library and on an iPhone simulator and an Android emulator.
-- **Accessibility checked in CI.** Every story, web and React Native, runs axe in all eight themes (1480 runs). Keyboard behavior is tested with play functions. A script checks 376 contrast pairs per build, and the chart palette is validated for color-vision deficiency.
+- **Accessibility checked in CI.** Every story, web and React Native, runs axe in all ten themes (1850 runs). Keyboard behavior is tested with play functions. A script checks 470 contrast pairs per build, and the chart palette is validated for color-vision deficiency.
 - **Visual regression.** 326 screenshots (every story, light and dark) are compared on each pull request, rendered in the same Linux image locally and in CI.
 - **Release pipeline.** Changesets → Release PR → npm publish with provenance (trusted publishing, no stored token).
 
@@ -86,7 +86,7 @@ npm run dev            # build tokens, then Storybook on http://localhost:6006
 | --------------------------------------- | --------------------------------------------------------------------- |
 | `npm run build`                         | Build `@rupa-ui/tokens`, `@rupa-ui/react`, `@rupa-ui/react-native`    |
 | `npm test`                              | Token checks, every story (render, play, axe), React Native Jest      |
-| `npm run test:themes -w @rupa-ui/docs`  | The story tests in all eight brand × mode themes                      |
+| `npm run test:themes -w @rupa-ui/docs`  | The story tests in all ten brand × mode themes                        |
 | `npm run test:visual:docker`            | Compare screenshots with the baselines (Linux, in Docker)             |
 | `npm run test:visual:update`            | Re-create baselines after an intended visual change                   |
 | `npm run typecheck`, `npm run lint`     | TypeScript, ESLint (incl. jsx-a11y), and the "no raw CSS values" lint |
