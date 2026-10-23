@@ -1,0 +1,35 @@
+{
+  "color": {
+    "$type": "color",
+    "canvas": {
+      "$value": "{palette.sage.50}",
+      "$description": "Page background (pale ledger green)"
+    },
+    "surface": { "$value": "{palette.white}" },
+    "surface-2": { "$value": "{palette.sage.25}" },
+    "surface-3": { "$value": "{palette.sage.100}" },
+    "line": { "$value": "{palette.sage.150}" },
+    "line-strong": { "$value": "{palette.sage.200}" },
+    "control-border": { "$value": "{palette.sage.400}" },
+    "ink": { "$value": "{palette.sage.875}" },
+    "ink-2": { "$value": "{palette.sage.600}" },
+    "ink-3": { "$value": "{palette.sage.500}" },
+    "primary": { "$value": "{palette.pine.700}", "$description": "Ledger green" },
+    "primary-hover": { "$value": "{palette.pine.800}" },
+    "on-primary": { "$value": "{palette.white}" },
+    "accent": { "$value": "{palette.pine.700}" },
+    "accent-soft": { "$value": "{palette.pine.50}" },
+    "accent-line": { "$value": "{palette.pine.200}" },
+    "focus": { "$value": "{palette.pine.700}" },
+    "shadow": { "$value": "#143428" },
+    "overlay": { "$value": "#14342880" },
+    "series-1": { "$value": "#2a78d6" },
+    "series-2": { "$value": "#eb6834" },
+    "series-3": { "$value": "#18a673" },
+    "series-4": { "$value": "#6a46d6" },
+    "series-5": { "$value": "#e0607e" },
+    "series-other": { "$value": "#a8b1ac" },
+    "chart-grid": { "$value": "#e9eeeb" },
+    "chart-axis": { "$value": "{palette.sage.200}" }
+  }
+}
