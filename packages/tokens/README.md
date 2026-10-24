@@ -71,6 +71,15 @@ const styles = StyleSheet.create({
 })
 ```
 
+## Flutter
+
+The same build writes the [`rupa_tokens`](https://github.com/raihanevanza/rupa/tree/main/packages/flutter) Dart package (a Git dependency, not on npm):
+
+```dart
+final c = RupaColors.of(RupaBrand.iris, RupaMode.dark);
+Container(color: c.surface, padding: const EdgeInsets.all(RupaSpace.s4));
+```
+
 ## Guarantees
 
 Checked on every build: text pairs ≥ 4.5:1, UI pairs ≥ 3:1 in every brand and mode; chart series pass lightness, chroma, color-vision-deficiency separation, and 3:1 against the surface.

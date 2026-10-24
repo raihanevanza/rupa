@@ -45,6 +45,32 @@ jobs:
             npx changeset status --since=origin/${{ github.base_ref }}
           fi
 
+  flutter:
+    name: Flutter tokens
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/flutter
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+        working-directory: .
+      - run: npm run build -w @rupa-ui/tokens
+        working-directory: .
+      - name: Generated Dart is committed and current
+        run: git diff --exit-code -- lib/src/tokens.g.dart
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
   visual:
     name: Visual regression
     runs-on: ubuntu-latest

@@ -33,6 +33,9 @@ Dark mode keeps working with the existing `.dark` class.
 Replace the copied `colors.ts` palette with `palettes[brand][mode]` from `@rupa-ui/tokens/react-native`.
 Key names match (`surface2`, `ink2`, `onPrimary`, `series`), and `font(weight)` is the same helper.
 
+Flutter apps (Patungan) replace their copied `Palette` with `RupaColors.of(brand, mode)` from the
+`rupa_tokens` package in `packages/flutter`, registered as a `ThemeExtension` and read with `context.rupa`.
+
 ## Fixes that come for free
 
 The token checks found two issues in the copied palettes, fixed in Rupa:
