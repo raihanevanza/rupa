@@ -66,7 +66,7 @@
         "react",
         "react-dom"
       ],
-      "limit": "32 kB"
+      "limit": "34 kB"
     },
     {
       "name": "all components, Rupa code only",
@@ -78,7 +78,7 @@
         "@radix-ui/react-dialog",
         "@radix-ui/react-tooltip"
       ],
-      "limit": "10 kB"
+      "limit": "12 kB"
     },
     {
       "name": "Button only",

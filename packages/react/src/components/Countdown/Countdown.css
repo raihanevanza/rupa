@@ -1,0 +1,46 @@
+.rupa-countdown {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--rupa-space-1-5);
+  color: var(--rupa-color-ink);
+}
+
+.rupa-countdown__unit {
+  display: inline-grid;
+  justify-items: center;
+  min-width: var(--rupa-size-control-lg);
+  padding: var(--rupa-space-1) var(--rupa-space-1-5);
+  border: 1px solid var(--rupa-color-line);
+  border-radius: var(--rupa-radius-lg);
+  background: var(--rupa-color-surface);
+  box-shadow: var(--rupa-shadow-card);
+}
+
+.rupa-countdown__value {
+  font-size: var(--rupa-font-size-xl);
+  font-weight: var(--rupa-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--rupa-font-line-height-tight);
+}
+
+.rupa-countdown__label {
+  color: var(--rupa-color-ink-3);
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.rupa-countdown__done {
+  font-size: var(--rupa-font-size-xl);
+  font-weight: var(--rupa-font-weight-bold);
+}
+
+.rupa-countdown[data-size='sm'] .rupa-countdown__unit {
+  min-width: var(--rupa-size-control-md);
+  padding: var(--rupa-space-0-5) var(--rupa-space-1);
+}
+
+.rupa-countdown[data-size='sm'] :is(.rupa-countdown__value, .rupa-countdown__done) {
+  font-size: var(--rupa-font-size-md);
+}

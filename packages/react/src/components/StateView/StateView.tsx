@@ -13,6 +13,11 @@ export interface StateViewProps extends Omit<HTMLAttributes<HTMLDivElement>, 'ti
   description?: ReactNode
   /** Custom icon for the empty state. */
   icon?: ReactNode
+  /**
+   * A larger picture in place of the icon circle, e.g. an animated mascot. Decorative.
+   * Takes its own size; the loading spinner and error icon give way to it too.
+   */
+  illustration?: ReactNode
   /** Extra action, e.g. "Create request" for an empty list. */
   action?: ReactNode
   /** Shows a retry button in the error state. */
@@ -35,6 +40,7 @@ export const StateView = forwardRef<HTMLDivElement, StateViewProps>(function Sta
     title,
     description,
     icon,
+    illustration,
     action,
     onRetry,
     retryLabel = 'Try again',
@@ -56,11 +62,17 @@ export const StateView = forwardRef<HTMLDivElement, StateViewProps>(function Sta
       role={state === 'loading' ? 'status' : state === 'error' ? 'alert' : undefined}
       {...props}
     >
-      <span className="rupa-state-view__icon">
-        {state === 'loading' && <Spinner label={null} size="lg" />}
-        {state === 'empty' && (icon ?? <InboxIcon />)}
-        {state === 'error' && <AlertCircleIcon />}
-      </span>
+      {illustration != null ? (
+        <span className="rupa-state-view__illustration" aria-hidden="true">
+          {illustration}
+        </span>
+      ) : (
+        <span className="rupa-state-view__icon">
+          {state === 'loading' && <Spinner label={null} size="lg" />}
+          {state === 'empty' && (icon ?? <InboxIcon />)}
+          {state === 'error' && <AlertCircleIcon />}
+        </span>
+      )}
       <p className="rupa-state-view__title">{title ?? text.title}</p>
       {desc != null && <p className="rupa-state-view__description">{desc}</p>}
       {(action != null || (state === 'error' && onRetry)) && (

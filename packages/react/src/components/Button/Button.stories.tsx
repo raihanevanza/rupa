@@ -122,3 +122,24 @@ export const KeyboardActivation: Story = {
     await expect(args.onClick).toHaveBeenCalledTimes(2)
   },
 }
+
+/** `asChild` puts the button look on a link (or a router's Link) instead of a <button>. */
+export const AsLink: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+      <Button {...args} asChild variant="primary" iconStart={<PlusIcon />}>
+        <a href="#new">New request</a>
+      </Button>
+      <Button {...args} asChild>
+        <a href="#all">See all requests</a>
+      </Button>
+    </div>
+  ),
+  play: async ({ canvas }) => {
+    const link = canvas.getByRole('link', { name: 'New request' })
+    await expect(link).toHaveAttribute('data-variant', 'primary')
+    await expect(link).toHaveClass('rupa-button')
+    await userEvent.tab()
+    await expect(link).toHaveFocus()
+  },
+}

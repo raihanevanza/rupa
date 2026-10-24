@@ -38,6 +38,11 @@ export const MinusIcon = (p: P) => (
     <path d="M5 12h14" />
   </Icon>
 )
+export const PlusIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M5 12h14M12 5v14" />
+  </Icon>
+)
 export const ChevronLeftIcon = (p: P) => (
   <Icon {...p}>
     <path d="m15 18-6-6 6-6" />

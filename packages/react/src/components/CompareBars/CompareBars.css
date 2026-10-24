@@ -1,0 +1,91 @@
+.rupa-compare-bars {
+  display: grid;
+  gap: var(--rupa-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--rupa-color-ink);
+  font-size: var(--rupa-font-size-sm);
+}
+
+.rupa-compare-bars__row {
+  display: grid;
+  gap: var(--rupa-space-1);
+}
+
+/* Shown as value A · label · value B, read as label, then each value with its name. */
+.rupa-compare-bars__text {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
+  gap: var(--rupa-space-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.rupa-compare-bars__label {
+  grid-row: 1;
+  grid-column: 2;
+  color: var(--rupa-color-ink-2);
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-semibold);
+  text-align: center;
+}
+
+.rupa-compare-bars__value {
+  grid-row: 1;
+  grid-column: 1;
+  color: var(--rupa-color-ink-2);
+  font-weight: var(--rupa-font-weight-medium);
+}
+
+.rupa-compare-bars__value[data-side='1'] {
+  grid-column: 3;
+  text-align: end;
+}
+
+.rupa-compare-bars__value[data-lead] {
+  color: var(--rupa-color-ink);
+  font-weight: var(--rupa-font-weight-bold);
+}
+
+.rupa-compare-bars__bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--rupa-space-0-5);
+}
+
+.rupa-compare-bars__track {
+  display: flex;
+  height: var(--rupa-space-2);
+}
+
+.rupa-compare-bars__track[data-side='0'] {
+  justify-content: flex-end;
+}
+
+.rupa-compare-bars__fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--rupa-radius-sm) 0 0 var(--rupa-radius-sm);
+  background: var(--rupa-color-series-1);
+  transition: width var(--rupa-motion-duration-slow) var(--rupa-motion-easing-standard);
+}
+
+.rupa-compare-bars__track[data-side='1'] .rupa-compare-bars__fill {
+  border-radius: 0 var(--rupa-radius-sm) var(--rupa-radius-sm) 0;
+  background: var(--rupa-color-series-2);
+}
+
+.rupa-compare-bars__fill[data-dim] {
+  opacity: 0.45;
+}
+
+@media (forced-colors: active) {
+  .rupa-compare-bars__fill {
+    background: CanvasText;
+  }
+
+  .rupa-compare-bars__track[data-side='1'] .rupa-compare-bars__fill {
+    background: Highlight;
+  }
+}

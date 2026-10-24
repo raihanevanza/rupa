@@ -1,0 +1,191 @@
+.rupa-chart {
+  display: grid;
+  gap: var(--rupa-space-3);
+  min-width: 0;
+  margin: 0;
+  padding: var(--rupa-space-4) var(--rupa-space-3);
+  border: 1px solid var(--rupa-color-line);
+  border-radius: var(--rupa-radius-xl);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+  box-shadow: var(--rupa-shadow-card);
+}
+
+@media (min-width: 40rem) {
+  .rupa-chart {
+    padding-inline: var(--rupa-space-5);
+  }
+}
+
+.rupa-chart__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rupa-space-2) var(--rupa-space-4);
+}
+
+.rupa-chart__heading {
+  display: grid;
+  gap: var(--rupa-space-0-5);
+  min-width: 0;
+}
+
+.rupa-chart__title {
+  font-size: var(--rupa-font-size-md);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-chart__description {
+  color: var(--rupa-color-ink-2);
+  font-size: var(--rupa-font-size-sm);
+  font-weight: var(--rupa-font-weight-medium);
+}
+
+.rupa-chart__actions {
+  display: flex;
+  flex: none;
+  gap: var(--rupa-space-2);
+}
+
+.rupa-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rupa-space-1) var(--rupa-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-chart__legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--rupa-space-1-5);
+}
+
+.rupa-chart__swatch {
+  display: block;
+  flex: none;
+  width: var(--rupa-space-3);
+  height: 2px;
+  border-radius: var(--rupa-radius-full);
+}
+
+.rupa-chart__swatch[data-shape='square'] {
+  width: var(--rupa-space-2);
+  height: var(--rupa-space-2);
+  border-radius: var(--rupa-radius-sm);
+}
+
+.rupa-chart__plot {
+  position: relative;
+  container-type: inline-size;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.rupa-chart__plot svg {
+  display: block;
+}
+
+.rupa-chart__note {
+  margin: 0;
+  color: var(--rupa-color-ink-2);
+  font-size: var(--rupa-font-size-xs);
+}
+
+.rupa-chart__table {
+  font-size: var(--rupa-font-size-xs);
+}
+
+.rupa-chart__table summary {
+  width: fit-content;
+  border-radius: var(--rupa-radius-sm);
+  color: var(--rupa-color-ink-2);
+  font-weight: var(--rupa-font-weight-semibold);
+  cursor: pointer;
+}
+
+.rupa-chart__table-scroll {
+  margin-top: var(--rupa-space-2);
+  overflow-x: auto;
+}
+
+.rupa-chart__table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  text-align: start;
+}
+
+.rupa-chart__table :is(th, td) {
+  padding: var(--rupa-space-1) var(--rupa-space-2);
+  text-align: start;
+  white-space: nowrap;
+}
+
+.rupa-chart__table thead th {
+  color: var(--rupa-color-ink-2);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-chart__table tbody tr + tr {
+  border-top: 1px solid var(--rupa-color-line);
+}
+
+.rupa-chart__tooltip {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  gap: var(--rupa-space-1);
+  padding: var(--rupa-space-2) var(--rupa-space-3);
+  border: 1px solid var(--rupa-color-line-strong);
+  border-radius: var(--rupa-radius-lg);
+  background: var(--rupa-color-surface);
+  box-shadow: var(--rupa-shadow-pop);
+  font-size: var(--rupa-font-size-xs);
+  pointer-events: none;
+}
+
+.rupa-chart__tooltip p {
+  margin: 0;
+}
+
+.rupa-chart__tooltip-title {
+  color: var(--rupa-color-ink-2);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-chart__tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--rupa-space-2);
+}
+
+.rupa-chart__tooltip-value {
+  font-size: var(--rupa-font-size-sm);
+  font-weight: var(--rupa-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.rupa-chart__tooltip-label {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  font-weight: var(--rupa-font-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rupa-chart__tooltip-meta {
+  color: var(--rupa-color-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (forced-colors: active) {
+  .rupa-chart__swatch {
+    forced-color-adjust: none;
+  }
+}

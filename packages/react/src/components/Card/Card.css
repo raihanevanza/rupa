@@ -57,3 +57,23 @@
   flex: none;
   gap: var(--rupa-space-2);
 }
+
+/* A card that is a link or button (asChild): lifts on hover, no underline. */
+.rupa-card:is(a[href], button) {
+  text-decoration: none;
+  transition:
+    border-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    box-shadow var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    transform var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard);
+}
+
+.rupa-card:is(a[href], button):hover {
+  border-color: var(--rupa-color-line-strong);
+  box-shadow: var(--rupa-shadow-pop);
+  transform: translateY(calc(-1 * var(--rupa-space-0-5)));
+}
+
+.rupa-card:is(a[href], button):focus-visible {
+  outline: var(--rupa-size-focus-ring) solid var(--rupa-color-focus);
+  outline-offset: var(--rupa-size-focus-offset);
+}

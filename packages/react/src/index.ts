@@ -8,8 +8,35 @@ export {
   type ButtonVariant,
 } from './components/Button/Button.js'
 export { Card, type CardProps } from './components/Card/Card.js'
+export {
+  ChartFrame,
+  ChartPlot,
+  ChartTooltip,
+  type ChartFrameProps,
+  type ChartLegendItem,
+  type ChartPlotProps,
+  type ChartTooltipItem,
+  type ChartTooltipProps,
+} from './components/Chart/Chart.js'
 export { Checkbox, type CheckboxProps } from './components/Checkbox/Checkbox.js'
+export {
+  Chip,
+  ChipGroup,
+  type ChipGroupProps,
+  type ChipOption,
+  type ChipProps,
+} from './components/Chip/Chip.js'
+export {
+  CompareBars,
+  type CompareBarsProps,
+  type CompareRow,
+} from './components/CompareBars/CompareBars.js'
 export { ConfirmDialog, type ConfirmDialogProps } from './components/ConfirmDialog/ConfirmDialog.js'
+export {
+  Countdown,
+  type CountdownLabels,
+  type CountdownProps,
+} from './components/Countdown/Countdown.js'
 export { Dialog, DialogClose, type DialogProps } from './components/Dialog/Dialog.js'
 export { Field, type FieldIds, type FieldProps } from './components/Field/Field.js'
 export { IconButton, type IconButtonProps } from './components/IconButton/IconButton.js'
@@ -21,6 +48,7 @@ export {
   type MultiSelectOption,
   type MultiSelectProps,
 } from './components/MultiSelect/MultiSelect.js'
+export { NumberStepper, type NumberStepperProps } from './components/NumberStepper/NumberStepper.js'
 export {
   PageHeader,
   type BreadcrumbItem,
@@ -37,10 +65,15 @@ export {
   type SegmentedOption,
   type SegmentedProps,
 } from './components/Segmented/Segmented.js'
+export {
+  SectionHeading,
+  type SectionHeadingProps,
+} from './components/SectionHeading/SectionHeading.js'
 export { Select, type SelectOption, type SelectProps } from './components/Select/Select.js'
 export { Skeleton, type SkeletonProps } from './components/Skeleton/Skeleton.js'
 export { Meter, type MeterProps, type MeterTone } from './components/Meter/Meter.js'
 export { Spinner, type SpinnerProps } from './components/Spinner/Spinner.js'
+export { Stat, type StatProps, type StatTone } from './components/Stat/Stat.js'
 export { StateView, type StateViewProps, type ViewState } from './components/StateView/StateView.js'
 export {
   StatusFlow,
@@ -59,6 +92,7 @@ export {
   type ToastProviderProps,
 } from './components/Toast/Toast.js'
 export { Tooltip, type TooltipProps } from './components/Tooltip/Tooltip.js'
+export { useElementWidth } from './lib/useElementWidth.js'
 export {
   ThemeProvider,
   useTheme,
