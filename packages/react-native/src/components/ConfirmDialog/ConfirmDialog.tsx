@@ -1,6 +1,7 @@
 import { useRef, useState, type ReactNode } from 'react'
 import {
   AccessibilityInfo,
+  KeyboardAvoidingView,
   Modal,
   Platform,
   Pressable,
@@ -27,6 +28,11 @@ export interface ConfirmDialogProps {
   confirmLabel?: ReactNode
   cancelLabel?: ReactNode
   /**
+   * Keeps the confirm button disabled, e.g. until a required note in `children` is valid.
+   * Say why next to the field (hint or error), not only through the disabled button.
+   */
+  confirmDisabled?: boolean
+  /**
    * Runs the action. While the promise is pending the buttons are locked and the dialog
    * cannot be dismissed (backdrop, Android back), so a double tap cannot submit twice.
    * Resolve to close; throw to keep the dialog open and show the error.
@@ -52,6 +58,7 @@ export function ConfirmDialog({
   tone = 'primary',
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
+  confirmDisabled,
   onConfirm,
   errorMessage = 'The action could not be completed. Please try again.',
   errorTitle = 'Something went wrong',
@@ -109,7 +116,11 @@ export function ConfirmDialog({
       onShow={focusTitle}
       testID={testID}
     >
-      <View style={styles.center}>
+      {/* Fields in `children` (a note) stay above the keyboard, and so do the buttons. */}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={styles.center}
+      >
         <Pressable
           style={[StyleSheet.absoluteFill, { backgroundColor: p.overlay }]}
           onPress={() => changeOpen(false)}
@@ -124,7 +135,12 @@ export function ConfirmDialog({
             { backgroundColor: p.surface, borderColor: p.line, boxShadow: shadows.pop },
           ]}
         >
-          <ScrollView contentContainerStyle={styles.content} bounces={false}>
+          <ScrollView
+            contentContainerStyle={styles.content}
+            bounces={false}
+            // Confirm and Cancel work on the first tap while the keyboard is up.
+            keyboardShouldPersistTaps="handled"
+          >
             <View ref={titleRef} accessible role="heading">
               <TextOrNode style={[styles.title, { color: p.ink }, font('semibold')]}>
                 {title}
@@ -156,13 +172,14 @@ export function ConfirmDialog({
               style={styles.footerButton}
               variant={tone}
               loading={pending}
+              disabled={confirmDisabled}
               onPress={confirm}
             >
               {confirmLabel}
             </Button>
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   )
 }

@@ -7,6 +7,11 @@ export {
   type ButtonVariant,
 } from './components/Button/Button.js'
 export { Card, type CardProps } from './components/Card/Card.js'
+export {
+  ChipGroup,
+  type ChipGroupProps,
+  type ChipOption,
+} from './components/ChipGroup/ChipGroup.js'
 export { ConfirmDialog, type ConfirmDialogProps } from './components/ConfirmDialog/ConfirmDialog.js'
 export { InfoList, type InfoItem, type InfoListProps } from './components/InfoList/InfoList.js'
 export {
@@ -29,6 +34,11 @@ export {
   type StatusStep,
   type StepState,
 } from './components/StatusFlow/StatusFlow.js'
+export {
+  TextField,
+  type TextFieldProps,
+  type TextFieldRef,
+} from './components/TextField/TextField.js'
 export type { IconSlot } from './lib/content.js'
 export {
   ThemeProvider,

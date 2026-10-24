@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { useState } from 'react'
 import { expect, fn, screen, userEvent, waitFor } from 'storybook/test'
 import { Button } from '../Button/Button.js'
+import { Field } from '../Field/Field.js'
+import { Textarea } from '../Input/Input.js'
 import { ConfirmDialog } from './ConfirmDialog.js'
 
 const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
@@ -70,5 +73,36 @@ export const Failure: Story = {
     await userEvent.click(confirm)
     await expect(await screen.findByRole('alert')).toHaveTextContent('already approved')
     await expect(screen.getByRole('alertdialog')).toBeInTheDocument()
+  },
+}
+
+/** `confirmDisabled` holds Reject until the required note is long enough. */
+export const RequiredNote: Story = {
+  tags: ['!visual', '!autodocs'],
+  render: function Render(args) {
+    const [note, setNote] = useState('')
+    return (
+      <ConfirmDialog {...args} confirmDisabled={note.trim().length < 3}>
+        <Field label="Note" required hint="At least 3 characters.">
+          {({ id, describedBy }) => (
+            <Textarea
+              id={id}
+              aria-describedby={describedBy}
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+            />
+          )}
+        </Field>
+      </ConfirmDialog>
+    )
+  },
+  play: async ({ args, canvas }) => {
+    await userEvent.click(canvas.getByRole('button', { name: 'Reject' }))
+    const confirm = (await screen.findAllByRole('button', { name: 'Reject' })).at(-1)!
+    await expect(confirm).toBeDisabled()
+    await userEvent.type(screen.getByRole('textbox', { name: /Note/ }), 'Duplicate')
+    await expect(confirm).toBeEnabled()
+    await userEvent.click(confirm)
+    await waitFor(() => expect(args.onConfirm).toHaveBeenCalledTimes(1))
   },
 }

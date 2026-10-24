@@ -17,6 +17,11 @@ export interface ConfirmDialogProps {
   confirmLabel?: ReactNode
   cancelLabel?: ReactNode
   /**
+   * Keeps the confirm button disabled, e.g. until a required note in `children` is valid.
+   * Say why next to the field (hint or error), not only through the disabled button.
+   */
+  confirmDisabled?: boolean
+  /**
    * Runs the action. While the promise is pending the buttons are locked and the dialog
    * cannot be dismissed, so a double tap cannot submit twice. Resolve to close; throw to
    * keep the dialog open and show the error.
@@ -38,6 +43,7 @@ export function ConfirmDialog({
   tone = 'primary',
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
+  confirmDisabled,
   onConfirm,
   errorMessage = 'The action could not be completed. Please try again.',
   errorTitle = 'Something went wrong',
@@ -96,7 +102,7 @@ export function ConfirmDialog({
           <Button ref={cancelRef} onClick={() => changeOpen(false)} disabled={pending}>
             {cancelLabel}
           </Button>
-          <Button variant={tone} loading={pending} onClick={confirm}>
+          <Button variant={tone} loading={pending} disabled={confirmDisabled} onClick={confirm}>
             {confirmLabel}
           </Button>
         </>
