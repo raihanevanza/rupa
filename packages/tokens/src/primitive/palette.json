@@ -476,6 +476,99 @@
       "975": {
         "$value": "#0a0a0a"
       }
+    },
+    "sherbet": {
+      "$description": "Warm cream with a peach tint (Bola Live).",
+      "50": {
+        "$value": "#fff8ec"
+      },
+      "100": {
+        "$value": "#fff2dd"
+      },
+      "150": {
+        "$value": "#ffe9c7"
+      },
+      "200": {
+        "$value": "#f2e0c4"
+      },
+      "250": {
+        "$value": "#e8cfa8"
+      }
+    },
+    "plum": {
+      "$description": "Deep purple neutral: ink in light mode, surfaces in dark mode (Bola Live).",
+      "25": {
+        "$value": "#f6f1ff"
+      },
+      "200": {
+        "$value": "#c3b9e3"
+      },
+      "300": {
+        "$value": "#a99ed0"
+      },
+      "400": {
+        "$value": "#968aaf"
+      },
+      "450": {
+        "$value": "#8075ab"
+      },
+      "500": {
+        "$value": "#6e6289"
+      },
+      "600": {
+        "$value": "#5f5379"
+      },
+      "700": {
+        "$value": "#4a3e7d"
+      },
+      "750": {
+        "$value": "#3a2f66"
+      },
+      "800": {
+        "$value": "#33295f"
+      },
+      "850": {
+        "$value": "#2a2150"
+      },
+      "900": {
+        "$value": "#2a1f45"
+      },
+      "950": {
+        "$value": "#211a3d"
+      },
+      "975": {
+        "$value": "#150f29"
+      }
+    },
+    "candy": {
+      "$description": "Candy pink (Bola Live).",
+      "50": {
+        "$value": "#ffe4ef"
+      },
+      "200": {
+        "$value": "#ffb8d4"
+      },
+      "300": {
+        "$value": "#ff8fbb"
+      },
+      "400": {
+        "$value": "#ff6fa8"
+      },
+      "600": {
+        "$value": "#e0186f"
+      },
+      "700": {
+        "$value": "#c8105f"
+      },
+      "850": {
+        "$value": "#5c1f47"
+      },
+      "900": {
+        "$value": "#3d1430"
+      },
+      "975": {
+        "$value": "#2a0716"
+      }
     }
   }
 }
