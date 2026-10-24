@@ -1,5 +1,5 @@
 import { act, fireEvent, screen, userEvent } from '@testing-library/react-native'
-import { AccessibilityInfo } from 'react-native'
+import { AccessibilityInfo, TextInput } from 'react-native'
 import { renderWithTheme } from '../../test-utils.js'
 import { ConfirmDialog } from './ConfirmDialog.js'
 
@@ -97,4 +97,39 @@ test('labels can be replaced for other languages', async () => {
   await userEvent.press(screen.getByRole('button', { name: 'Hapus' }))
   expect(screen.getByText('Gagal')).toBeOnTheScreen()
   expect(screen.getByRole('button', { name: 'Batal' })).toBeOnTheScreen()
+})
+
+test('confirmDisabled keeps the action from running until the content is valid', async () => {
+  const onConfirm = jest.fn()
+  const { rerender } = await renderWithTheme(
+    <ConfirmDialog
+      defaultOpen
+      title="Reject?"
+      confirmLabel="Reject"
+      confirmDisabled
+      onConfirm={onConfirm}
+    />,
+  )
+  const reject = screen.getByRole('button', { name: 'Reject' })
+  expect(reject).toBeDisabled()
+  await userEvent.press(reject)
+  expect(onConfirm).not.toHaveBeenCalled()
+
+  await rerender(
+    <ConfirmDialog defaultOpen title="Reject?" confirmLabel="Reject" onConfirm={onConfirm} />,
+  )
+  await userEvent.press(screen.getByRole('button', { name: 'Reject' }))
+  expect(onConfirm).toHaveBeenCalledTimes(1)
+})
+
+test('a field inside keeps Confirm reachable while the keyboard is up', async () => {
+  await renderWithTheme(
+    <ConfirmDialog defaultOpen title="Reject?" onConfirm={() => {}}>
+      <TextInput aria-label="Note" />
+    </ConfirmDialog>,
+  )
+  // The scroll view around the content lets the first tap through instead of closing the keyboard.
+  let node = screen.getByLabelText('Note').parent
+  while (node && node.props.keyboardShouldPersistTaps === undefined) node = node.parent
+  expect(node?.props.keyboardShouldPersistTaps).toBe('handled')
 })

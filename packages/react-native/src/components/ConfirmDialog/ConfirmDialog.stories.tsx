@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 import { expect, fn, screen, userEvent, waitFor } from 'storybook/test'
 import { Button } from '../Button/Button.js'
+import { TextField } from '../TextField/TextField.js'
 import { ConfirmDialog } from './ConfirmDialog.js'
 
 const meta = {
@@ -59,5 +60,49 @@ export const DoubleTapLock: Story = {
     await userEvent.click(approve)
     await expect(args.onConfirm).toHaveBeenCalledTimes(1)
     await waitFor(() => expect(dialog.queryByRole('button', { name: 'Approve' })).toBeNull())
+  },
+}
+
+/**
+ * A required note: `confirmDisabled` holds Reject until it is long enough. On a phone the
+ * dialog moves above the keyboard, and Reject works on the first tap while it is up.
+ */
+export const RequiredNote: Story = {
+  args: { tone: 'danger', title: 'Reject this refund?', confirmLabel: 'Reject' },
+  tags: ['!visual'],
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+    const [note, setNote] = useState('')
+    return (
+      <div style={{ padding: 24, minHeight: 420 }}>
+        <Button variant="primary" onPress={() => setOpen(true)}>
+          Open dialog
+        </Button>
+        <ConfirmDialog
+          {...args}
+          open={open}
+          onOpenChange={setOpen}
+          confirmDisabled={note.trim().length < 3}
+        >
+          <TextField
+            label="Note"
+            required
+            hint="At least 3 characters."
+            multiline
+            value={note}
+            onChangeText={setNote}
+          />
+        </ConfirmDialog>
+      </div>
+    )
+  },
+  play: async ({ args, canvas }) => {
+    await userEvent.click(canvas.getByRole('button', { name: 'Open dialog' }))
+    const reject = await screen.findByRole('button', { name: 'Reject' })
+    await expect(reject).toHaveAttribute('aria-disabled', 'true')
+    await userEvent.type(screen.getByLabelText('Note, required'), 'Duplicate')
+    await expect(reject).not.toHaveAttribute('aria-disabled', 'true')
+    await userEvent.click(reject)
+    await waitFor(() => expect(args.onConfirm).toHaveBeenCalledTimes(1))
   },
 }
