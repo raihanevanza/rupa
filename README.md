@@ -6,7 +6,7 @@
 
 [![npm @rupa-ui/react](https://img.shields.io/npm/v/@rupa-ui/react?label=%40rupa-ui%2Freact)](https://www.npmjs.com/package/@rupa-ui/react) [![npm @rupa-ui/tokens](https://img.shields.io/npm/v/@rupa-ui/tokens?label=%40rupa-ui%2Ftokens)](https://www.npmjs.com/package/@rupa-ui/tokens) [![CI](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml/badge.svg)](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml)
 
-_Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini ERP (violet brand), AgentGate (signal brand), Dompet Rumah (latte brand), BukuBesar (ledger brand), and this portfolio site (mono brand) share one set of tokens and components instead of copying them.
+_Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini ERP (violet brand), AgentGate (signal brand), Dompet Rumah (latte brand), BukuBesar (ledger brand), Patungan (iris brand), and this portfolio site (mono brand) share one set of tokens and components instead of copying them.
 
 ![Storybook: a request detail page built from Rupa components](docs/screenshots/storybook-light.png)
 

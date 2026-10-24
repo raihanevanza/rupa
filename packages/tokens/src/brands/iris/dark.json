@@ -1,0 +1,32 @@
+{
+  "color": {
+    "$type": "color",
+    "canvas": { "$value": "{palette.dusk.950}" },
+    "surface": { "$value": "{palette.dusk.900}" },
+    "surface-2": { "$value": "{palette.dusk.850}" },
+    "surface-3": { "$value": "{palette.dusk.800}" },
+    "line": { "$value": "{palette.dusk.750}" },
+    "line-strong": { "$value": "{palette.dusk.700}" },
+    "control-border": { "$value": "{palette.dusk.550}" },
+    "ink": { "$value": "{palette.dusk.75}" },
+    "ink-2": { "$value": "{palette.dusk.300}" },
+    "ink-3": { "$value": "{palette.dusk.450}" },
+    "primary": { "$value": "{palette.iris.500}" },
+    "primary-hover": { "$value": "{palette.iris.600}" },
+    "on-primary": { "$value": "{palette.white}" },
+    "accent": { "$value": "{palette.iris.300}" },
+    "accent-soft": { "$value": "{palette.iris.950}" },
+    "accent-line": { "$value": "{palette.iris.850}" },
+    "focus": { "$value": "{palette.iris.300}" },
+    "shadow": { "$value": "{palette.black}" },
+    "overlay": { "$value": "#000000a3" },
+    "series-1": { "$value": "#8468e8" },
+    "series-2": { "$value": "#149c8b" },
+    "series-3": { "$value": "#b67e00" },
+    "series-4": { "$value": "#d9577a" },
+    "series-5": { "$value": "#3a86d8" },
+    "series-other": { "$value": "#5c5775" },
+    "chart-grid": { "$value": "{palette.dusk.800}" },
+    "chart-axis": { "$value": "{palette.dusk.700}" }
+  }
+}

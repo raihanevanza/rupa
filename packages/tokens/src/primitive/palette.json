@@ -476,6 +476,94 @@
       "975": {
         "$value": "#0a0a0a"
       }
+    },
+    "dusk": {
+      "$description": "Violet-tinted neutral of the iris brand (Patungan, from #f7f6fb and #1a1630)",
+      "25": {
+        "$value": "#faf9fd"
+      },
+      "50": {
+        "$value": "#f7f6fb"
+      },
+      "75": {
+        "$value": "#f2f0fc"
+      },
+      "100": {
+        "$value": "#f2f0fa"
+      },
+      "150": {
+        "$value": "#ece9f5"
+      },
+      "200": {
+        "$value": "#dad5eb"
+      },
+      "300": {
+        "$value": "#beb9d6"
+      },
+      "400": {
+        "$value": "#8a84a6"
+      },
+      "450": {
+        "$value": "#928cb0"
+      },
+      "500": {
+        "$value": "#6c6688"
+      },
+      "550": {
+        "$value": "#6e6890"
+      },
+      "600": {
+        "$value": "#4e4868"
+      },
+      "700": {
+        "$value": "#3e3860"
+      },
+      "750": {
+        "$value": "#2d2848"
+      },
+      "800": {
+        "$value": "#24203c"
+      },
+      "850": {
+        "$value": "#1b182e"
+      },
+      "875": {
+        "$value": "#1a1630"
+      },
+      "900": {
+        "$value": "#161326"
+      },
+      "950": {
+        "$value": "#0d0b18"
+      }
+    },
+    "iris": {
+      "$description": "Brand hue of the iris brand (Patungan, from #6340ed)",
+      "50": {
+        "$value": "#efeaff"
+      },
+      "200": {
+        "$value": "#d0c4fc"
+      },
+      "300": {
+        "$value": "#aa96ff"
+      },
+      "500": {
+        "$value": "#7759f4",
+        "$description": "Dark-mode primary; #7c60f5 was 4.33:1 under white text"
+      },
+      "600": {
+        "$value": "#6340ed"
+      },
+      "700": {
+        "$value": "#5230d6"
+      },
+      "850": {
+        "$value": "#4c3e8c"
+      },
+      "950": {
+        "$value": "#261e4a"
+      }
     }
   }
 }
