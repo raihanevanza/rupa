@@ -8,6 +8,8 @@ const external = [
   'react/jsx-runtime',
 ]
 
+const SERVER_MODULES = new Set(['index.js', 'components/Table/Table.js', 'lib/cx.js'])
+
 export default defineConfig({
   plugins: [react()],
   build: {
@@ -22,8 +24,10 @@ export default defineConfig({
         preserveModules: true,
         preserveModulesRoot: 'src',
         entryFileNames: '[name].js',
-        // Interactive components use hooks, so every module is a client module for Next.js.
-        banner: "'use client';",
+        // Interactive components use hooks, so they are client modules for Next.js. A few
+        // modules stay server modules: the entry (so each export keeps its own boundary) and
+        // Table with its helper, so a Server Component can pass column `render` functions.
+        banner: (chunk) => (SERVER_MODULES.has(chunk.fileName) ? '' : "'use client';"),
       },
     },
   },

@@ -57,3 +57,13 @@ export const Indonesian: Story = {
     onRetry: fn(),
   },
 }
+
+/** A larger picture instead of the icon circle, e.g. an app's mascot or an animation. */
+export const WithIllustration: Story = {
+  args: {
+    state: 'empty',
+    illustration: <span style={{ fontSize: 56, lineHeight: 1 }}>🏟️</span>,
+    title: 'No matches today',
+    description: 'Check the schedule for the next match day.',
+  },
+}

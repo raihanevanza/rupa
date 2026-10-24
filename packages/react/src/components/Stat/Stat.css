@@ -1,0 +1,97 @@
+.rupa-stat {
+  --_bg: var(--rupa-color-surface);
+  --_fg: var(--rupa-color-ink);
+  --_label: var(--rupa-color-ink-2);
+  --_border: var(--rupa-color-line);
+
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  align-items: baseline;
+  column-gap: var(--rupa-space-2);
+  min-width: 6rem;
+  padding: var(--rupa-space-2) var(--rupa-space-3);
+  border: 1px solid var(--_border);
+  border-radius: var(--rupa-radius-xl);
+  background: var(--_bg);
+  color: var(--_fg);
+}
+
+.rupa-stat[data-icon] {
+  grid-template-columns: auto 1fr;
+}
+
+.rupa-stat__icon {
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-size: var(--rupa-font-size-xl);
+  line-height: 1;
+}
+
+.rupa-stat__value {
+  grid-column: -2;
+  font-size: var(--rupa-font-size-2xl);
+  font-weight: var(--rupa-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--rupa-font-line-height-tight);
+}
+
+.rupa-stat__label {
+  grid-column: -2;
+  color: var(--_label);
+  font-size: var(--rupa-font-size-xs);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-stat[data-size='sm'] {
+  padding: var(--rupa-space-1) var(--rupa-space-2);
+}
+
+.rupa-stat[data-size='sm'] .rupa-stat__value {
+  font-size: var(--rupa-font-size-lg);
+}
+
+.rupa-stat[data-tone='accent'] {
+  --_bg: var(--rupa-color-accent-soft);
+  --_fg: var(--rupa-color-accent);
+  --_label: var(--rupa-color-accent);
+  --_border: var(--rupa-color-accent-line);
+}
+
+.rupa-stat:is(
+  [data-tone='info'],
+  [data-tone='success'],
+  [data-tone='warning'],
+  [data-tone='danger']
+) {
+  --_border: transparent;
+}
+
+.rupa-stat[data-tone='info'] {
+  --_bg: var(--rupa-color-info-soft);
+  --_fg: var(--rupa-color-info-ink);
+  --_label: var(--rupa-color-info-ink);
+}
+
+.rupa-stat[data-tone='success'] {
+  --_bg: var(--rupa-color-success-soft);
+  --_fg: var(--rupa-color-success-ink);
+  --_label: var(--rupa-color-success-ink);
+}
+
+.rupa-stat[data-tone='warning'] {
+  --_bg: var(--rupa-color-warning-soft);
+  --_fg: var(--rupa-color-warning-ink);
+  --_label: var(--rupa-color-warning-ink);
+}
+
+.rupa-stat[data-tone='danger'] {
+  --_bg: var(--rupa-color-danger-soft);
+  --_fg: var(--rupa-color-danger-ink);
+  --_label: var(--rupa-color-danger-ink);
+}
+
+@media (forced-colors: active) {
+  .rupa-stat {
+    border: 1px solid CanvasText;
+  }
+}

@@ -28,6 +28,12 @@
   height: 1.5rem;
 }
 
+.rupa-state-view__illustration {
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: var(--rupa-space-2);
+}
+
 .rupa-state-view[data-state='loading'] .rupa-state-view__icon {
   background: transparent;
   color: var(--rupa-color-accent);

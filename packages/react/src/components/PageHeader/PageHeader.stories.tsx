@@ -41,3 +41,13 @@ export const Full: Story = {
     ),
   },
 }
+
+/** An icon or emoji in a tile before the title. */
+export const WithIcon: Story = {
+  args: {
+    icon: '📅',
+    title: 'Schedule',
+    description: 'Every match this week, by competition.',
+    actions: <Button>Today</Button>,
+  },
+}

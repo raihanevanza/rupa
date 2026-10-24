@@ -1,0 +1,77 @@
+.rupa-number-stepper {
+  --_button: var(--rupa-size-control-md);
+  --_font: var(--rupa-font-size-2xl);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rupa-space-2);
+  color: var(--rupa-color-ink);
+}
+
+.rupa-number-stepper[data-size='lg'] {
+  --_button: var(--rupa-size-control-lg);
+  --_font: var(--rupa-font-size-3xl);
+}
+
+.rupa-number-stepper__button {
+  display: inline-grid;
+  place-items: center;
+  width: var(--_button);
+  height: var(--_button);
+  padding: 0;
+  border: 1px solid var(--rupa-color-line-strong);
+  border-radius: var(--rupa-radius-full);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    transform var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard);
+}
+
+.rupa-number-stepper__button:hover:not(:disabled) {
+  background: var(--rupa-color-surface-3);
+}
+
+.rupa-number-stepper__button:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.rupa-number-stepper__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.rupa-number-stepper__button svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.rupa-number-stepper__value {
+  min-width: 2ch;
+  padding: 0 var(--rupa-space-1);
+  border-radius: var(--rupa-radius-md);
+  font-size: var(--_font);
+  font-weight: var(--rupa-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--rupa-font-line-height-tight);
+  text-align: center;
+}
+
+.rupa-number-stepper[data-disabled] .rupa-number-stepper__value {
+  opacity: 0.5;
+}
+
+@media (pointer: coarse) {
+  .rupa-number-stepper__button {
+    width: var(--rupa-size-touch-target);
+    height: var(--rupa-size-touch-target);
+  }
+}
+
+@media (forced-colors: active) {
+  .rupa-number-stepper__button {
+    border-color: ButtonText;
+  }
+}
