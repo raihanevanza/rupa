@@ -10,6 +10,7 @@ import {
   Badge,
   Button,
   Card,
+  ChipGroup,
   ConfirmDialog,
   InfoList,
   MultiSelect,
@@ -17,6 +18,7 @@ import {
   Segmented,
   StateView,
   StatusFlow,
+  TextField,
   ThemeProvider,
   useTheme,
   type Brand,
@@ -73,6 +75,9 @@ function Showcase() {
   const [status, setStatus] = useState<'review' | 'approved' | 'rejected'>('review')
   const [view, setView] = useState<ViewState>('empty')
   const [branches, setBranches] = useState(['bogor', 'depok'])
+  const [search, setSearch] = useState('')
+  const [requestStatus, setRequestStatus] = useState('pending')
+  const [note, setNote] = useState('')
   const section = [styles.section, { color: p.ink3 }, font('semibold')]
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null)
   const [offsets, setOffsets] = useState<Partial<Record<Section, number>>>({})
@@ -246,6 +251,28 @@ function Showcase() {
         <Text style={section} {...mark('filters')}>
           Filters
         </Text>
+        <TextField
+          label="Search requests"
+          hideLabel
+          placeholder="Search code or customer"
+          value={search}
+          onChangeText={setSearch}
+          autoCapitalize="none"
+          returnKeyType="search"
+        />
+        <ChipGroup
+          label="Status filter"
+          value={requestStatus}
+          onChange={setRequestStatus}
+          options={[
+            { value: 'all', label: 'All' },
+            { value: 'pending', label: 'Pending' },
+            { value: 'approved', label: 'Approved' },
+            { value: 'rejected', label: 'Rejected' },
+            { value: 'expired', label: 'Expired' },
+            { value: 'cancelled', label: 'Cancelled' },
+          ]}
+        />
         <MultiSelect
           label="Branches"
           placeholder="All branches"
@@ -307,6 +334,8 @@ function Showcase() {
         title="Reject this refund?"
         description="The agent is told the request was refused."
         confirmLabel="Reject"
+        // The note field also shows the dialog moving above the keyboard.
+        confirmDisabled={note.trim().length < 3}
         onConfirm={async () => {
           await sleep(1200)
           // Fails once to show the error state; the second try goes through.
@@ -316,7 +345,16 @@ function Showcase() {
           }
           setStatus('rejected')
         }}
-      />
+      >
+        <TextField
+          label="Note"
+          required
+          hint="At least 3 characters."
+          multiline
+          value={note}
+          onChangeText={setNote}
+        />
+      </ConfirmDialog>
     </SafeAreaView>
   )
 }

@@ -105,20 +105,22 @@ function RequestScreen() {
 
 ## Components
 
-| Component     | Props (same as `@rupa-ui/react` unless noted)                                                                                                       |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Button        | `variant`, `size`, `loading`, `iconStart`, `iconEnd`, `block`, `onPress`. Icons can be `(color) => node` to match the label (lucide-react-native).  |
-| Badge         | `tone`, `dot`, `pulse` (stops under Reduce Motion), `size`                                                                                          |
-| Card          | `title`, `description`, `actions`, `padding`                                                                                                        |
-| PageHeader    | `title`, `description`, `meta`, `actions`. No breadcrumb: the navigation header does that on mobile.                                                |
-| InfoList      | `items`, `columns` (default 1 on mobile), `emptyValue`                                                                                              |
-| StatusFlow    | `steps`, `current`, `outcome`, `completed`, `stateLabels`, `orientation` (default `vertical` on mobile)                                             |
-| Segmented     | `options`, `value`, `onChange`, `label`, `size`, `block`                                                                                            |
-| MultiSelect   | `label`, `options`, `value`, `onChange`, `placeholder`, `searchable`, `hint`, `error`, `labels`. Opens a bottom sheet instead of a popup.           |
-| ConfirmDialog | `open`, `onOpenChange`, `title`, `description`, `tone`, `confirmLabel`, `cancelLabel`, `onConfirm`, `errorMessage`. No `trigger`: open it yourself. |
-| Alert         | `tone`, `title`, `action`, `live`                                                                                                                   |
-| StateView     | `state: loading \| empty \| error`, `title`, `description`, `icon`, `action`, `onRetry`, `retryLabel`, `compact`                                    |
-| Spinner       | `label`, `size`, `color`                                                                                                                            |
+| Component     | Props (same as `@rupa-ui/react` unless noted)                                                                                                        |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Button        | `variant`, `size`, `loading`, `iconStart`, `iconEnd`, `block`, `onPress`. Icons can be `(color) => node` to match the label (lucide-react-native).   |
+| Badge         | `tone`, `dot`, `pulse` (stops under Reduce Motion), `size`                                                                                           |
+| Card          | `title`, `description`, `actions`, `padding`                                                                                                         |
+| PageHeader    | `title`, `description`, `meta`, `actions`. No breadcrumb: the navigation header does that on mobile.                                                 |
+| InfoList      | `items`, `columns` (default 1 on mobile), `emptyValue`                                                                                               |
+| StatusFlow    | `steps`, `current`, `outcome`, `completed`, `stateLabels`, `orientation` (default `vertical` on mobile)                                              |
+| Segmented     | `options`, `value`, `onChange`, `label`, `size`, `block`                                                                                             |
+| MultiSelect   | `label`, `options`, `value`, `onChange`, `placeholder`, `searchable`, `hint`, `error`, `labels`. Opens a bottom sheet instead of a popup.            |
+| TextField     | `label`, `hint`, `error`, `required`, `hideLabel`, `prefix`, `suffix`, `disabled`, `multiline`, and every TextInput prop. `ref` is the TextInput.    |
+| ChipGroup     | `options`, `value`, `onChange`, `label`, `wrap`, `inset`. Mobile only: one scrolling row of pills for a filter with many options.                    |
+| ConfirmDialog | `open`, `onOpenChange`, `title`, `description`, `tone`, `confirmLabel`, `cancelLabel`, `confirmDisabled`, `onConfirm`, `errorMessage`. No `trigger`. |
+| Alert         | `tone`, `title`, `action`, `live`                                                                                                                    |
+| StateView     | `state: loading \| empty \| error`, `title`, `description`, `icon`, `action`, `onRetry`, `retryLabel`, `compact`                                     |
+| Spinner       | `label`, `size`, `color`                                                                                                                             |
 
 Every component forwards `ref`, `style`, and `testID`. Every built-in label (Cancel, Try again, Completed…) can be replaced through props for bilingual apps.
 
