@@ -1,6 +1,6 @@
 {
   "name": "@rupa-ui/react",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Accessible React components for the Rupa design system, themed by @rupa-ui/tokens.",
   "license": "MIT",
   "homepage": "https://raihan-evanza-rupa.vercel.app/?path=/docs/components-button--docs",
