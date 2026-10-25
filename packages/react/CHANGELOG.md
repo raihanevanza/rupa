@@ -1,5 +1,16 @@
 # @rupa-ui/react
 
+## 0.10.0
+
+### Minor Changes
+
+- [#21](https://github.com/raihanevanza/rupa/pull/21) [`e280ad2`](https://github.com/raihanevanza/rupa/commit/e280ad21802845802130a4219c8e777bd43bef6a) Thanks [@raihanevanza](https://github.com/raihanevanza)! - New brand `iris` (electric violet on lavender) for Patungan, in light and dark: `data-brand="iris"` on the web, `palettes.iris` and `<ThemeProvider brand="iris">` in React Native. The dark primary is `#7759f4` instead of Patungan's `#7c60f5`, which was 4.33:1 under white text.
+
+### Patch Changes
+
+- Updated dependencies [[`e280ad2`](https://github.com/raihanevanza/rupa/commit/e280ad21802845802130a4219c8e777bd43bef6a)]:
+  - @rupa-ui/tokens@0.5.0
+
 ## 0.9.0
 
 ### Minor Changes
