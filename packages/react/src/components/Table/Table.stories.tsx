@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { fn } from 'storybook/test'
+import { expect, fn, userEvent } from 'storybook/test'
 import { Badge, type BadgeTone } from '../Badge/Badge.js'
 import { StateView } from '../StateView/StateView.js'
 import { Table, type TableColumn } from './Table.js'
@@ -95,5 +95,46 @@ export const Empty: Story = { args: { rows: [] } }
 export const Error: Story = {
   args: {
     error: <StateView state="error" compact title="Could not load requests" onRetry={fn()} />,
+  },
+}
+
+/**
+ * `onRowClick` opens the row from anywhere in it. The code links stay for keyboard and screen
+ * reader users, and clicking them does not fire `onRowClick` twice.
+ */
+export const RowClick: Story = {
+  args: {
+    onRowClick: fn(),
+    columns: [
+      {
+        ...columns[0]!,
+        render: (r) => (
+          // preventDefault keeps the story on the page; an app would route here
+          <a href={`#${r.code}`} onClick={(e) => e.preventDefault()}>
+            {r.code}
+          </a>
+        ),
+      },
+      ...columns.slice(1),
+    ],
+  },
+  play: async ({ args, canvas }) => {
+    await userEvent.click(canvas.getByText('Office chairs'))
+    await expect(args.onRowClick).toHaveBeenCalledTimes(1)
+    await expect(args.onRowClick).toHaveBeenLastCalledWith(rows[1], expect.anything())
+    await userEvent.click(canvas.getByRole('link', { name: 'PR-0142' }))
+    await expect(args.onRowClick).toHaveBeenCalledTimes(1)
+  },
+}
+
+/** `rowHighlight` marks a row (here the signed-in requester) with a bar and `aria-current`. */
+export const HighlightedRow: Story = {
+  args: { rowHighlight: (r: Request) => r.requester === 'Budi Santoso' },
+  play: async ({ canvas }) => {
+    const row = canvas.getByText('Office chairs').closest('tr')
+    await expect(row).toHaveAttribute('aria-current', 'true')
+    await expect(canvas.getByText('Laptop replacement').closest('tr')).not.toHaveAttribute(
+      'aria-current',
+    )
   },
 }

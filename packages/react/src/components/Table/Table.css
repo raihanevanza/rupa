@@ -53,6 +53,19 @@
   background: var(--rupa-color-surface-2);
 }
 
+.rupa-table tbody tr[data-clickable] {
+  cursor: pointer;
+}
+
+/* surface-2 keeps every text token at its checked contrast; the bar marks the row without color alone. */
+.rupa-table tbody tr[data-highlighted] td {
+  background: var(--rupa-color-surface-2);
+}
+
+.rupa-table tbody tr[data-highlighted] td:first-child {
+  box-shadow: inset var(--rupa-space-1) 0 0 var(--rupa-color-accent);
+}
+
 .rupa-table [data-align='end'] {
   text-align: end;
 }
