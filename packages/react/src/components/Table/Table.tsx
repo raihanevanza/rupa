@@ -4,6 +4,7 @@ import {
   type HTMLAttributes,
   type JSX,
   type Key,
+  type MouseEvent,
   type ReactNode,
   type Ref,
 } from 'react'
@@ -37,7 +38,18 @@ export interface TableProps<Row> extends Omit<HTMLAttributes<HTMLDivElement>, 'c
   empty?: ReactNode
   /** Shown instead of rows (e.g. a StateView with retry). */
   error?: ReactNode
+  /**
+   * A mouse shortcut: clicking anywhere in the row. Keep a link or button in a cell for
+   * keyboard and screen reader users; the row itself is not focusable. Clicks on links,
+   * buttons, and form controls inside the row, and clicks that end a text selection, are
+   * left to them.
+   */
+  onRowClick?: (row: Row, event: MouseEvent<HTMLTableRowElement>) => void
+  /** Marks rows to stand out, e.g. the signed-in user's. Sets `aria-current` on them. */
+  rowHighlight?: (row: Row) => boolean
 }
+
+const INTERACTIVE = 'a, button, input, select, textarea, label, summary, [role="button"]'
 
 /**
  * A semantic data table: real <th scope>, caption, and a scroll container that keyboard
@@ -55,6 +67,8 @@ function TableInner<Row>(
     loadingLabel = 'Loading rows',
     empty,
     error,
+    onRowClick,
+    rowHighlight,
     className,
     ...props
   }: TableProps<Row>,
@@ -93,7 +107,26 @@ function TableInner<Row>(
     )
   } else {
     body = rows.map((row) => (
-      <tr key={rowKey(row)}>
+      // Keyboard users reach the same action through the link or button in a cell (see onRowClick).
+      <tr
+        key={rowKey(row)}
+        data-clickable={onRowClick ? true : undefined}
+        data-highlighted={rowHighlight?.(row) || undefined}
+        aria-current={rowHighlight?.(row) || undefined}
+        onClick={
+          onRowClick &&
+          ((event) => {
+            const target = event.target as Element
+            if (
+              target.closest(INTERACTIVE) &&
+              event.currentTarget.contains(target.closest(INTERACTIVE))
+            )
+              return
+            if (window.getSelection()?.toString()) return
+            onRowClick(row, event)
+          })
+        }
+      >
         {columns.map((col) => (
           <td key={col.key} data-align={col.align} data-hide-mobile={col.hideOnMobile || undefined}>
             {cell(row, col)}
