@@ -1,0 +1,99 @@
+.rupa-chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--rupa-space-1-5);
+  min-height: calc(var(--rupa-size-control-md) - 0.25rem);
+  padding: 0 var(--rupa-space-3);
+  border: 1px solid var(--rupa-color-line);
+  border-radius: var(--rupa-radius-full);
+  background: var(--rupa-color-surface);
+  color: var(--rupa-color-ink-2);
+  font: inherit;
+  font-size: var(--rupa-font-size-sm);
+  font-weight: var(--rupa-font-weight-medium);
+  line-height: var(--rupa-font-line-height-tight);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    border-color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard),
+    color var(--rupa-motion-duration-fast) var(--rupa-motion-easing-standard);
+}
+
+.rupa-chip:hover:not(:disabled, [data-selected]) {
+  background: var(--rupa-color-surface-3);
+  color: var(--rupa-color-ink);
+}
+
+.rupa-chip[data-selected] {
+  border-color: var(--rupa-color-accent-line);
+  background: var(--rupa-color-accent-soft);
+  color: var(--rupa-color-accent);
+  font-weight: var(--rupa-font-weight-semibold);
+}
+
+.rupa-chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.rupa-chip[data-size='sm'] {
+  min-height: var(--rupa-size-control-sm);
+  padding: 0 var(--rupa-space-2);
+  font-size: var(--rupa-font-size-xs);
+}
+
+/* Icons, logos, and color dots stay inline under resets that make img/svg a block. */
+.rupa-chip__icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.rupa-chip__icon :is(svg, img) {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.rupa-chip__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rupa-chip-group {
+  display: flex;
+  gap: var(--rupa-space-2);
+  /* Never wider than its container, so a long row scrolls instead of widening the page. */
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  /* Room for the focus ring, which the scroll container would clip. */
+  padding: var(--rupa-space-1);
+  margin: calc(-1 * var(--rupa-space-1));
+  scrollbar-width: none;
+}
+
+.rupa-chip-group::-webkit-scrollbar {
+  display: none;
+}
+
+.rupa-chip-group[data-wrap] {
+  flex-wrap: wrap;
+  overflow-x: visible;
+}
+
+@media (pointer: coarse) {
+  .rupa-chip {
+    min-height: var(--rupa-size-touch-target);
+  }
+}
+
+@media (forced-colors: active) {
+  .rupa-chip[data-selected] {
+    outline: 2px solid Highlight;
+  }
+}

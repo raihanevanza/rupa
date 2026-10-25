@@ -68,3 +68,17 @@ export const Paddings: Story = {
     </div>
   ),
 }
+
+/** With `asChild` the whole card is a link (or a router Link) that opens the item. */
+export const AsLink: Story = {
+  args: { title: 'PR-2026-0142', description: 'Laptop replacement, Bogor branch' },
+  render: (args) => (
+    <Card {...args} asChild style={{ maxWidth: 360 }}>
+      <a href="#pr-2026-0142">
+        <Badge tone="info" dot>
+          Submitted
+        </Badge>
+      </a>
+    </Card>
+  ),
+}

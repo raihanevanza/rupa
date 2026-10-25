@@ -24,6 +24,6 @@ Set the brand and mode on `<html data-brand="violet" data-theme="dark">`, or use
 
 - WCAG 2.2 AA: axe-clean in every theme, keyboard-tested, visible focus, 44 px touch targets.
 - Every built-in label can be replaced through props (for bilingual apps).
-- ESM, tree-shakable per component (`Button` alone is under 1 kB), React 18 and 19, `'use client'` for Next.js.
+- ESM, tree-shakable per component (`Button` alone is under 1 kB), React 18 and 19, `'use client'` on interactive components for Next.js. `Table` stays a server module, so a Server Component can give its columns `render` functions.
 
 Docs and live examples: [Rupa Storybook](https://raihan-evanza-rupa.vercel.app).

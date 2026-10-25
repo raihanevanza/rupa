@@ -56,6 +56,33 @@
   min-width: 0;
 }
 
+.rupa-page-header__row[data-icon] {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.rupa-page-header__row[data-icon] .rupa-page-header__actions {
+  margin-inline-start: auto;
+}
+
+.rupa-page-header__icon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: calc(var(--rupa-size-control-lg) + var(--rupa-space-2));
+  height: calc(var(--rupa-size-control-lg) + var(--rupa-space-2));
+  border-radius: var(--rupa-radius-2xl);
+  background: var(--rupa-color-accent-soft);
+  color: var(--rupa-color-accent);
+  font-size: var(--rupa-font-size-3xl);
+  line-height: 1;
+}
+
+.rupa-page-header__icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
 .rupa-page-header__title-row {
   display: flex;
   flex-wrap: wrap;

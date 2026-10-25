@@ -17,6 +17,8 @@ export interface PageHeaderProps extends Omit<HTMLAttributes<HTMLElement>, 'titl
   actions?: ReactNode
   /** Rendered next to the title, e.g. a status Badge. */
   meta?: ReactNode
+  /** Icon or emoji in a tile before the title. Decorative. */
+  icon?: ReactNode
 }
 
 export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(function PageHeader(
@@ -27,6 +29,7 @@ export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(function Page
     breadcrumbLabel = 'Breadcrumb',
     actions,
     meta,
+    icon,
     className,
     ...props
   },
@@ -55,7 +58,12 @@ export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(function Page
           </ol>
         </nav>
       )}
-      <div className="rupa-page-header__row">
+      <div className="rupa-page-header__row" data-icon={icon != null || undefined}>
+        {icon != null && (
+          <span className="rupa-page-header__icon" aria-hidden="true">
+            {icon}
+          </span>
+        )}
         <div className="rupa-page-header__heading">
           <div className="rupa-page-header__title-row">
             <h1 className="rupa-page-header__title">{title}</h1>

@@ -6,7 +6,7 @@
 
 [![npm @rupa-ui/react](https://img.shields.io/npm/v/@rupa-ui/react?label=%40rupa-ui%2Freact)](https://www.npmjs.com/package/@rupa-ui/react) [![npm @rupa-ui/tokens](https://img.shields.io/npm/v/@rupa-ui/tokens?label=%40rupa-ui%2Ftokens)](https://www.npmjs.com/package/@rupa-ui/tokens) [![CI](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml/badge.svg)](https://github.com/raihanevanza/rupa/actions/workflows/ci.yml)
 
-_Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini ERP (violet brand), AgentGate (signal brand), Dompet Rumah (latte brand), BukuBesar (ledger brand), Patungan (iris brand), and this portfolio site (mono brand) share one set of tokens and components instead of copying them.
+_Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini ERP (violet brand), AgentGate (signal brand), Dompet Rumah (latte brand), BukuBesar (ledger brand), Bola Live (candy brand), Patungan (iris brand), and this portfolio site (mono brand) share one set of tokens and components instead of copying them.
 
 ![Storybook: a request detail page built from Rupa components](docs/screenshots/storybook-light.png)
 
@@ -24,15 +24,17 @@ _Rupa_ is Indonesian for _form, appearance_. It powers my portfolio apps: Mini E
 
 - **Design tokens, one source.** DTCG JSON → Style Dictionary → CSS variables, Tailwind v3 preset, Tailwind v4 theme, typed JS, a React Native palette, and Flutter (Dart) tokens. Web and mobile can no longer drift.
 - **Multi-brand, light and dark, nestable.** Every color is a `light-dark()` pair per brand. Set `data-brand` and `data-theme` on any element; nested scopes just work, with no selector combinations.
-- **29 accessible components.** Button, IconButton, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, Tabs, TextField, Select, MultiSelect, Input, Textarea, NativeSelect, Checkbox, Switch, Dialog, ConfirmDialog, Toast, Alert, Tooltip, Pagination, Table, StateView, Spinner, Skeleton, Meter, Avatar, plus `Field` and `ThemeProvider`, and motion helpers (`rupa-enter`, `rupa-pop`, `rupa-grow-x`) on the motion tokens.
+- **38 accessible components.** Button, IconButton, Badge, Card, PageHeader, SectionHeading, InfoList, StatusFlow, Segmented, Tabs, Chip, ChipGroup, TextField, Select, MultiSelect, Input, Textarea, NativeSelect, NumberStepper, Checkbox, Switch, Dialog, ConfirmDialog, Toast, Alert, Tooltip, Pagination, Table, StateView, Spinner, Skeleton, Meter, Stat, Countdown, CompareBars, Avatar, and ChartFrame (with ChartPlot, ChartTooltip, and `useElementWidth` for your own SVG charts), plus `Field` and `ThemeProvider`, `asChild` on Button, Chip, and Card for router links, and motion helpers (`rupa-enter`, `rupa-pop`, `rupa-grow-x`) on the motion tokens.
 - **React Native for Android and iOS.** `@rupa-ui/react-native` has ThemeProvider, Button, Badge, Card, PageHeader, InfoList, StatusFlow, Segmented, ChipGroup, TextField, MultiSelect, ConfirmDialog, Alert, StateView, and Spinner, built on the same palette and props as the web. No native modules, so it runs in Expo Go, and in [Storybook](https://raihan-evanza-rupa.vercel.app/?path=/story/react-native-overview--screen) through react-native-web, where the stories get the same axe, interaction, and screenshot tests as the web components. Also tested with Jest + React Native Testing Library and on an iPhone simulator and an Android emulator.
-- **Accessibility checked in CI.** Every story, web and React Native, runs axe in all twelve themes (2220 runs). Keyboard behavior is tested with play functions. A script checks 564 contrast pairs per build, and the chart palette is validated for color-vision deficiency.
+- **Accessibility checked in CI.** Every story, web and React Native, runs axe in all fourteen themes (3276 web runs). Keyboard behavior is tested with play functions. A script checks 658 contrast pairs per build, and the chart palette is validated for color-vision deficiency.
 - **Visual regression.** 326 screenshots (every story, light and dark) are compared on each pull request, rendered in the same Linux image locally and in CI.
 - **Release pipeline.** Changesets → Release PR → npm publish with provenance (trusted publishing, no stored token).
 
 ## Used by
 
 - **[AgentGate](https://raihan-evanza-agentgate.vercel.app/?as=approver)** (signal brand): tokens via the Tailwind v3 preset, and its Button, Card, Dialog, ConfirmDialog, PageHeader, InfoList, Segmented, badges, Pagination, form controls, and loading/empty/error states wrap `@rupa-ui/react`. The migration found five gaps, all fixed in 0.3.x: bare `Input`/`Textarea`/`NativeSelect`, `Badge pulse`, `StateView description={null}` showing English text, focus not returning after a dialog opened from state, and child icons wrapping under Tailwind's preflight.
+
+- **Bola Live** (candy brand): tokens via the Tailwind v4 theme, and its buttons, chips, cards, tables, page and section headings, alerts, empty states, score steppers, countdowns, stat tiles, compare bars, and chart frames are `@rupa-ui/react`. The migration added the candy brand and those components, and found two gaps, both fixed: `Table` could not take `render` functions from a Next.js Server Component, and `asChild` failed on children sent from a Server Component.
 
 ## What the checks caught
 
@@ -87,7 +89,7 @@ npm run dev            # build tokens, then Storybook on http://localhost:6006
 | --------------------------------------- | --------------------------------------------------------------------- |
 | `npm run build`                         | Build `@rupa-ui/tokens`, `@rupa-ui/react`, `@rupa-ui/react-native`    |
 | `npm test`                              | Token checks, every story (render, play, axe), React Native Jest      |
-| `npm run test:themes -w @rupa-ui/docs`  | The story tests in all twelve brand × mode themes                     |
+| `npm run test:themes -w @rupa-ui/docs`  | The story tests in all fourteen brand × mode themes                   |
 | `npm run test:visual:docker`            | Compare screenshots with the baselines (Linux, in Docker)             |
 | `npm run test:visual:update`            | Re-create baselines after an intended visual change                   |
 | `npm run typecheck`, `npm run lint`     | TypeScript, ESLint (incl. jsx-a11y), and the "no raw CSS values" lint |
