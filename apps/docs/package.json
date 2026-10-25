@@ -30,7 +30,7 @@
     "vitest": "^5.0.5"
   },
   "dependencies": {
-    "@rupa-ui/react": "0.10.0",
+    "@rupa-ui/react": "0.11.0",
     "@rupa-ui/tokens": "0.5.0"
   }
 }

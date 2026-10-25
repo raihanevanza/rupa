@@ -1,5 +1,11 @@
 # @rupa-ui/react
 
+## 0.11.0
+
+### Minor Changes
+
+- [#25](https://github.com/raihanevanza/rupa/pull/25) [`f6fa7c0`](https://github.com/raihanevanza/rupa/commit/f6fa7c080099c427e92b184c89085a1e9d3c533e) Thanks [@raihanevanza](https://github.com/raihanevanza)! - `Table` gets `onRowClick` (open a row by clicking anywhere in it; clicks on links, buttons, form controls, and text selections inside the row are left alone) and `rowHighlight` (marks rows such as the signed-in user's with a bar and `aria-current`).
+
 ## 0.10.0
 
 ### Minor Changes
