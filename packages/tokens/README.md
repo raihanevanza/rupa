@@ -2,7 +2,7 @@
 
 [Storybook](https://raihan-evanza-rupa.vercel.app) · [GitHub](https://github.com/raihanevanza/rupa) · [`@rupa-ui/tokens`](https://www.npmjs.com/package/@rupa-ui/tokens) · [`@rupa-ui/react`](https://www.npmjs.com/package/@rupa-ui/react) · [`@rupa-ui/react-native`](https://www.npmjs.com/package/@rupa-ui/react-native)
 
-Design tokens for the [Rupa design system](https://github.com/raihanevanza/rupa): six brands (`violet`, `signal`, `latte`, `ledger`, `mono`, `candy`) × light and dark modes, typography, spacing, radius, shadows, motion, and validated chart palettes.
+Design tokens for the [Rupa design system](https://github.com/raihanevanza/rupa): seven brands (`violet`, `signal`, `latte`, `ledger`, `mono`, `candy`, `iris`) × light and dark modes, typography, spacing, radius, shadows, motion, and validated chart palettes.
 
 ![The same components in every brand and mode: violet, signal, and latte, light and dark](https://raw.githubusercontent.com/raihanevanza/rupa/main/docs/screenshots/npm/tokens.png)
 
@@ -69,6 +69,15 @@ const styles = StyleSheet.create({
   title: { color: p.ink, ...font('semibold'), padding: space['4'] },
   card: { backgroundColor: p.surface, boxShadow: shadows.signal.dark.card },
 })
+```
+
+## Flutter
+
+The same build writes the [`rupa_tokens`](https://github.com/raihanevanza/rupa/tree/main/packages/flutter) Dart package (a Git dependency, not on npm):
+
+```dart
+final c = RupaColors.of(RupaBrand.iris, RupaMode.dark);
+Container(color: c.surface, padding: const EdgeInsets.all(RupaSpace.s4));
 ```
 
 ## Guarantees

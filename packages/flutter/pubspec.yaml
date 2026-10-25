@@ -1,0 +1,19 @@
+name: rupa_tokens
+description: Design tokens for the Rupa design system in Flutter, generated from @rupa-ui/tokens.
+version: 0.1.0
+homepage: https://raihan-evanza-rupa.vercel.app
+repository: https://github.com/raihanevanza/rupa/tree/main/packages/flutter
+publish_to: none
+
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+  flutter: '>=3.27.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0

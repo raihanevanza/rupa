@@ -3,3 +3,5 @@ storybook-static
 package-lock.json
 CHANGELOG.md
 tests/visual/__screenshots__
+packages/flutter/build
+packages/flutter/.dart_tool

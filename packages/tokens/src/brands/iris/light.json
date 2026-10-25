@@ -1,0 +1,35 @@
+{
+  "color": {
+    "$type": "color",
+    "canvas": {
+      "$value": "{palette.dusk.50}",
+      "$description": "Page background (Patungan lavender)"
+    },
+    "surface": { "$value": "{palette.white}" },
+    "surface-2": { "$value": "{palette.dusk.25}" },
+    "surface-3": { "$value": "{palette.dusk.100}" },
+    "line": { "$value": "{palette.dusk.150}" },
+    "line-strong": { "$value": "{palette.dusk.200}" },
+    "control-border": { "$value": "{palette.dusk.400}" },
+    "ink": { "$value": "{palette.dusk.875}" },
+    "ink-2": { "$value": "{palette.dusk.600}" },
+    "ink-3": { "$value": "{palette.dusk.500}" },
+    "primary": { "$value": "{palette.iris.600}", "$description": "Patungan violet" },
+    "primary-hover": { "$value": "{palette.iris.700}" },
+    "on-primary": { "$value": "{palette.white}" },
+    "accent": { "$value": "{palette.iris.600}" },
+    "accent-soft": { "$value": "{palette.iris.50}" },
+    "accent-line": { "$value": "{palette.iris.200}" },
+    "focus": { "$value": "{palette.iris.600}" },
+    "shadow": { "$value": "#3c288c" },
+    "overlay": { "$value": "#1a163080" },
+    "series-1": { "$value": "#6a46d6" },
+    "series-2": { "$value": "#0e9f8e" },
+    "series-3": { "$value": "#c08400" },
+    "series-4": { "$value": "#e0607e" },
+    "series-5": { "$value": "#3b8fe0" },
+    "series-other": { "$value": "#b4b0c6" },
+    "chart-grid": { "$value": "{palette.dusk.150}" },
+    "chart-axis": { "$value": "{palette.dusk.200}" }
+  }
+}

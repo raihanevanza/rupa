@@ -41,6 +41,7 @@ const preview: Preview = {
           { value: 'ledger', title: 'Ledger (BukuBesar)' },
           { value: 'mono', title: 'Mono (Portfolio)' },
           { value: 'candy', title: 'Candy (Bola Live)' },
+          { value: 'iris', title: 'Iris (Patungan)' },
         ],
         dynamicTitle: true,
       },

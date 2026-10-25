@@ -16,7 +16,7 @@ Both apps copied the same tokens into `index.css` and `tailwind.config.js`, and 
 | Tailwind `token('canvas')` helper              | `presets: [rupa]`: same class names (`bg-canvas`, `text-ink-2`, `shadow-card`)         |
 | Chart `--series-1…5`                           | `--rupa-color-series-1…5` (revalidated)                                                |
 
-Pick the brand once: `<html data-brand="violet">` for Mini ERP, `data-brand="signal"` for AgentGate, `data-brand="latte"` for Dompet Rumah, `data-brand="ledger"` for BukuBesar, `data-brand="mono"` for the portfolio, `data-brand="candy"` for Bola Live.
+Pick the brand once: `<html data-brand="violet">` for Mini ERP, `data-brand="signal"` for AgentGate, `data-brand="latte"` for Dompet Rumah, `data-brand="ledger"` for BukuBesar, `data-brand="mono"` for the portfolio, `data-brand="candy"` for Bola Live, `data-brand="iris"` for Patungan.
 Dark mode keeps working with the existing `.dark` class.
 
 ## 2. Components
@@ -32,6 +32,9 @@ Dark mode keeps working with the existing `.dark` class.
 
 Replace the copied `colors.ts` palette with `palettes[brand][mode]` from `@rupa-ui/tokens/react-native`.
 Key names match (`surface2`, `ink2`, `onPrimary`, `series`), and `font(weight)` is the same helper.
+
+Flutter apps (Patungan) replace their copied `Palette` with `RupaColors.of(brand, mode)` from the
+`rupa_tokens` package in `packages/flutter`, registered as a `ThemeExtension` and read with `context.rupa`.
 
 ## Fixes that come for free
 
