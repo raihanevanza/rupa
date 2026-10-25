@@ -1,5 +1,11 @@
 # @rupa-ui/tokens
 
+## 0.4.0
+
+### Minor Changes
+
+- [#20](https://github.com/raihanevanza/rupa/pull/20) [`06bdeba`](https://github.com/raihanevanza/rupa/commit/06bdeba395ff14aa83710c0e6ba1aa18a89ac0c1) Thanks [@raihanevanza](https://github.com/raihanevanza)! - New brand `candy` (candy pink on warm cream, deep plum ink) for Bola Live, in light and dark: `data-brand="candy"` on the web, `palettes.candy` and `<ThemeProvider brand="candy">` in React Native. Passes the contrast and chart palette checks like the other brands. The pink is one step deeper than Bola Live's `#ff3d8b` so white text on primary buttons passes 4.5:1.
+
 ## 0.3.0
 
 ### Minor Changes

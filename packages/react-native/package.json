@@ -1,6 +1,6 @@
 {
   "name": "@rupa-ui/react-native",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React Native components (Android and iOS) for the Rupa design system, themed by @rupa-ui/tokens.",
   "license": "MIT",
   "homepage": "https://raihan-evanza-rupa.vercel.app/?path=/story/react-native-overview--screen",
@@ -46,7 +46,7 @@
     "react-native": ">=0.76"
   },
   "dependencies": {
-    "@rupa-ui/tokens": "0.3.0"
+    "@rupa-ui/tokens": "0.4.0"
   },
   "publishConfig": {
     "access": "public",
